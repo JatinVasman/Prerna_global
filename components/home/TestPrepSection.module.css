@@ -1,83 +1,275 @@
 /* ============================================================
-   TEST PREP SECTION — 2-col image left, text right
+   TEST PREP SECTION — Minimalist Luxury (Clean White Background)
+   - Pure white background with deep imperial dark teal typography
+   - Architectural gold frame behind student image
+   - Minimalist exam badges and radiant gold CTA
    ============================================================ */
 
 .section {
-  padding-top: var(--section-py-lg);
-  padding-bottom: var(--section-py-lg);
-  background-color: var(--color-surface-off);
+  position: relative;
+  background-color: #ffffff;
+  padding-top: clamp(4.5rem, 7.5vw, 6.5rem);
+  padding-bottom: clamp(4.5rem, 7.5vw, 6.5rem);
+  overflow: hidden;
+  border-top: 1px solid #edf2f0;
 }
 
 .inner {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: minmax(360px, 1fr) minmax(400px, 1.15fr);
   align-items: center;
-  gap: var(--space-14);
+  gap: clamp(2.5rem, 5vw, 5rem);
 }
 
+/* ─────────────────────────────────────────────
+   LEFT COLUMN: Student Image + Architectural Frame
+───────────────────────────────────────────── */
 .imageCol {
-  flex: 1;
-  min-width: 0;
+  position: relative;
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Subtle gold hairline frame */
+.goldFrame {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: 12px;
+  bottom: 12px;
+  border: 1.5px solid rgba(229, 184, 66, 0.4);
+  border-radius: 26px;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 250ms ease, border-color 250ms ease;
+}
+
+.imageWrapper:hover .goldFrame {
+  transform: translate(-3px, -3px);
+  border-color: rgba(229, 184, 66, 0.7);
+}
+
+.imageContainer {
+  position: relative;
+  z-index: 1;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -12px rgba(8, 41, 33, 0.16);
+  border: 1px solid rgba(8, 41, 33, 0.08);
+  background: #082921;
 }
 
 .image {
   width: 100%;
   height: auto;
+  display: block;
   object-fit: cover;
-  border-radius: var(--radius-3xl);
-  box-shadow: var(--shadow-xl);
+  transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.imageWrapper:hover .image {
+  transform: scale(1.025);
+}
+
+/* Floating Trust Pill */
+.floatingPill {
+  position: absolute;
+  bottom: 20px;
+  right: -10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  background: #082921;
+  color: #ffffff;
+  border: 1px solid rgba(229, 184, 66, 0.45);
+  border-radius: 100px;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.checkIcon {
+  color: #E5B842;
+}
+
+/* ─────────────────────────────────────────────
+   RIGHT COLUMN: Editorial Content
+───────────────────────────────────────────── */
 .content {
-  flex: 1;
-  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: 1.25rem;
 }
 
-.eyebrow {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-widest);
+/* Eyebrow */
+.eyebrowWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.32rem 0.9rem;
+  background: rgba(200, 150, 30, 0.09);
+  border: 1px solid rgba(200, 150, 30, 0.25);
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C8961E;
+  box-shadow: 0 0 8px rgba(200, 150, 30, 0.7);
+}
+
+.eyebrowText {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-teal);
-  margin: 0;
+  color: #A0730B;
 }
 
+/* Heading */
 .heading {
-  font-family: var(--font-heading);
-  font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
-  font-weight: var(--weight-extrabold);
-  color: var(--color-forest);
-  line-height: var(--leading-snug);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.25rem, 3.8vw, 3rem);
+  font-weight: 800;
+  color: #072820;
+  line-height: 1.15;
   letter-spacing: -0.025em;
   margin: 0;
 }
 
-.headingAccent {
-  color: var(--color-teal);
+.goldText {
+  background: linear-gradient(135deg, #996d08 0%, #C8961E 50%, #E5B842 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
+/* Body Copy */
 .body {
-  font-size: var(--text-base);
-  line-height: var(--leading-relaxed);
-  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.68;
+  color: #4a645e;
   margin: 0;
-  max-width: 52ch;
+  max-width: 54ch;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Minimalist Exam Badges */
+.examBadges {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.examBadge {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  padding: 0.38rem 0.9rem;
+  border-radius: 100px;
+  background: #f4f8f6;
+  color: #072820;
+  border: 1px solid #dce8e4;
+  letter-spacing: 0.04em;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 150ms ease;
+  user-select: none;
+}
+
+.examBadge:hover {
+  background: #082921;
+  color: #F8DA82;
+  border-color: rgba(229, 184, 66, 0.55);
+  transform: translateY(-2px);
+}
+
+/* Primary Action Button (Radiant Gold) */
+.actionWrap {
+  margin-top: 0.5rem;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #06231c;
+  background: linear-gradient(135deg, #FDE68A 0%, #E5B842 45%, #C8961E 100%);
+  padding: 0.8rem 1.75rem;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1px solid rgba(200, 150, 30, 0.4);
+  box-shadow:
+    0 4px 16px rgba(200, 150, 30, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transition:
+    background 200ms ease,
+    transform 150ms ease,
+    box-shadow 200ms ease;
+  white-space: nowrap;
+}
+
+.ctaBtn:hover {
+  background: linear-gradient(135deg, #FFF0A8 0%, #ECC558 45%, #D6A42A 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(200, 150, 30, 0.38),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  color: #031511;
+}
+
+/* ─────────────────────────────────────────────
+   Responsive Breakpoints
+───────────────────────────────────────────── */
+@media (max-width: 960px) {
   .inner {
-    flex-direction: column;
-    gap: var(--space-8);
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  .imageCol { width: 100%; }
+  .imageWrapper {
+    max-width: 580px;
+  }
+}
 
-  .heading { font-size: var(--text-3xl); }
+@media (max-width: 640px) {
+  .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
 
-  .body { max-width: none; }
+  .heading {
+    font-size: 1.85rem;
+  }
+
+  .floatingPill {
+    right: 8px;
+    bottom: 12px;
+    font-size: 0.75rem;
+    padding: 0.45rem 0.85rem;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    justify-content: center;
+  }
 }

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 60" width="210" height="60" fill="none">
+  <!-- CSU Red Block Letters -->
+  <rect x="4" y="10" width="60" height="40" rx="3" fill="#D31A2B" />
+  <text x="8" y="38" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="24" font-weight="900" fill="#ffffff" letter-spacing="-0.5">CSU</text>
+  <!-- Text -->
+  <text x="72" y="27" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#4B5563">The California</text>
+  <text x="72" y="42" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#4B5563">State University</text>
+</svg>

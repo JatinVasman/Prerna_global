@@ -1,66 +1,117 @@
+import React from 'react';
 import Link from 'next/link';
-import {
-  BookOpen, Users, Globe, GraduationCap, FileCheck,
-  FileText, Banknote, Stamp, Home, Plane, Ticket,
-  ArrowRight
-} from 'lucide-react';
-import { services } from '@/data/services';
+import Image from 'next/image';
+import { User, GraduationCap, Globe, Landmark, ArrowRightCircle } from 'lucide-react';
 import styles from './ServicesGrid.module.css';
 
-// Map icon string names to components (avoids shipping all lucide icons)
-const iconMap: Record<string, React.ReactNode> = {
-  BookOpen:     <BookOpen size={22} />,
-  Users:        <Users size={22} />,
-  Globe:        <Globe size={22} />,
-  GraduationCap: <GraduationCap size={22} />,
-  FileCheck:    <FileCheck size={22} />,
-  FileText:     <FileText size={22} />,
-  Banknote:     <Banknote size={22} />,
-  Stamp:        <Stamp size={22} />,
-  Home:         <Home size={22} />,
-  Plane:        <Plane size={22} />,
-  PassportIcon: <Ticket size={22} />,
-};
+interface FeaturedService {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  icon: React.ReactNode;
+  href: string;
+}
+
+const FEATURED_SERVICES: FeaturedService[] = [
+  {
+    id: 'ielts-coaching',
+    title: 'IELTS Coaching',
+    description: 'Enhance your English proficiency with expert training to achieve top IELTS scores.',
+    image: '/images/services/studying.jpg',
+    icon: <User size={20} strokeWidth={2} />,
+    href: '/services/',
+  },
+  {
+    id: 'personalized-counselling',
+    title: 'Personalized Counselling',
+    description: 'Receive one-on-one guidance to choose the right academic and career path abroad.',
+    image: '/images/services/corporate.jpg',
+    icon: <GraduationCap size={20} strokeWidth={2} />,
+    href: '/services/',
+  },
+  {
+    id: 'country-finalization',
+    title: 'Country Finalization',
+    description: 'Select the best study destination based on your goals, budget, and preferences.',
+    image: '/images/services/europe.jpg',
+    icon: <Globe size={20} strokeWidth={2} />,
+    href: '/services/',
+  },
+  {
+    id: 'university-selection',
+    title: 'University Selection',
+    description: 'Get help shortlisting top universities that align with your interests and profile.',
+    image: '/images/services/queens-belfast.jpg',
+    icon: <Landmark size={20} strokeWidth={2} />,
+    href: '/services/',
+  },
+];
 
 interface ServicesGridProps {
-  /** Number of services to display. Defaults to all. */
+  /** Number of services to display. Defaults to 4. */
   limit?: number;
   showViewAll?: boolean;
 }
 
-export default function ServicesGrid({ limit, showViewAll = true }: ServicesGridProps) {
-  const displayed = limit ? services.slice(0, limit) : services;
+export default function ServicesGrid({ limit = 4, showViewAll = true }: ServicesGridProps) {
+  const displayed = limit ? FEATURED_SERVICES.slice(0, limit) : FEATURED_SERVICES;
 
   return (
-    <section className={`section ${styles.section}`} id="services">
-      <div className="container">
+    <section className={styles.section} id="services" aria-labelledby="services-heading">
+      <div className={`container ${styles.container}`}>
+
+        {/* Section Header: Eyebrow + Heading Left, Action Button Right */}
         <div className={styles.sectionHeader}>
-          <div>
-            <h6 className={styles.eyebrow}>What We Offer</h6>
-            <h2 className={styles.heading}>Our Services</h2>
+          <div className={styles.headerLeft}>
+            <p className={styles.eyebrow}>What We Offer</p>
+            <h2 className={styles.heading} id="services-heading">
+              Our Services
+            </h2>
           </div>
-          {showViewAll && limit && services.length > limit && (
-            <Link href="/services/" className="btn btn--primary">
-              See All Our Services
-            </Link>
+
+          {showViewAll && (
+            <div className={styles.headerAction}>
+              <Link href="/services/" className={styles.seeAllBtn}>
+                <span>See All Our Services</span>
+                <ArrowRightCircle size={18} aria-hidden="true" />
+              </Link>
+            </div>
           )}
         </div>
 
+        {/* 4-Column Luxury Card Grid matching Reference Layout */}
         <div className={styles.grid} role="list">
           {displayed.map((service) => (
-            <article key={service.id} className={styles.card} role="listitem">
-              <div className={styles.cardIcon} aria-hidden="true">
-                {iconMap[service.icon] ?? <Globe size={22} />}
-              </div>
-              <h3 className={styles.cardTitle}>{service.title}</h3>
-              <p className={styles.cardText}>{service.description}</p>
-              <Link href="/services/" className={styles.cardLink}>
-                Learn more <ArrowRight size={14} aria-hidden="true" />
-              </Link>
-            </article>
+            <Link
+              key={service.id}
+              href={service.href}
+              className={styles.cardLinkWrap}
+            >
+              <article className={styles.card} role="listitem">
+                {/* Top Section: Title & Description */}
+                <div className={styles.cardHeader}>
+                  <h3 className={styles.cardTitle}>{service.title}</h3>
+                  <p className={styles.cardText}>{service.description}</p>
+                </div>
+
+                {/* Bottom Section: Rounded Image with Bottom-Left Icon Badge */}
+                <div className={styles.cardMediaWrap}>
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className={styles.cardImg}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className={styles.iconBadge} aria-hidden="true">
+                    {service.icon}
+                  </div>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
-
 
       </div>
     </section>

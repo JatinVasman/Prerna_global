@@ -7,6 +7,7 @@ export interface ServiceItem {
   title: string;
   description: string;
   icon: string; // lucide icon name
+  image?: string;
   featured?: boolean;
 }
 
@@ -17,6 +18,7 @@ export interface DestinationItem {
   description: string;
   image: string;
   highlights?: string[];
+  badge?: string;
 }
 
 export interface TestimonialItem {

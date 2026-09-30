@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60" fill="none">
+  <!-- Trinity Shield Crest -->
+  <g transform="translate(6, 6)">
+    <path d="M0 0 H36 V26 C36 38 18 48 18 48 C18 48 0 38 0 26 Z" fill="#0c4c92" />
+    <path d="M6 6 H30 V24 C30 32 18 40 18 40 C18 40 6 32 6 24 Z" fill="#ffffff" />
+    <!-- Lion / Book / Harp Gold & Blue Symbols -->
+    <path d="M12 12 H24 V20 H12 Z" fill="#0c4c92" />
+    <circle cx="18" cy="28" r="4" fill="#D97706" />
+    <path d="M15 32 H21 V36 H15 Z" fill="#0c4c92" />
+  </g>
+  <!-- Text -->
+  <text x="50" y="24" font-family="'Times New Roman', Georgia, serif" font-size="14.5" font-weight="bold" fill="#0c4c92">Trinity College Dublin</text>
+  <text x="50" y="38" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="9" font-style="italic" fill="#4B5563">Coláiste na Tríonóide, Baile Átha Cliath</text>
+  <text x="50" y="49" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="9.5" font-weight="700" fill="#0c4c92">The University of Dublin</text>
+</svg>

@@ -4,14 +4,6 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import { navigation, siteConfig } from '@/data/site';
 import styles from './Footer.module.css';
 
-const services = [
-  { label: 'IELTS Coaching', href: '/services/' },
-  { label: 'University Admission', href: '/services/' },
-  { label: 'Visa Support', href: '/services/' },
-  { label: 'SOP & Documentation', href: '/services/' },
-  { label: 'Education Loan', href: '/services/' },
-  { label: 'Pre-Departure Support', href: '/services/' },
-];
 
 const destinations = [
   { label: 'Study in UK', href: '/destinations/' },
@@ -20,6 +12,14 @@ const destinations = [
   { label: 'Study in Australia', href: '/destinations/' },
   { label: 'Study in Germany', href: '/destinations/' },
   { label: 'Study in Ireland', href: '/destinations/' },
+];
+
+const locations = [
+  { label: 'All Locations', href: '/locations/' },
+  { label: 'Mumbai', href: '/locations/mumbai/' },
+  { label: 'Pune', href: '/locations/pune/' },
+  { label: 'Delhi', href: '/locations/delhi/' },
+  { label: 'Bangalore', href: '/locations/bangalore/' },
 ];
 
 export default function Footer() {
@@ -32,10 +32,10 @@ export default function Footer() {
             <div className={styles.brand}>
               <Link href="/" className={styles.logo} aria-label="Prerna Global Services — Home">
                 <Image
-                  src="/images/brand/logo.png"
+                  src="/images/brand/logo-tight.png"
                   alt="Prerna Global Services"
-                  width={150}
-                  height={56}
+                  width={180}
+                  height={52}
                   className={styles.logoImg}
                 />
               </Link>
@@ -44,7 +44,7 @@ export default function Footer() {
                 Prerna Global Services is a trusted overseas education consultancy based in Pune, 
                 helping students achieve their dreams of studying abroad since 2020.
               </p>
-              <Link href="/contact-us/" className="btn btn--primary btn--sm" style={{ width: 'fit-content' }}>
+              <Link href="/contact-us/" className={styles.consultBtn}>
                 Get Free Consultation
               </Link>
             </div>
@@ -68,6 +68,20 @@ export default function Footer() {
               <p className={styles.colTitle}>Destinations</p>
               <ul className={styles.links}>
                 {destinations.map((item) => (
+                  <li key={item.label}>
+                    <Link href={item.href} className={styles.link}>
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* Locations */}
+            <nav aria-label="Study abroad locations">
+              <p className={styles.colTitle}>Locations</p>
+              <ul className={styles.links}>
+                {locations.map((item) => (
                   <li key={item.label}>
                     <Link href={item.href} className={styles.link}>
                       {item.label}

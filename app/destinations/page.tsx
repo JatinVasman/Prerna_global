@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, MapPin, Check } from 'lucide-react';
 import { destinations } from '@/data/destinations';
 import LeadBanner from '@/components/home/LeadBanner';
 import styles from './page.module.css';
@@ -9,88 +9,107 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
   title: 'Study Destinations',
   description:
-    'Explore study abroad destinations — UK, USA, Canada, Australia, Germany, Ireland, New Zealand, France and Europe. Prerna Global Services guides you to the right choice.',
+    'Explore study abroad destinations — UK, USA, Canada, Australia, Germany, Ireland, New Zealand, France, and Europe. Prerna Global Services guides you to the right choice.',
   alternates: { canonical: '/destinations/' },
 };
 
 export default function DestinationsPage() {
   return (
     <>
-      {/* ── Page Hero — Editorial split ── */}
+      {/* ── Page Hero: Standard 2-Column Luxury Layout ── */}
       <section className={styles.pageHero} aria-labelledby="dest-h1">
-        <div className={styles.heroInner}>
+        <div className={styles.ambientGlow} aria-hidden="true" />
 
-          {/* LEFT: text */}
+        <div className={`container ${styles.heroInner}`}>
+          {/* Left Column: Clean editorial typography & Radiant Gold CTA */}
           <div className={styles.heroContent}>
-            <span className={styles.heroEyebrow}>Global Reach</span>
+            <div className={styles.eyebrowWrap}>
+              <span className={styles.eyebrowDot} aria-hidden="true" />
+              <span className={styles.heroEyebrow}>GLOBAL REACH</span>
+            </div>
+
             <h1 className={styles.heroTitle} id="dest-h1">
-              9 World-Class Study<br />
-              <span className={styles.heroAccent}>Destinations.</span><br />
-              One Dedicated Team.
+              Global Study Destinations,{' '}
+              <span className={styles.goldText}>One Dedicated Team</span>
             </h1>
+
             <p className={styles.heroSub}>
-              From the oldest universities in England to cutting-edge tech hubs in Europe,
-              we have deep expertise across 9 top study destinations.
+              From historic collegiate quadrangles in the UK and Europe to cutting-edge research campuses in the USA and Australia, we provide expert, end-to-end guidance across premier global education hubs.
             </p>
+
             <div className={styles.heroCtas}>
-              <Link href="/contact-us/" className={styles.heroCta}>
-                Find Your Destination
+              <Link href="/contact-us/" className={styles.ctaButton}>
+                <span>Find Your Destination</span>
                 <ArrowRight size={17} aria-hidden="true" />
               </Link>
             </div>
           </div>
 
-          {/* RIGHT: editorial photo */}
-          <div className={styles.heroVisual} style={{ position: 'relative' }}>
-            <Image
-              src="/images/hero/hero-destinations.jpg"
-              alt="Indian student at a prestigious European university campus"
-              fill
-              className={styles.heroPhoto}
-              quality={90}
-              priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <div className={styles.heroPhotoFade} style={{ position: 'absolute', inset: 0 }} />
+          {/* Right Column: Editorial Framed Photo (16:9 ratio, zero distortion) */}
+          <div className={styles.heroVisual}>
+            <div className={styles.imageCard}>
+              <Image
+                src="/images/hero/hero-destinations.jpg"
+                alt="Indian student at a prestigious university campus abroad"
+                width={1376}
+                height={768}
+                className={styles.heroImg}
+                quality={92}
+                priority
+                sizes="(max-width: 960px) 100vw, 50vw"
+              />
+            </div>
           </div>
-
         </div>
       </section>
 
-      {/* ── Destination Cards — completely redesigned ── */}
-      <section className={`section ${styles.destinationsSection}`} aria-labelledby="dest-grid-h">
+      {/* ── Destination Cards Section ── */}
+      <section className={styles.destinationsSection} aria-labelledby="dest-grid-h">
         <div className="container">
-          <header className="section-header section-header--center">
-            <span className="eyebrow">Where We Send Students</span>
-            <h2 className="section-header__title" id="dest-grid-h">Choose Your Study Destination</h2>
+          <header className={styles.sectionHeader}>
+
+            <h2 className={styles.sectionHeading} id="dest-grid-h">
+              Choose Your Study{' '}
+              <span className={styles.goldTextLight}>Destination</span>
+            </h2>
+            <p className={styles.sectionSub}>
+              Compare top global education destinations by post-study work rights, academic rankings, and career pathways to find the ideal match for your profile.
+            </p>
           </header>
 
           <div className={styles.destGrid} role="list">
             {destinations.map((dest) => (
               <article key={dest.id} className={styles.destCard} role="listitem" id={dest.id}>
-                {/* Image block — fixed height, fully contained, never overlapping */}
+                {/* Image Block: Landmark Photograph with Country Overlay & Badge */}
                 <div className={styles.destImgWrap}>
                   <Image
                     src={dest.image}
-                    alt={`Study in ${dest.country}`}
+                    alt={`Study in ${dest.country} — Iconic landmark and university campus`}
                     fill
                     className={styles.destImg}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={90}
+                    sizes="(max-width: 680px) 100vw, (max-width: 1080px) 50vw, 33vw"
                   />
                   <div className={styles.destImgOverlay} />
-                  <span className={styles.destCountryBadge}>{dest.country}</span>
+
+                  {/* Bottom Country Title with Pin */}
+                  <div className={styles.destCountryWrap}>
+                    <MapPin size={16} className={styles.destPinIcon} aria-hidden="true" />
+                    <h3 className={styles.destCountry}>{dest.country}</h3>
+                  </div>
                 </div>
 
-                {/* Content block — fully separate from image */}
+                {/* Content Block — 50% of the Card */}
                 <div className={styles.destContent}>
                   <p className={styles.destTagline}>{dest.tagline}</p>
-                  <p className={styles.destText}>{dest.description}</p>
 
                   {dest.highlights && (
                     <ul className={styles.destHighlights} aria-label={`Highlights for ${dest.country}`}>
                       {dest.highlights.slice(0, 3).map((h) => (
                         <li key={h} className={styles.destHighlightItem}>
-                          <CheckCircle2 size={14} className={styles.checkIcon} aria-hidden="true" />
+                          <div className={styles.checkWrap} aria-hidden="true">
+                            <Check size={12} className={styles.checkIcon} />
+                          </div>
                           <span>{h}</span>
                         </li>
                       ))}
@@ -98,8 +117,8 @@ export default function DestinationsPage() {
                   )}
 
                   <Link href="/contact-us/" className={styles.destCta}>
-                    Explore {dest.country}
-                    <ArrowRight size={15} aria-hidden="true" />
+                    <span>Explore {dest.country}</span>
+                    <ArrowRight size={15} className={styles.linkArrow} aria-hidden="true" />
                   </Link>
                 </div>
               </article>
@@ -110,7 +129,7 @@ export default function DestinationsPage() {
 
       <LeadBanner
         title="Which Destination Is Right for You?"
-        subtitle="Our counsellors will evaluate your profile and recommend the best-fit country and universities for your goals."
+        subtitle="Our senior counsellors will evaluate your profile and recommend the best-fit country and universities for your goals."
       />
     </>
   );

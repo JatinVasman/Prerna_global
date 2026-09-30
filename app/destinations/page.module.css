@@ -1,154 +1,286 @@
 /* ============================================================
-   DESTINATIONS PAGE — Editorial hero + clean destination cards
-   NO text-over-image overlap ever.
+   DESTINATIONS PAGE — Imperial Dark Teal & Radiant Gold Theme
+   - Standard 2-Column Hero: Crisp copy left, natural 16:9 photo right
+   - 3-Column Luxury Destination Cards on Pure White Canvas
+   - Authentic landmark imagery for all 9 destinations with zero distortion
    ============================================================ */
 
-/* ── Hero — same pattern as services/about ── */
+/* ─────────────────────────────────────────────
+   HERO: Standard 2-Column Layout
+───────────────────────────────────────────── */
 .pageHero {
   position: relative;
-  background: #0d1f1c;
+  background: radial-gradient(ellipse 120% 90% at 50% 30%, #082921 0%, #06221c 45%, #031410 85%, #020c09 100%);
   overflow: hidden;
-  min-height: calc(100vh - var(--header-height));
-  display: flex;
-  align-items: stretch;
+  border-bottom: 1px solid rgba(229, 184, 66, 0.25);
+  padding-top: clamp(8.5rem, 11vw, 10.25rem);
+  padding-bottom: clamp(4rem, 6.5vw, 6rem);
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(229, 184, 66, 0.10) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .heroInner {
-  width: 100%;
-  max-width: var(--container-wide);
-  margin: 0 auto;
-  padding: 0 var(--container-px);
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(320px, 1.05fr) minmax(340px, 0.95fr);
   align-items: center;
-  min-height: inherit;
+  gap: clamp(2.5rem, 4.5vw, 4.5rem);
 }
 
+/* Left Column: Clean, high-contrast editorial text */
 .heroContent {
-  position: relative;
-  z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: var(--space-7);
-  padding: var(--space-24) 0 var(--space-20);
-  padding-right: var(--space-10);
+  gap: 1.25rem;
+}
+
+.eyebrowWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.32rem 0.9rem;
+  background: rgba(229, 184, 66, 0.12);
+  border: 1px solid rgba(229, 184, 66, 0.35);
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E5B842;
+  box-shadow: 0 0 8px rgba(229, 184, 66, 0.85);
 }
 
 .heroEyebrow {
-  display: inline-block;
-  font-family: var(--font-heading);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-widest);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-lime);
+  color: #F8DA82;
+  margin: 0;
 }
 
 .heroTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
-  font-weight: var(--weight-extrabold);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: #fff;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.25rem, 3.8vw, 3.35rem);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.018em;
+  color: #ffffff;
   margin: 0;
+  text-wrap: balance;
+  overflow: visible;
 }
 
-.heroAccent { color: var(--color-lime); }
+.goldText {
+  background: linear-gradient(135deg, #FFF1B0 0%, #E5B842 50%, #C9961E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+  padding-right: 0.18em;
+  padding-bottom: 0.05em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
 
 .heroSub {
-  font-size: var(--text-lg);
-  line-height: var(--leading-relaxed);
-  color: rgba(255, 255, 255, 0.65);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.84);
   margin: 0;
-  max-width: 50ch;
+  max-width: 52ch;
 }
 
-.heroCtas { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+.heroCtas {
+  margin-top: 0.5rem;
+}
 
-.heroCta {
+/* Radiant Metallic Gold Button */
+.ctaButton {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-heading);
-  font-size: var(--text-base);
-  font-weight: var(--weight-bold);
-  color: var(--color-forest);
-  background: var(--color-lime);
-  border: 2px solid var(--color-lime);
-  padding: 0.875rem 1.875rem;
-  border-radius: var(--radius-full);
+  gap: 0.6rem;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #06231c !important;
+  background: linear-gradient(135deg, #FDE68A 0%, #E5B842 45%, #C8961E 100%) !important;
+  padding: 0.85rem 1.95rem;
+  border-radius: 100px;
   text-decoration: none;
+  border: 1px solid rgba(200, 150, 30, 0.4);
+  box-shadow:
+    0 4px 18px rgba(229, 184, 66, 0.38),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
   transition:
-    background-color var(--duration-fast) var(--ease-standard),
-    transform var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
+    background 200ms ease,
+    transform 150ms ease,
+    box-shadow 200ms ease;
+  white-space: nowrap;
 }
 
-.heroCta:hover {
-  background: var(--color-lime-dark);
+.ctaButton:hover {
+  background: linear-gradient(135deg, #FFF0A8 0%, #ECC558 45%, #D6A42A 100%) !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(180, 231, 23, 0.3);
+  box-shadow:
+    0 8px 26px rgba(229, 184, 66, 0.48),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  color: #031511 !important;
 }
 
+/* Right Column: Standard Image Container (16:9 ratio, zero distortion) */
 .heroVisual {
-  position: relative;
-  height: 100%;
-  min-height: calc(100vh - var(--header-height));
+  width: 100%;
+}
+
+.imageCard {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
   overflow: hidden;
+  border: 1px solid rgba(229, 184, 66, 0.3);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.55);
+  background: #082921;
+  position: relative;
 }
 
-.heroPhoto {
+.heroImg {
+  width: 100%;
+  height: 100%;
+  display: block;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center;
+  transition: transform 400ms ease;
 }
 
-.heroPhotoFade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    #0d1f1c 0%,
-    rgba(13, 31, 28, 0.25) 20%,
-    transparent 50%
-  );
+.imageCard:hover .heroImg {
+  transform: scale(1.025);
 }
 
-/* ── Destinations section ── */
+/* ─────────────────────────────────────────────
+   DESTINATIONS SECTION — Pure White Canvas
+───────────────────────────────────────────── */
 .destinationsSection {
-  background: var(--color-surface-off);
+  background: #ffffff;
+  padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid #edf4f1;
 }
 
-/* 3-column grid */
+.sectionHeader {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(2.5rem, 4.5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.eyebrowWrapLight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.32rem 0.9rem;
+  background: rgba(200, 150, 30, 0.09);
+  border: 1px solid rgba(200, 150, 30, 0.25);
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.eyebrowDotLight {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C8961E;
+  box-shadow: 0 0 8px rgba(200, 150, 30, 0.7);
+}
+
+.eyebrowTextLight {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #A0730B;
+}
+
+.sectionHeading {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.15rem, 3.8vw, 3rem);
+  font-weight: 800;
+  color: #072820;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.goldTextLight {
+  background: linear-gradient(135deg, #996d08 0%, #C8961E 50%, #E5B842 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.sectionSub {
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.68;
+  color: #55726b;
+  margin: 0;
+  max-width: 58ch;
+}
+
+/* ─────────────────────────────────────────────
+   3-COLUMN LUXURY DESTINATION CARDS
+───────────────────────────────────────────── */
 .destGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+  gap: clamp(1.5rem, 2.5vw, 2.25rem);
 }
 
-/* Card: vertical flex — image on top, content below, NEVER overlapping */
 .destCard {
+  position: relative;
+  background: #ffffff;
+  border-radius: 22px;
+  border: 1.5px solid #e8eeec;
+  overflow: hidden;
+  box-shadow: 0 4px 20px -2px rgba(8, 41, 33, 0.04);
   display: flex;
   flex-direction: column;
-  background: var(--color-surface);
-  border-radius: var(--radius-2xl);
-  border: 1px solid var(--color-border-light);
-  overflow: hidden;
   transition:
-    transform var(--duration-normal) var(--ease-standard),
-    box-shadow var(--duration-normal) var(--ease-standard);
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .destCard:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-xl);
+  border-color: rgba(200, 150, 30, 0.5);
+  box-shadow:
+    0 18px 40px -6px rgba(8, 41, 33, 0.12),
+    0 4px 14px rgba(200, 150, 30, 0.08);
 }
 
-/* Image wrapper: fixed aspect ratio, no overflow, no text inside */
+/* Image Wrap: Increased height by ~23% (240px -> 295px) */
 .destImgWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 295px;
+  background: #082921;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -156,149 +288,183 @@
 .destImg {
   object-fit: cover;
   object-position: center;
-  transition: transform var(--duration-slow) var(--ease-standard);
+  transition: transform 400ms ease;
 }
 
 .destCard:hover .destImg {
   transform: scale(1.05);
 }
 
-/* Subtle bottom gradient on image only for visual punch */
 .destImgOverlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50%;
-  background: linear-gradient(transparent, rgba(0,0,0,0.35));
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 40, 32, 0.04) 0%,
+    transparent 45%,
+    rgba(6, 28, 22, 0.88) 100%
+  );
   pointer-events: none;
 }
 
-/* Country badge pinned to bottom of image */
-.destCountryBadge {
+
+/* Country Title with MapPin (Bottom Left) */
+.destCountryWrap {
   position: absolute;
-  bottom: var(--space-4);
-  left: var(--space-4);
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: var(--weight-extrabold);
-  color: #fff;
-  letter-spacing: -0.015em;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
-  pointer-events: none;
+  bottom: 14px;
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-/* Content block — fully separate from image, no overlap possible */
+.destPinIcon {
+  color: #E5B842;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
+}
+
+.destCountry {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Content Block: Exactly 50% of the Card */
 .destContent {
+  padding: 1.35rem 1.6rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  padding: var(--space-6);
+  justify-content: space-between;
+  gap: 0.85rem;
   flex: 1;
+  min-height: 240px;
 }
 
 .destTagline {
-  font-family: var(--font-heading);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-bold);
-  color: var(--color-teal);
-  letter-spacing: var(--tracking-widest);
-  text-transform: uppercase;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: #072820;
+  line-height: 1.48;
   margin: 0;
 }
 
 .destText {
-  font-size: 0.9375rem;
-  color: var(--color-muted);
-  line-height: var(--leading-relaxed);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #55726b;
   margin: 0;
   flex: 1;
 }
 
+/* Highlights List */
 .destHighlights {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  padding: 0;
-  margin: 0;
-  list-style: none;
+  gap: 0.6rem;
+  border-top: 1px solid #edf4f1;
+  border-bottom: 1px solid #edf4f1;
 }
 
 .destHighlightItem {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
-  color: var(--color-slate);
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #072820;
 }
 
-.checkIcon {
-  color: var(--color-teal);
+.checkWrap {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(229, 184, 66, 0.15);
+  border: 1px solid rgba(200, 150, 30, 0.4);
+  color: #C8961E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
+.checkIcon {
+  stroke-width: 3;
+}
+
+/* Card Action Link */
 .destCta {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-bold);
-  color: var(--color-teal);
+  gap: 0.45rem;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0e5b5c;
   text-decoration: none;
   margin-top: auto;
-  padding-top: var(--space-2);
-  transition:
-    gap var(--duration-fast) var(--ease-standard),
-    color var(--duration-fast);
+  transition: gap 180ms ease, color 180ms ease;
 }
 
-.destCta:hover {
-  gap: var(--space-3);
-  color: var(--color-teal-dark);
+.linkArrow {
+  transition: transform 180ms ease;
 }
 
-/* ── Responsive ── */
-@media (max-width: 1280px) {
-  .destGrid { grid-template-columns: repeat(3, 1fr); }
+.destCard:hover .destCta {
+  color: #C8961E;
+  gap: 0.65rem;
 }
 
-@media (max-width: 1024px) {
-  .heroInner { grid-template-columns: 1fr 0.9fr; }
-  .destGrid  { grid-template-columns: repeat(2, 1fr); }
+.destCard:hover .linkArrow {
+  transform: translateX(4px);
 }
 
-@media (max-width: 768px) {
-  .pageHero  { min-height: auto; }
-  .heroInner { grid-template-columns: 1fr; }
-
-  .heroContent {
-    order: 2;
-    padding: var(--space-10) 0;
-    padding-right: 0;
-    gap: var(--space-5);
+/* ─────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS
+───────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  .heroTitle { font-size: clamp(2rem, 8vw, 2.75rem); }
-  .heroSub   { max-width: none; font-size: var(--text-base); }
-
-  .heroVisual {
-    order: 1;
-    min-height: 60vw;
-    height: 60vw;
-    max-height: 380px;
-    border-radius: 0 0 var(--radius-3xl) var(--radius-3xl);
+  .destGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  .heroPhotoFade {
-    background: linear-gradient(180deg, transparent 40%, rgba(13, 31, 28, 0.8) 100%);
-  }
-
-  .heroCta { width: 100%; justify-content: center; }
 }
 
-@media (max-width: 640px) {
-  .destGrid { grid-template-columns: 1fr; }
-  .destImgWrap { aspect-ratio: 4 / 3; }
+@media (max-width: 680px) {
+  .pageHero {
+    padding-top: 7.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .destGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .destImgWrap {
+    height: 235px;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
 }

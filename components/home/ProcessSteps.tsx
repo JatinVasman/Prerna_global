@@ -1,65 +1,84 @@
+import Link from 'next/link';
+import { ArrowRight, Compass, GraduationCap, FileCheck2, PlaneTakeoff } from 'lucide-react';
 import styles from './ProcessSteps.module.css';
 
-/* Content from Elementor extraction — 606cb5b8 container */
+/* 4-Step Road Map with custom icons */
 const STEPS = [
   {
-    n: '01',
     title: 'Personalized Counselling',
-    text: 'We start with one-on-one counselling to understand your goals, interests, and preferred countries.',
+    text: 'One-on-one sessions to evaluate your academic profile, career ambitions, budget, and destination preferences.',
+    icon: Compass,
   },
   {
-    n: '02',
     title: 'Course & University Selection',
-    text: 'Our experts help you shortlist the best courses and universities that match your academic profile.',
+    text: 'Strategic shortlisting of world-class universities and high-ROI programs matched to your career trajectory.',
+    icon: GraduationCap,
   },
   {
-    n: '03',
     title: 'Application & Visa Assistance',
-    text: 'We guide you through applications, SOPs, documentation, and visa formalities with complete support.',
+    text: 'Complete support for SOP drafting, credential evaluations, financial paperwork, and mock visa interviews.',
+    icon: FileCheck2,
   },
   {
-    n: '04',
-    title: 'Pre-Departure & Post-Arrival Support',
-    text: 'From travel planning to accommodation, we ensure a smooth transition to your new study destination.',
+    title: 'Pre-Departure & Arrival Support',
+    text: 'Comprehensive assistance covering forex, flight bookings, accommodation arrangements, and campus transition.',
+    icon: PlaneTakeoff,
   },
 ];
 
 export default function ProcessSteps() {
   return (
     <section className={styles.section} id="process" aria-labelledby="process-heading">
-      <div className="container">
+      <div className={`container ${styles.container}`}>
 
-        {/* Header */}
+        {/* Section Header */}
         <div className={styles.header}>
-          <h6 className={styles.eyebrow}>Our 4-Step Process</h6>
           <h2 className={styles.heading} id="process-heading">
             Simple. Transparent.{' '}
-            <span className={styles.headingAccent}>Student-Focused.</span>
+            <span className={styles.goldText}>Student-Focused.</span>
           </h2>
+
+          <p className={styles.subheading}>
+            A structured, stress-free roadmap designed to take you seamlessly from your first consultation to your first day on campus.
+          </p>
         </div>
 
-        {/* Steps grid */}
-        <div className={styles.steps} role="list">
-          {STEPS.map((step) => (
-            <div key={step.n} className={styles.step} role="listitem">
-              {/* Step number badge */}
-              <div className={styles.stepNumWrap}>
-                <span className={styles.stepNum} aria-label={`Step ${step.n}`}>
-                  Step <em>{step.n}</em>
-                </span>
+        {/* Steps Grid — Elevated Luxury Cards */}
+        <div className={styles.stepsGrid} role="list">
+          {STEPS.map((step) => {
+            const Icon = step.icon;
+            return (
+              <div key={step.title} className={styles.stepCard} role="listitem">
+                {/* Top Icon Circle */}
+                <div className={styles.cardTop}>
+                  <div className={styles.iconCircle}>
+                    <Icon size={22} className={styles.icon} aria-hidden="true" />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className={styles.cardContent}>
+                  <h3 className={styles.stepTitle}>{step.title}</h3>
+                  <p className={styles.stepText}>{step.text}</p>
+                </div>
+
+                {/* Bottom Step Progress Line Indicator */}
+                <div className={styles.progressLine} aria-hidden="true" />
               </div>
-              <h3 className={styles.stepTitle}>{step.title}</h3>
-              <p className={styles.stepText}>{step.text}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <p className={styles.footNote}>
-          Have anything to ask?{' '}
-          <a href="/contact-us/" className={styles.footNoteLink}>
-            Contact us any time.
-          </a>
-        </p>
+        {/* Footnote with Contact Link */}
+        <div className={styles.footNoteRow}>
+          <p className={styles.footNote}>
+            Have questions about the roadmap?{' '}
+            <Link href="/contact-us/" className={styles.footNoteLink}>
+              <span>Speak with a counselor today</span>
+              <ArrowRight size={14} aria-hidden="true" />
+            </Link>
+          </p>
+        </div>
 
       </div>
     </section>

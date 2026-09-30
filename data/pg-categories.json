@@ -1,0 +1,132 @@
+{
+  "study-abroad-guides": {
+    "name": "Study Abroad Guides",
+    "description": "Comprehensive roadmaps, decision frameworks, and foundational guides for Indian students planning an overseas academic journey.",
+    "icon": "compass"
+  },
+  "university-applications": {
+    "name": "University Applications",
+    "description": "Step-by-step application walkthroughs, UCAS tips, Common App strategies, portal submissions, and interview drills.",
+    "icon": "edit"
+  },
+  "admission-requirements": {
+    "name": "Admission Requirements",
+    "description": "Grade conversion, backlog policies, 3-year bachelor eligibility, and academic prerequisite breakdowns.",
+    "icon": "check-circle"
+  },
+  "documents-sop": {
+    "name": "Documents & SOP",
+    "description": "Statement of Purpose (SOP) templates, Letters of Recommendation (LOR) guides, academic CV crafting, and personal essays.",
+    "icon": "file-text"
+  },
+  "scholarships-financial-aid": {
+    "name": "Scholarships & Grants",
+    "description": "Government grants, university merit bursaries, external foundations, and fully-funded international scholarships.",
+    "icon": "award"
+  },
+  "study-abroad-costs": {
+    "name": "Study Abroad Costs",
+    "description": "Real-world breakdowns of tuition fees, cost of living, accommodation budgets, and foreign currency management.",
+    "icon": "dollar-sign"
+  },
+  "education-loans": {
+    "name": "Education Loans",
+    "description": "Collateral vs collateral-free student loans, interest rate comparisons, tax benefits under Section 80E, and bank approvals.",
+    "icon": "credit-card"
+  },
+  "student-visa": {
+    "name": "Student Visa",
+    "description": "Consular interview prep, visa document checklists, biometric appointments, and financial proof requirements.",
+    "icon": "shield"
+  },
+  "ielts-pte-exams": {
+    "name": "IELTS, PTE & Standardized Tests",
+    "description": "IELTS band scoring strategies, PTE Academic tips, GRE/GMAT waivers, and English proficiency exemptions.",
+    "icon": "book-open"
+  },
+  "country-guides": {
+    "name": "Country Guides",
+    "description": "Destination profiles for the UK, USA, Germany, Canada, Australia, Ireland, New Zealand, France, and Europe.",
+    "icon": "globe"
+  },
+  "stem-education": {
+    "name": "STEM Education",
+    "description": "High-ROI science, technology, engineering, and mathematics degrees with extended post-study work authorization.",
+    "icon": "cpu"
+  },
+  "mba-abroad": {
+    "name": "MBA & Business Schools",
+    "description": "Global business school comparisons, GMAT waivers, executive MBAs, and post-MBA career outcomes.",
+    "icon": "briefcase"
+  },
+  "engineering-abroad": {
+    "name": "Engineering Abroad",
+    "description": "Automotive, mechanical, robotics, renewable energy, and civil engineering masters across top global hubs.",
+    "icon": "settings"
+  },
+  "computer-science-it": {
+    "name": "Computer Science & AI",
+    "description": "MS in Computer Science, Artificial Intelligence, Data Engineering, Cybersecurity, and Cloud Architecture.",
+    "icon": "terminal"
+  },
+  "healthcare-medicine": {
+    "name": "Healthcare & Medicine",
+    "description": "Public health (MPH), biotechnology, healthcare management, and international clinical licensing pathways.",
+    "icon": "activity"
+  },
+  "business-management": {
+    "name": "Business & Management",
+    "description": "Master in Management (MiM), Finance, Supply Chain, Business Analytics, and Luxury Brand Management.",
+    "icon": "trending-up"
+  },
+  "career-jobs-abroad": {
+    "name": "Careers & Work Rights",
+    "description": "Post-study work visas (PSW), part-time student employment, employer sponsorship, and global job search strategies.",
+    "icon": "user-check"
+  },
+  "accommodation-living": {
+    "name": "Accommodation & Living",
+    "description": "Student dorms, private rentals, flat sharing, guarantor requirements, and student health insurance.",
+    "icon": "home"
+  },
+  "pre-departure-arrival": {
+    "name": "Pre-Departure & Arrival",
+    "description": "Packing checklists, forex cards, foreign bank accounts, airport immigration, and initial arrival survival tips.",
+    "icon": "send"
+  },
+  "intakes-timelines": {
+    "name": "Intakes & Deadlines",
+    "description": "Fall, Spring, and Summer intake calendars, application timelines, priority deadlines, and rolling admissions.",
+    "icon": "calendar"
+  },
+  "country-comparisons": {
+    "name": "Country Comparisons",
+    "description": "Head-to-head destination comparisons for tuition costs, visa regulations, job opportunities, and permanent residency.",
+    "icon": "columns"
+  },
+  "germany-specific": {
+    "name": "Study in Germany Special",
+    "description": "APS certificate verification, blocked account (Sperrkonto), Uni-Assist VPD, and public university admissions.",
+    "icon": "map-pin"
+  },
+  "visa-updates-policies": {
+    "name": "Visa Updates & Regulations",
+    "description": "Official immigration policy updates, post-study work regulations, cap changes, and visa processing timelines.",
+    "icon": "bell"
+  },
+  "student-checklists-mistakes": {
+    "name": "Checklists & Application Mistakes",
+    "description": "Application red flags, visa interview traps, document formatting errors, and pre-submission checklists.",
+    "icon": "alert-triangle"
+  },
+  "popular-courses": {
+    "name": "Popular Courses & Disciplines",
+    "description": "Emerging specializations, design, architecture, humanities, law, and interdisciplinary degrees abroad.",
+    "icon": "layers"
+  },
+  "university-guides": {
+    "name": "University Profiles & Guides",
+    "description": "Comprehensive admission profiles for leading world universities in the UK, USA, Germany, Canada, and Australia.",
+    "icon": "award"
+  }
+}

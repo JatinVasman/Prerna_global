@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- The University of Edinburgh Seal -->
+  <g transform="translate(6, 6)">
+    <!-- Outer Shield / Roundel -->
+    <circle cx="24" cy="24" r="23" fill="#041E42" />
+    <circle cx="24" cy="24" r="20.5" fill="#ffffff" />
+    <!-- Blue St Andrew's Saltire Cross -->
+    <path d="M12 12 L36 36 M36 12 L12 36" stroke="#003865" stroke-width="4.5" stroke-linecap="square" />
+    <!-- Red Thistle / Castle Crest Center -->
+    <circle cx="24" cy="24" r="8" fill="#C8102E" />
+    <path d="M22 21 H26 V27 H22 Z" fill="#ffffff" />
+    <circle cx="24" cy="19" r="1.5" fill="#F8DA82" />
+  </g>
+  <!-- Text: THE UNIVERSITY of EDINBURGH -->
+  <text x="64" y="27" font-family="'Times New Roman', Georgia, serif" font-size="13" font-weight="bold" fill="#041E42" letter-spacing="1.2">THE UNIVERSITY</text>
+  <text x="64" y="44" font-family="'Times New Roman', Georgia, serif" font-size="12" font-style="italic" fill="#041E42">of </text>
+  <text x="78" y="44" font-family="'Times New Roman', Georgia, serif" font-size="13.5" font-weight="bold" fill="#041E42" letter-spacing="1.5">EDINBURGH</text>
+</svg>

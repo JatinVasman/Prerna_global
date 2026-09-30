@@ -1,0 +1,629 @@
+/* ============================================================
+   LOCATIONS DIRECTORY STYLES — Imperial Dark Teal & Radiant Gold
+   ============================================================ */
+
+.wrapper {
+  background: #ffffff;
+  color: #072820;
+  min-height: 100vh;
+}
+
+/* Breadcrumbs */
+.breadcrumbBar {
+  background: #f7faf9;
+  border-bottom: 1px solid #edf2f0;
+  padding: 0.85rem 0;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #55726b;
+}
+
+.breadcrumbs a {
+  color: #009cac;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 180ms ease;
+}
+
+.breadcrumbs a:hover {
+  color: #072820;
+  text-decoration: underline;
+}
+
+.sep {
+  color: #8c9ea2;
+}
+
+.current {
+  color: #072820;
+  font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #072820 0%, #0d382e 60%, #051e18 100%);
+  color: #ffffff;
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0 clamp(3rem, 5vw, 4.5rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  background: rgba(200, 150, 30, 0.15);
+  border: 1px solid rgba(229, 184, 66, 0.35);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #F8DA82;
+  text-transform: uppercase;
+}
+
+.heroBadgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E5B842;
+  box-shadow: 0 0 8px rgba(229, 184, 66, 0.8);
+}
+
+.heroTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.35rem, 4.2vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.goldText {
+  background: linear-gradient(135deg, #FFF1B0 0%, #E5B842 50%, #C9961E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.heroSubtitle {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  max-width: 65ch;
+}
+
+/* Search Box */
+.searchBox {
+  width: 100%;
+  max-width: 620px;
+  position: relative;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1.25rem;
+  color: #009cac;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1.05rem 3.5rem 1.05rem 3.25rem;
+  font-size: 1rem;
+  border-radius: 100px;
+  border: 1.5px solid rgba(229, 184, 66, 0.35);
+  background: rgba(255, 255, 255, 0.98);
+  color: #072820;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: all 200ms ease;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: #E5B842;
+  box-shadow: 0 0 0 4px rgba(229, 184, 66, 0.25), 0 12px 36px rgba(0, 0, 0, 0.3);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 1.25rem;
+  background: #edf2f0;
+  border: none;
+  border-radius: 100px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #55726b;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.clearBtn:hover {
+  background: #d8e4e0;
+}
+
+/* Trust Strip */
+.trustStrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  width: 100%;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.trustIcon {
+  color: #E5B842;
+}
+
+/* Section Common Header */
+.sectionHeader {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto clamp(2rem, 3.5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionPre {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #A0730B;
+  text-transform: uppercase;
+}
+
+.sectionH2 {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  font-weight: 800;
+  color: #072820;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.sectionDesc {
+  font-size: 0.95rem;
+  color: #55726b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Featured Hubs */
+.popularSection {
+  padding: clamp(3.5rem, 5.5vw, 5rem) 0;
+  background: #fbfdfc;
+  border-bottom: 1px solid #edf2f0;
+}
+
+.popularGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.popularCard {
+  background: #ffffff;
+  border: 1.5px solid #edf2f0;
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(8, 41, 33, 0.04);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.popularCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(229, 184, 66, 0.5);
+  box-shadow: 0 14px 34px rgba(8, 41, 33, 0.08);
+}
+
+.popCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.popBadge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #A0730B;
+  background: rgba(200, 150, 30, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  border: 1px solid rgba(200, 150, 30, 0.25);
+}
+
+.regionBadge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #009cac;
+  background: rgba(0, 156, 172, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+}
+
+.popCityName {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #072820;
+  margin: 0 0 0.35rem;
+}
+
+.popState {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: #55726b;
+  margin: 0 0 0.85rem;
+}
+
+.pinIcon {
+  color: #009cac;
+}
+
+.popNote {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #55726b;
+  margin: 0 0 1.25rem;
+  flex: 1;
+}
+
+.popFooter {
+  border-top: 1px solid #edf2f0;
+  padding-top: 1rem;
+}
+
+.popCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #072820;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 150ms ease, gap 150ms ease;
+}
+
+.popCta:hover {
+  color: #C8961E;
+  gap: 0.65rem;
+}
+
+/* States Filter Section */
+.statesSection {
+  padding: clamp(2.5rem, 4vw, 3.5rem) 0;
+  border-bottom: 1px solid #edf2f0;
+}
+
+.stateFilterRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: center;
+}
+
+.statePill {
+  background: #f7faf9;
+  border: 1px solid #edf2f0;
+  border-radius: 100px;
+  padding: 0.42rem 0.95rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #072820;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.statePill:hover {
+  border-color: #009cac;
+  color: #009cac;
+}
+
+.activeStatePill {
+  background: #072820;
+  color: #F8DA82;
+  border-color: #072820;
+}
+
+/* Directory Section */
+.directorySection {
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
+}
+
+.dirResultsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #edf2f0;
+}
+
+.dirCount {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #072820;
+  margin: 0;
+}
+
+.dirCount strong {
+  color: #009cac;
+}
+
+.resetBtn {
+  background: none;
+  border: 1px solid #edf2f0;
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #55726b;
+  cursor: pointer;
+}
+
+.resetBtn:hover {
+  background: #edf2f0;
+  color: #072820;
+}
+
+.citiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+}
+
+.cityCard {
+  background: #ffffff;
+  border: 1px solid #edf2f0;
+  border-radius: 16px;
+  padding: 1.35rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.cityCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200, 150, 30, 0.45);
+  box-shadow: 0 10px 24px rgba(8, 41, 33, 0.06);
+}
+
+.cityCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.stateTag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #009cac;
+  background: rgba(0, 156, 172, 0.08);
+  padding: 0.18rem 0.55rem;
+  border-radius: 100px;
+}
+
+.tierTag {
+  font-size: 0.7rem;
+  color: #728c86;
+}
+
+.cityName {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #072820;
+  margin: 0 0 0.3rem;
+}
+
+.officeProximity {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: #55726b;
+  margin: 0 0 0.75rem;
+}
+
+.cityExcerpt {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #55726b;
+  margin: 0 0 1rem;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cityCardFooter {
+  border-top: 1px solid #edf2f0;
+  padding-top: 0.75rem;
+}
+
+.cityLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #072820;
+  text-decoration: none;
+  transition: color 150ms ease, gap 150ms ease;
+}
+
+.cityLink:hover {
+  color: #C8961E;
+  gap: 0.55rem;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.emptyIcon {
+  color: #8c9ea2;
+}
+
+.primaryBtn {
+  background: #072820;
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: 100px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.primaryBtn:hover {
+  background: #0d382e;
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 0 0 clamp(3.5rem, 6vw, 5rem);
+}
+
+.ctaCard {
+  background: linear-gradient(135deg, #072820 0%, #0d382e 100%);
+  border-radius: 26px;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.75rem, 4vw, 3rem);
+  color: #ffffff;
+  border: 1px solid rgba(229, 184, 66, 0.35);
+  box-shadow: 0 20px 50px rgba(7, 40, 32, 0.2);
+}
+
+.ctaContent {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ctaBadge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #E5B842;
+  text-transform: uppercase;
+}
+
+.ctaTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.ctaDesc {
+  font-size: 1rem;
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.goldBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #996d08 0%, #C8961E 50%, #E5B842 100%);
+  color: #072820;
+  padding: 0.85rem 1.85rem;
+  border-radius: 100px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(200, 150, 30, 0.3);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.goldBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(200, 150, 30, 0.45);
+}
+
+.phoneLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #ffffff;
+  padding: 0.85rem 1.4rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.phoneLink:hover {
+  border-color: #E5B842;
+  background: rgba(229, 184, 66, 0.08);
+}

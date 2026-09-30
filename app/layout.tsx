@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import LeadCaptureModal from '@/components/forms/LeadCaptureModal';
+import SmoothScroll from '@/components/ui/SmoothScroll';
 import { siteConfig } from '@/data/site';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -87,18 +88,21 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${plusJakartaSans.variable} ${inter.variable}`}
+      data-scroll-behavior="smooth"
     >
       <body>
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        <Header />
-        <main id="main-content" tabIndex={-1}>
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppButton />
-        <LeadCaptureModal />
+        <SmoothScroll>
+          <a href="#main-content" className="skip-link">
+            Skip to main content
+          </a>
+          <Header />
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
+          <Footer />
+          <WhatsAppButton />
+          <LeadCaptureModal />
+        </SmoothScroll>
       </body>
     </html>
   );

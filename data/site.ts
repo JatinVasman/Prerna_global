@@ -40,5 +40,6 @@ export const navigation = [
   { label: 'About Us', href: '/about-us/' },
   { label: 'Services', href: '/services/' },
   { label: 'Destinations', href: '/destinations/' },
+  { label: 'Blogs', href: '/blog/' },
   { label: 'Contact Us', href: '/contact-us/' },
 ];

@@ -1,77 +1,95 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowRight, MapPin, Check } from 'lucide-react';
+import { destinations } from '@/data/destinations';
 import styles from './DestinationsSection.module.css';
 
-/* Original 4 destinations from Elementor extraction (container 90b4ae7) */
-const DESTINATIONS = [
-  {
-    id: 'uk',
-    country: 'United Kingdom (UK)',
-    description: 'World-renowned universities offering excellence in academics and global career opportunities.',
-    image: '/images/destinations/uk.jpg',
-  },
-  {
-    id: 'ireland',
-    country: 'Ireland',
-    description: 'A friendly, innovation-driven country with strong job prospects and top-quality education.',
-    image: '/images/destinations/ireland.jpg',
-  },
-  {
-    id: 'usa',
-    country: 'United States of America (USA)',
-    description: 'The most preferred study destination with diverse programs and unmatched global recognition.',
-    image: '/images/destinations/usa.jpg',
-  },
-  {
-    id: 'canada',
-    country: 'Canada',
-    description: 'Affordable education, post-study work options, and a welcoming environment for international students.',
-    image: '/images/destinations/canada.jpg',
-  },
-];
-
 export default function DestinationsSection() {
+  /* Featured top 3 destinations in single row matching design theme */
+  const featured = destinations.slice(0, 3);
+
   return (
     <section className={styles.section} aria-labelledby="destinations-heading">
-      {/* Section intro heading — fcbd75a container */}
-      <div className={`container ${styles.intro}`}>
-        <h6 className={styles.eyebrow}>Top Study Destinations</h6>
-        <h2 className={styles.heading} id="destinations-heading">
-          Discover the Best Countries for{' '}
-          <span className={styles.accent}>Your Future</span>
-        </h2>
-        <p className={styles.subtext}>
-          Discover the best countries to pursue world-class education, global
-          exposure, and a successful international career. Prerna Global Services
-          helps you choose the right destination that fits your goals, budget, and
-          dreams.
-        </p>
-      </div>
+      <div className={`container ${styles.container}`}>
+        
+        {/* Section Header */}
+        <div className={styles.header}>
+          <div className={styles.eyebrowWrap}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            <span className={styles.eyebrowText}>TOP STUDY DESTINATIONS</span>
+          </div>
 
-      {/* 4 destination cards */}
-      <div className={`container ${styles.grid}`}>
-        {DESTINATIONS.map((dest) => (
-          <Link
-            key={dest.id}
-            href={`/destinations/#${dest.id}`}
-            className={styles.card}
-            style={{ backgroundImage: `url(${dest.image})` }}
-            aria-label={`Learn about studying in ${dest.country}`}
-          >
-            {/* Gradient overlay */}
-            <div className={styles.cardOverlay} aria-hidden="true" />
-            <div className={styles.cardContent}>
-              <h4 className={styles.cardTitle}>{dest.country}</h4>
-              <p className={styles.cardDesc}>{dest.description}</p>
-            </div>
+          <h2 className={styles.heading} id="destinations-heading">
+            Discover the Best Countries for{' '}
+            <span className={styles.goldText}>Your Future</span>
+          </h2>
+
+          <p className={styles.subtext}>
+            Discover premier destinations to pursue world-class education, global exposure, and high-impact international careers.
+            Prerna Global Services guides you to the right country suited to your ambitions and budget.
+          </p>
+        </div>
+
+        {/* 6 Elevated Destination Cards in 3 Columns */}
+        <div className={styles.grid}>
+          {featured.map((dest) => (
+            <article key={dest.id} className={styles.card} id={dest.id}>
+              {/* Photo Banner with Location Pin Title (Clean - No top badges) */}
+              <div className={styles.imageBox}>
+                <Image
+                  src={dest.image}
+                  alt={`Study in ${dest.country} — Landmark and university campus`}
+                  fill
+                  className={styles.cardImage}
+                  sizes="(max-width: 680px) 100vw, (max-width: 1080px) 50vw, 33vw"
+                />
+                <div className={styles.imageOverlay} aria-hidden="true" />
+
+                {/* Bottom Country Title with Pin */}
+                <div className={styles.countryWrap}>
+                  <MapPin size={16} className={styles.pinIcon} aria-hidden="true" />
+                  <h3 className={styles.countryName}>{dest.country}</h3>
+                </div>
+              </div>
+
+              {/* Card Content Body */}
+              <div className={styles.cardBody}>
+                <p className={styles.tagline}>{dest.tagline}</p>
+
+                {/* Highlights List (Top 3) */}
+                {dest.highlights && (
+                  <ul className={styles.highlightsList} aria-label={`Highlights for ${dest.country}`}>
+                    {dest.highlights.slice(0, 3).map((h) => (
+                      <li key={h} className={styles.highlightItem}>
+                        <div className={styles.checkWrap} aria-hidden="true">
+                          <Check size={12} className={styles.checkIcon} />
+                        </div>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {/* Bottom Action Link */}
+                <div className={styles.cardFooter}>
+                  <Link href={`/destinations/#${dest.id}`} className={styles.exploreLink}>
+                    <span>Explore {dest.country}</span>
+                    <ArrowRight size={15} className={styles.arrowIcon} aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className={styles.ctaRow}>
+          <Link href="/destinations/" className={styles.viewAllBtn}>
+            <span>View All Destinations</span>
+            <ArrowRight size={16} aria-hidden="true" />
           </Link>
-        ))}
-      </div>
+        </div>
 
-      {/* CTA button */}
-      <div className={styles.ctaRow}>
-        <Link href="/destinations/" className="btn btn--primary btn--lg">
-          View All Destinations
-        </Link>
       </div>
     </section>
   );

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ArrowRight, HelpCircle } from 'lucide-react';
 import { faqs } from '@/data/faqs';
 import styles from './FaqSection.module.css';
 
@@ -12,21 +12,26 @@ export default function FaqSection() {
 
   return (
     <section className={styles.section} id="faqs" aria-labelledby="faq-heading">
-      <div className="container">
+      <div className={`container ${styles.container}`}>
 
-        {/* ── Header row ── */}
-        <div className={styles.headerRow}>
-          <div className={styles.headerLeft}>
-            <h6 className={styles.eyebrow}>Frequently Asked Questions</h6>
-            <h2 className={styles.heading} id="faq-heading">
-              Everything You Need to Know{' '}
-              <span className={styles.headingAccent}>Before Getting Started</span>
-            </h2>
+        {/* Section Header */}
+        <div className={styles.header}>
+          <div className={styles.eyebrowWrap}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            <span className={styles.eyebrowText}>FREQUENTLY ASKED QUESTIONS</span>
           </div>
-          {/* Right header — empty in original (ec91c93) */}
+
+          <h2 className={styles.heading} id="faq-heading">
+            Everything You Need to Know{' '}
+            <span className={styles.goldText}>Before Getting Started</span>
+          </h2>
+
+          <p className={styles.subheading}>
+            Clear answers to common questions about international admissions, test prep, visa applications, and student support.
+          </p>
         </div>
 
-        {/* ── Content row: accordion left, CTA panel right ── */}
+        {/* Content row: accordion left, luxury query panel right */}
         <div className={styles.content}>
 
           {/* LEFT — accordion */}
@@ -41,6 +46,7 @@ export default function FaqSection() {
                     role="listitem"
                   >
                     <button
+                      type="button"
                       className={styles.trigger}
                       onClick={() => toggle(i)}
                       aria-expanded={isOpen}
@@ -48,17 +54,16 @@ export default function FaqSection() {
                       id={`faq-trigger-${i}`}
                     >
                       <span className={styles.question}>{faq.question}</span>
-                      <ChevronDown
-                        size={20}
-                        className={styles.chevron}
-                        aria-hidden="true"
-                      />
+                      <div className={styles.chevronWrap} aria-hidden="true">
+                        <ChevronDown size={18} className={styles.chevron} />
+                      </div>
                     </button>
                     <div
                       id={`faq-answer-${i}`}
                       role="region"
                       aria-labelledby={`faq-trigger-${i}`}
                       hidden={!isOpen}
+                      className={styles.answerWrap}
                     >
                       <p className={styles.answer}>{faq.answer}</p>
                     </div>
@@ -68,24 +73,26 @@ export default function FaqSection() {
             </div>
           </div>
 
-          {/* RIGHT — query panel (ab71a96 icon-box + 5cbd8cb button) */}
+          {/* RIGHT — luxury dark teal & gold query card */}
           <div className={styles.queryPanel}>
+            <div className={styles.queryGlow} aria-hidden="true" />
+            
             <div className={styles.queryIcon} aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                <path d="M12 17h.01"/>
-              </svg>
+              <HelpCircle size={28} />
             </div>
+
             <h3 className={styles.queryTitle}>
               Have a Query About Studying Abroad?
             </h3>
+
             <p className={styles.queryText}>
               Reach out to our experienced counsellors for personalized guidance
-              and support for your international education plans.
+              and dedicated support tailored to your international education dreams.
             </p>
-            <Link href="/contact-us/" className={`btn btn--lime btn--lg ${styles.queryBtn}`}>
-              Talk to an Expert
+
+            <Link href="/contact-us/" className={styles.queryBtn}>
+              <span>Talk to an Expert</span>
+              <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
 

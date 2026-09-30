@@ -44,7 +44,7 @@ export default function HomePage() {
       <ServicesGrid limit={4} showViewAll />
       <StatsSection />
       <TestPrepSection />
-      <Testimonials limit={4} />
+      <Testimonials />
       <DestinationsSection />
       <ProcessSteps />
       <LeadBanner />

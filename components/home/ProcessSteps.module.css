@@ -1,155 +1,293 @@
 /* ============================================================
-   PROCESS STEPS — 4-column numbered steps
+   PROCESS STEPS — Luxury Minimal Cards (Pure White Background)
+   - Palette: Pure White Background, Imperial Dark Teal, Radiant Gold
+   - 4 elevated cards with icons, phase tags, and progress highlights
    ============================================================ */
 
 .section {
-  padding-top: var(--section-py-lg);
-  padding-bottom: var(--section-py-sm);
-  background-color: var(--color-surface);
-}
-
-/* Header */
-.header {
-  text-align: center;
-  margin-bottom: var(--space-16);
-}
-
-.eyebrow {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-widest);
-  text-transform: uppercase;
-  color: var(--color-teal);
-  display: block;
-  margin: 0 0 var(--space-3);
-}
-
-.heading {
-  font-family: var(--font-heading);
-  font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
-  font-weight: var(--weight-extrabold);
-  color: var(--color-forest);
-  line-height: var(--leading-snug);
-  letter-spacing: -0.025em;
-  margin: 0;
-}
-
-.headingAccent { color: var(--color-teal); }
-
-/* Steps grid */
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-10);
-  margin-bottom: var(--space-12);
   position: relative;
+  background-color: #ffffff;
+  padding-top: clamp(4.5rem, 7.5vw, 6.5rem);
+  padding-bottom: clamp(4.5rem, 7.5vw, 6.5rem);
+  border-top: 1px solid #edf2f0;
+  overflow: hidden;
 }
 
-/* Connector line between steps */
-.steps::before {
-  content: '';
-  position: absolute;
-  top: 28px;
-  left: calc(12.5% + 24px);
-  right: calc(12.5% + 24px);
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-teal-pale), var(--color-teal-pale));
-  border-radius: var(--radius-full);
-  z-index: 0;
-}
-
-.step {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
+.container {
   position: relative;
   z-index: 1;
 }
 
-/* Step number badge */
-.stepNumWrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-full);
-  background: var(--color-forest);
-  box-shadow: 0 4px 16px rgba(28,75,66,0.25);
-}
-
-.stepNum {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-extrabold);
-  color: var(--color-lime);
-  line-height: 1;
+/* ─────────────────────────────────────────────
+   SECTION HEADER
+───────────────────────────────────────────── */
+.header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto clamp(2.5rem, 4.5vw, 3.75rem);
   display: flex;
   flex-direction: column;
   align-items: center;
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
+  gap: 0.85rem;
 }
 
-.stepNum em {
-  font-style: normal;
-  font-size: var(--text-xl);
-  font-weight: var(--weight-extrabold);
+.eyebrowWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.32rem 0.9rem;
+  background: rgba(200, 150, 30, 0.09);
+  border: 1px solid rgba(200, 150, 30, 0.25);
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C8961E;
+  box-shadow: 0 0 8px rgba(200, 150, 30, 0.7);
+}
+
+.eyebrowText {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #A0730B;
+}
+
+.heading {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.25rem, 3.8vw, 3rem);
+  font-weight: 800;
+  color: #072820;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.goldText {
+  background: linear-gradient(135deg, #996d08 0%, #C8961E 50%, #E5B842 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.subheading {
+  font-size: 0.975rem;
+  line-height: 1.62;
+  color: #4a645e;
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* ─────────────────────────────────────────────
+   STEPS GRID & CARDS
+───────────────────────────────────────────── */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.stepCard {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(8, 41, 33, 0.08);
+  box-shadow: 0 8px 24px -6px rgba(8, 41, 33, 0.06);
+  padding: clamp(1.75rem, 3vw, 2.25rem) 1.6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition:
+    transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 250ms ease,
+    border-color 250ms ease;
+}
+
+.stepCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(229, 184, 66, 0.45);
+  box-shadow:
+    0 22px 48px -10px rgba(8, 41, 33, 0.12),
+    0 4px 16px rgba(229, 184, 66, 0.1);
+}
+
+/* Top: Icon + Phase Badge */
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.iconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #082921 0%, #0d3d31 100%);
+  border: 1.5px solid rgba(229, 184, 66, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F8DA82;
+  box-shadow: 0 4px 14px rgba(8, 41, 33, 0.15);
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+
+.stepCard:hover .iconCircle {
+  transform: scale(1.06);
+  border-color: #E5B842;
+}
+
+.icon {
+  stroke-width: 2.2px;
+}
+
+.stepBadge {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #A0730B;
+  background: rgba(200, 150, 30, 0.1);
+  padding: 0.26rem 0.7rem;
+  border-radius: 100px;
+  border: 1px solid rgba(200, 150, 30, 0.25);
+  user-select: none;
+}
+
+/* Watermark Number in background */
+.numWatermark {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: rgba(8, 41, 33, 0.04);
   line-height: 1;
-  color: #ffffff;
+  pointer-events: none;
+  user-select: none;
+  transition: color 250ms ease;
+}
+
+.stepCard:hover .numWatermark {
+  color: rgba(200, 150, 30, 0.09);
+}
+
+/* Card Content */
+.cardContent {
+  position: relative;
+  z-index: 2;
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .stepTitle {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: var(--weight-bold);
-  color: var(--color-forest);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #072820;
   margin: 0;
-  line-height: var(--leading-snug);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  transition: color 200ms ease;
+}
+
+.stepCard:hover .stepTitle {
+  color: #0b3d31;
 }
 
 .stepText {
-  font-size: var(--text-base);
-  color: var(--color-muted);
-  line-height: var(--leading-relaxed);
+  font-size: 0.88rem;
+  line-height: 1.62;
+  color: #55726b;
   margin: 0;
 }
 
-/* Footnote */
-.footNote {
+/* Bottom Gold Progress Accent */
+.progressLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background 250ms ease;
+}
+
+.stepCard:hover .progressLine {
+  background: linear-gradient(90deg, #FDE68A 0%, #E5B842 100%);
+}
+
+/* ─────────────────────────────────────────────
+   FOOTNOTE ROW
+───────────────────────────────────────────── */
+.footNoteRow {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
   text-align: center;
-  font-size: var(--text-base);
-  color: var(--color-muted);
-  padding-bottom: var(--space-12);
+}
+
+.footNote {
+  font-size: 0.95rem;
+  color: #55726b;
   margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footNoteLink {
-  color: var(--color-teal);
-  font-weight: var(--weight-semibold);
+  color: #072820;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   text-decoration: underline;
-  text-decoration-color: transparent;
-  transition: text-decoration-color var(--duration-fast);
+  text-decoration-color: rgba(229, 184, 66, 0.45);
+  text-underline-offset: 4px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
 }
 
 .footNoteLink:hover {
-  text-decoration-color: var(--color-teal);
+  color: #C8961E;
+  text-decoration-color: #C8961E;
 }
 
-/* Responsive */
+/* ─────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS
+───────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .steps {
+  .stepsGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-10);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
   }
 
-  .steps::before { display: none; }
-}
-
-@media (max-width: 640px) {
-  .steps {
+  .stepsGrid {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: 1.25rem;
+  }
+
+  .heading {
+    font-size: 1.85rem;
   }
 }

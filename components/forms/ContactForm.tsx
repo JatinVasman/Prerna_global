@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { CheckCircle2, Loader2, Send } from 'lucide-react';
+import { CheckCircle2, Loader2, Send, RotateCcw } from 'lucide-react';
 import styles from './ContactForm.module.css';
 
 export default function ContactForm() {
@@ -37,17 +37,19 @@ export default function ContactForm() {
   if (status === 'success') {
     return (
       <div className={styles.success}>
-        <CheckCircle2 size={48} className={styles.successIcon} />
-        <h3 className={styles.successTitle}>Message Sent!</h3>
-        <p>
-          Thank you for reaching out. One of our counsellors will get back to you
-          within 24 hours.
+        <CheckCircle2 size={52} className={styles.successIcon} />
+        <h3 className={styles.successTitle}>Message Sent Successfully!</h3>
+        <p className={styles.successDesc}>
+          Thank you for reaching out to Prerna Global Services. One of our senior counsellors
+          will review your profile and get back to you within 24 hours.
         </p>
         <button
-          className="btn btn--ghost btn--sm"
+          type="button"
+          className={styles.resetBtn}
           onClick={() => setStatus('idle')}
         >
-          Send Another Message
+          <RotateCcw size={16} aria-hidden="true" />
+          <span>Send Another Message</span>
         </button>
       </div>
     );
@@ -56,48 +58,58 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className={styles.form} noValidate>
       <div className={styles.row}>
-        <div className="form-field">
-          <label htmlFor="contact-name" className="form-label">Full Name *</label>
+        <div className={styles.field}>
+          <label htmlFor="contact-name" className={styles.label}>
+            Full Name *
+          </label>
           <input
             id="contact-name"
-            className="form-input"
+            className={styles.input}
             type="text"
             name="name"
             required
             autoComplete="name"
-            placeholder="Your full name"
+            placeholder="e.g. Rahul Sharma"
           />
         </div>
-        <div className="form-field">
-          <label htmlFor="contact-email" className="form-label">Email Address *</label>
+
+        <div className={styles.field}>
+          <label htmlFor="contact-email" className={styles.label}>
+            Email Address *
+          </label>
           <input
             id="contact-email"
-            className="form-input"
+            className={styles.input}
             type="email"
             name="email"
             required
             autoComplete="email"
-            placeholder="you@example.com"
+            placeholder="e.g. rahul@gmail.com"
           />
         </div>
       </div>
 
       <div className={styles.row}>
-        <div className="form-field">
-          <label htmlFor="contact-phone" className="form-label">Phone / WhatsApp *</label>
+        <div className={styles.field}>
+          <label htmlFor="contact-phone" className={styles.label}>
+            Phone / WhatsApp *
+          </label>
           <input
             id="contact-phone"
-            className="form-input"
+            className={styles.input}
             type="tel"
             name="phone"
             required
             autoComplete="tel"
-            placeholder="+91 XXXXXXXXXX"
+            placeholder="e.g. +91 98765 43210"
           />
         </div>
-        <div className="form-field">
-          <label htmlFor="contact-subject" className="form-label">Subject</label>
-          <select id="contact-subject" name="subject" className="form-select">
+
+        <div className={styles.field}>
+          <label htmlFor="contact-subject" className={styles.label}>
+            Interested Service / Country
+          </label>
+          <select id="contact-subject" name="subject" className={styles.select}>
             <option value="">Select a topic…</option>
             <option value="IELTS Coaching">IELTS Coaching</option>
             <option value="University Admission">University Admission</option>
@@ -107,20 +119,23 @@ export default function ContactForm() {
             <option value="Study in Canada">Study in Canada</option>
             <option value="Study in Australia">Study in Australia</option>
             <option value="Study in Germany">Study in Germany</option>
+            <option value="Study in Ireland">Study in Ireland</option>
             <option value="Education Loan">Education Loan</option>
-            <option value="Other">Other</option>
+            <option value="Other">Other Enquiry</option>
           </select>
         </div>
       </div>
 
-      <div className="form-field">
-        <label htmlFor="contact-message" className="form-label">Message *</label>
+      <div className={styles.field}>
+        <label htmlFor="contact-message" className={styles.label}>
+          Your Message / Career Goals *
+        </label>
         <textarea
           id="contact-message"
-          className="form-textarea"
+          className={styles.textarea}
           name="message"
           required
-          placeholder="Tell us about your study abroad goals, current academic background, and any specific questions you have…"
+          placeholder="Tell us about your educational background, preferred study destination, degree level (Bachelors/Masters), and any specific questions you have…"
           rows={5}
         />
       </div>
@@ -131,21 +146,25 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="btn btn--primary btn--lg"
+        className={styles.submitBtn}
         disabled={status === 'loading'}
-        style={{ width: '100%', justifyContent: 'center' }}
         aria-busy={status === 'loading'}
       >
         {status === 'loading' ? (
-          <><Loader2 size={18} className={styles.spinner} aria-hidden="true" /> Sending…</>
+          <>
+            <Loader2 size={18} className={styles.spinner} aria-hidden="true" />
+            <span>Sending Message…</span>
+          </>
         ) : (
-          <><Send size={18} aria-hidden="true" /> Send Message</>
+          <>
+            <span>Send Free Consultation Request</span>
+            <Send size={17} aria-hidden="true" />
+          </>
         )}
       </button>
 
       <p className={styles.disclaimer}>
-        By submitting this form, you agree to be contacted by Prerna Global Services
-        regarding your enquiry.
+        <span>🔒 Confidential & Protected. Your details will never be shared.</span>
       </p>
     </form>
   );

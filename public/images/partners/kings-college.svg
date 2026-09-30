@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 90" width="110" height="90" fill="none">
+  <!-- King's College London Red Box -->
+  <rect width="110" height="90" rx="3" fill="#D31A2B" />
+  <!-- Text inside -->
+  <text x="12" y="32" font-family="'Times New Roman', Georgia, serif" font-size="20" font-weight="bold" fill="#ffffff" letter-spacing="1">KING&apos;S</text>
+  <text x="13" y="54" font-family="'Times New Roman', Georgia, serif" font-size="16" font-style="italic" fill="#ffffff">College</text>
+  <text x="13" y="75" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="14.5" font-weight="800" fill="#ffffff" letter-spacing="2.8">LONDON</text>
+</svg>

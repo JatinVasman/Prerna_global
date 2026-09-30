@@ -1,0 +1,381 @@
+/* ============================================================
+   STATE DIRECTORY VIEW STYLES — Imperial Dark Teal & Radiant Gold
+   ============================================================ */
+
+.page {
+  background: #ffffff;
+  color: #072820;
+}
+
+.breadcrumbBar {
+  background: #f7faf9;
+  border-bottom: 1px solid #edf2f0;
+  padding: 0.85rem 0;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #55726b;
+}
+
+.breadcrumbs a {
+  color: #009cac;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 180ms ease;
+}
+
+.breadcrumbs a:hover {
+  color: #072820;
+  text-decoration: underline;
+}
+
+.sep {
+  color: #8c9ea2;
+}
+
+.current {
+  color: #072820;
+  font-weight: 600;
+}
+
+.hero {
+  background: linear-gradient(135deg, #072820 0%, #0d382e 60%, #051e18 100%);
+  color: #ffffff;
+  padding: clamp(3.5rem, 6.5vw, 5.5rem) 0 clamp(3rem, 5vw, 4.5rem);
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.95rem;
+  background: rgba(200, 150, 30, 0.15);
+  border: 1px solid rgba(229, 184, 66, 0.35);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #F8DA82;
+}
+
+.heroTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.35rem, 4.2vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+}
+
+.goldText {
+  background: linear-gradient(135deg, #FFF1B0 0%, #E5B842 50%, #C9961E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.heroSubtitle {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  max-width: 65ch;
+}
+
+.overviewSection {
+  padding: clamp(3.5rem, 6vw, 5rem) 0;
+  background: #fbfdfc;
+  border-bottom: 1px solid #edf2f0;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto clamp(2rem, 3.5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionPre {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #A0730B;
+  text-transform: uppercase;
+}
+
+.sectionH2 {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.85rem, 3.2vw, 2.35rem);
+  font-weight: 800;
+  color: #072820;
+  margin: 0;
+}
+
+.sectionDesc {
+  font-size: 0.95rem;
+  color: #55726b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.collegesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.collegePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #edf2f0;
+  border-radius: 100px;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #072820;
+}
+
+.collegeIcon {
+  color: #009cac;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.infoCard {
+  background: #ffffff;
+  border: 1.5px solid #edf2f0;
+  border-radius: 18px;
+  padding: 1.75rem;
+}
+
+.infoHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.infoHeader h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #072820;
+  margin: 0;
+}
+
+.infoIcon {
+  color: #C8961E;
+}
+
+.infoCard p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #55726b;
+  margin: 0;
+}
+
+.citiesSection {
+  padding: clamp(3.5rem, 6vw, 5rem) 0;
+}
+
+.citiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.cityCard {
+  background: #ffffff;
+  border: 1px solid #edf2f0;
+  border-radius: 16px;
+  padding: 1.35rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.cityCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200, 150, 30, 0.45);
+  box-shadow: 0 10px 24px rgba(8, 41, 33, 0.06);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.stateTag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #009cac;
+  background: rgba(0, 156, 172, 0.08);
+  padding: 0.18rem 0.55rem;
+  border-radius: 100px;
+}
+
+.tierTag {
+  font-size: 0.7rem;
+  color: #728c86;
+}
+
+.cityName {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #072820;
+  margin: 0 0 0.35rem;
+}
+
+.proximity {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: #55726b;
+  margin: 0 0 0.85rem;
+}
+
+.pinIcon {
+  color: #009cac;
+}
+
+.cardFooter {
+  border-top: 1px solid #edf2f0;
+  padding-top: 0.75rem;
+  margin-top: auto;
+}
+
+.cityLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #072820;
+  text-decoration: none;
+  transition: color 150ms ease, gap 150ms ease;
+}
+
+.cityLink:hover {
+  color: #C8961E;
+  gap: 0.55rem;
+}
+
+.ctaSection {
+  padding: 0 0 clamp(3.5rem, 6vw, 5rem);
+}
+
+.ctaCard {
+  background: linear-gradient(135deg, #072820 0%, #0d382e 100%);
+  border-radius: 26px;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.75rem, 4vw, 3rem);
+  color: #ffffff;
+  text-align: center;
+  border: 1px solid rgba(229, 184, 66, 0.35);
+  box-shadow: 0 20px 50px rgba(7, 40, 32, 0.2);
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ctaBadge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #E5B842;
+  text-transform: uppercase;
+}
+
+.ctaTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.ctaDesc {
+  font-size: 1rem;
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  max-width: 60ch;
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.goldBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #996d08 0%, #C8961E 50%, #E5B842 100%);
+  color: #072820;
+  padding: 0.85rem 1.85rem;
+  border-radius: 100px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(200, 150, 30, 0.3);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.goldBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(200, 150, 30, 0.45);
+}
+
+.phoneLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #ffffff;
+  padding: 0.85rem 1.4rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.phoneLink:hover {
+  border-color: #E5B842;
+  background: rgba(229, 184, 66, 0.08);
+}

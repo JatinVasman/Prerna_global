@@ -1,297 +1,581 @@
 /* ============================================================
-   ABOUT PAGE — Original compact hero + editorial content
+   ABOUT US PAGE — Luxury Hero + Enhanced About Us Section
+   - Palette: Imperial Dark Teal, Radiant Gold, Pure White Canvas
+   - Standard 2-Column Hero: Clean copy left, framed 16:9 photo right
+   - Enhanced About Us Section: Grand overlapping cards with increased orientation
    ============================================================ */
 
-/* ── Hero — dark green bg, text left, image right, compact height ── */
+/* ─────────────────────────────────────────────
+   HERO: Standard 2-Column Dark Luxury Layout
+───────────────────────────────────────────── */
 .pageHero {
   position: relative;
-  background: #0f2118;
+  background: radial-gradient(ellipse 120% 90% at 50% 30%, #082921 0%, #06221c 45%, #031410 85%, #020c09 100%);
   overflow: hidden;
-  padding-top: clamp(4.5rem, 9vw, 6.5rem);
-  padding-bottom: clamp(3.5rem, 6vw, 5rem);
+  border-bottom: 1px solid rgba(229, 184, 66, 0.25);
+  padding-top: clamp(8.5rem, 11vw, 10.25rem);
+  padding-bottom: clamp(4rem, 6.5vw, 6rem);
 }
 
-/* Decorative orb */
-.heroOrb {
+.ambientGlow {
   position: absolute;
-  top: -30%;
-  right: 5%;
-  width: 55vw;
-  max-width: 600px;
-  aspect-ratio: 1;
+  top: 15%;
+  right: 15%;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(26,175,176,0.09) 0%,
-    transparent 65%
-  );
+  background: radial-gradient(circle, rgba(229, 184, 66, 0.10) 0%, transparent 65%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Inner: text ~55%, image ~45% */
 .heroInner {
   position: relative;
   z-index: 1;
-  max-width: var(--container-wide, 1280px);
-  margin: 0 auto;
-  padding: 0 clamp(1.25rem, 5vw, 3rem);
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(320px, 1.05fr) minmax(340px, 0.95fr);
   align-items: center;
-  gap: clamp(2rem, 4vw, 4rem);
+  gap: clamp(2.5rem, 4.5vw, 4.5rem);
 }
 
-/* Content */
+/* Left Column: Clean, high-contrast editorial text */
 .heroContent {
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem, 2vw, 1.5rem);
+  gap: 1.25rem;
+}
+
+.eyebrowWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.32rem 0.9rem;
+  background: rgba(229, 184, 66, 0.12);
+  border: 1px solid rgba(229, 184, 66, 0.35);
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E5B842;
+  box-shadow: 0 0 8px rgba(229, 184, 66, 0.85);
 }
 
 .heroEyebrow {
-  display: inline-block;
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #b4e717;
+  color: #F8DA82;
+  margin: 0;
 }
 
 .heroTitle {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.25rem, 3.8vw, 3.4rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.15;
   letter-spacing: -0.025em;
-  color: #fff;
+  color: #ffffff;
   margin: 0;
+}
+
+.goldText {
+  background: linear-gradient(135deg, #FFF1B0 0%, #E5B842 50%, #C9961E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  filter: drop-shadow(0 2px 14px rgba(229, 184, 66, 0.35));
 }
 
 .heroSub {
-  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
-  line-height: 1.7;
-  color: rgba(255,255,255,0.62);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.84);
   margin: 0;
-  max-width: 52ch;
+  max-width: 50ch;
 }
 
-.heroCtas { padding-top: 0.5rem; }
+.heroCtas {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
 
-.heroCta {
+.ctaButton {
   display: inline-flex;
   align-items: center;
+  gap: 0.6rem;
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: #0f2118;
-  background: #b4e717;
-  padding: 0.8125rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #06231c;
+  background: linear-gradient(135deg, #FDE68A 0%, #E5B842 45%, #C8961E 100%);
+  padding: 0.85rem 1.85rem;
   border-radius: 100px;
   text-decoration: none;
-  border: 2px solid #b4e717;
-  transition: background-color 150ms, transform 150ms, box-shadow 150ms;
-}
-.heroCta:hover {
-  background: #9dcf10;
-  border-color: #9dcf10;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(180,231,23,0.3);
+  border: 1px solid rgba(229, 184, 66, 0.5);
+  box-shadow:
+    0 4px 20px rgba(229, 184, 66, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transition:
+    background 200ms ease,
+    transform 150ms ease,
+    box-shadow 200ms ease;
+  white-space: nowrap;
 }
 
-/* Visual — image shown at natural proportions */
+.ctaButton:hover {
+  background: linear-gradient(135deg, #FFF0A8 0%, #ECC558 45%, #D6A42A 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 28px rgba(229, 184, 66, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  color: #031511;
+}
+
+/* Right Column: Framed Editorial Photo */
 .heroVisual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageCard {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid rgba(229, 184, 66, 0.35);
+  box-shadow:
+    0 24px 60px -10px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(229, 184, 66, 0.15);
+  background: #06211a;
+  aspect-ratio: 16 / 9;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ─────────────────────────────────────────────
+   NEW ABOUT US SECTION — With Imperial Teal & Radiant Gold Touch
+───────────────────────────────────────────── */
+.aboutSection {
+  position: relative;
+  background-color: #ffffff;
+  padding-top: clamp(4.5rem, 7vw, 6.5rem);
+  padding-bottom: clamp(4rem, 6.5vw, 6rem);
+  overflow: hidden;
+}
+
+.aboutContainer {
+  display: grid;
+  grid-template-columns: minmax(340px, 1.05fr) minmax(360px, 1.15fr);
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+/* Left Column: Grand Overlapping Rounded Images (Increased Orientation & Scale) */
+.visualCol {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.heroImgWrap {
+.imageStack {
   position: relative;
   width: 100%;
-  /* No overflow:hidden → no cropping */
+  max-width: 530px;
+  height: clamp(480px, 48vw, 580px);
 }
 
-.heroImg {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;     /* never crops the subject */
-  object-position: center;
-  border-radius: 16px;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.45);
-  /* Slight scale-down so there's always breathing room at edges */
-  max-height: 420px;
+/* Luxury Gold Hairline Accent */
+.goldFrameAccent {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 70%;
+  height: 82%;
+  border: 1.5px solid rgba(200, 150, 30, 0.35);
+  border-radius: 36px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.heroImgFade {
+/* Background Card: Historic University Campus (Increased Height & Grand Architecture) */
+.campusCard {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
-  width: 20%;
-  background: linear-gradient(90deg, #0f2118 0%, transparent 100%);
-  border-radius: 16px 0 0 16px;
-  pointer-events: none;
-}
-
-/* ── Stats — border-separated numbers ── */
-.statsSection {
-  background: var(--color-surface, #fff);
-  padding: clamp(2.5rem, 5vw, 4rem) 0;
-  border-bottom: 1px solid var(--color-border-light, #e8edf2);
-}
-
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-}
-
-.statItem {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 2.5rem);
-  border-right: 1px solid var(--color-border-light, #e8edf2);
-}
-.statItem:last-child { border-right: none; }
-
-.statValue {
-  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  color: var(--color-forest, #1C4B42);
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.statLabel {
-  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--color-muted, #6b7280);
-  line-height: 1.4;
-  max-width: 16ch;
-}
-
-/* ── Mission ── */
-.missionSection { background: var(--color-surface, #fff); }
-
-.missionGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(3rem, 5vw, 5rem);
-  align-items: center;
-}
-
-.missionImage {
-  border-radius: var(--radius-3xl, 24px);
+  width: 70%;
+  height: 82%;
+  border-radius: 32px;
   overflow: hidden;
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 16px 40px rgba(8, 41, 33, 0.1);
+  background-color: #f0f4f2;
+  border: 1px solid #e8eeec;
+  z-index: 1;
 }
 
-.img {
-  width: 100%;
-  height: auto;
-  display: block;
+.campusImg {
   object-fit: cover;
+  object-position: center;
+  transition: transform 380ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.missionContent {
+.campusCard:hover .campusImg {
+  transform: scale(1.05);
+}
+
+/* Foreground Card: Indian Graduate (Expanded Scale & Presence) */
+.graduateCard {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 74%;
+  height: 58%;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 5px solid #ffffff;
+  box-shadow:
+    0 24px 56px rgba(8, 41, 33, 0.16),
+    0 4px 14px rgba(200, 150, 30, 0.08);
+  background-color: #eaf1ed;
+  z-index: 2;
+  transition:
+    transform 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.graduateCard:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 28px 64px rgba(8, 41, 33, 0.22),
+    0 6px 18px rgba(200, 150, 30, 0.14);
+}
+
+.graduateImg {
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 380ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.graduateCard:hover .graduateImg {
+  transform: scale(1.05);
+}
+
+/* Right Column: Editorial Copy with Our Design Touch */
+.contentCol {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
 }
 
-.sectionTitle {
+.eyebrowWrapLight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.32rem 0.9rem;
+  background: rgba(200, 150, 30, 0.09);
+  border: 1px solid rgba(200, 150, 30, 0.25);
+  border-radius: 100px;
+  width: fit-content;
+  margin-bottom: 0.75rem;
+}
+
+.eyebrowDotLight {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C8961E;
+  box-shadow: 0 0 8px rgba(200, 150, 30, 0.7);
+}
+
+.eyebrowTextLight {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(1.625rem, 3vw, 2.25rem);
+  font-size: 0.75rem;
   font-weight: 800;
-  color: var(--color-navy, #0d2136);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #A0730B;
+}
+
+.sectionHeading {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.35rem, 3.8vw, 3.15rem);
+  font-weight: 800;
+  color: #072820;
   line-height: 1.15;
   letter-spacing: -0.025em;
-  margin-top: 0.5rem;
+  margin: 0 0 1.65rem 0;
 }
 
-.body {
-  font-size: 0.9375rem;
-  color: var(--color-muted, #6b7280);
-  line-height: 1.75;
+.goldTextLight {
+  background: linear-gradient(135deg, #996d08 0%, #C8961E 50%, #E5B842 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
-/* ── Values ── */
-.valuesSection { background: var(--color-surface-off, #f7f8fa); }
-
-.valuesGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.bodyTexts {
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
 }
 
-.valueCard {
-  background: var(--color-surface, #fff);
-  border-radius: var(--radius-2xl, 16px);
-  padding: 2rem;
-  border: 1px solid var(--color-border-light, #e8edf2);
+.bodyTexts p {
+  font-size: clamp(0.925rem, 1.05vw, 0.985rem);
+  line-height: 1.74;
+  color: #415953;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────
+   WHY CHOOSE US: Your Success Is Our Priority
+   Editorial 2-Column with 2x2 Badge Grid & Overlapping Photos
+───────────────────────────────────────────── */
+.whyChooseSection {
+  background: #ffffff;
+  padding: clamp(5rem, 8vw, 7.5rem) 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.whyChooseInner {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.08fr) minmax(320px, 0.92fr);
+  align-items: center;
+  gap: clamp(3rem, 5vw, 5.5rem);
+}
+
+.whyChooseContent {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-.valueCard:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
 }
 
-.valueTitle {
+.whyHeading {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--color-forest, #1C4B42);
+  font-size: clamp(2.2rem, 3.6vw, 3.1rem);
+  font-weight: 800;
+  color: #072820;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.25rem;
 }
 
-.valueText {
-  font-size: 0.9375rem;
-  color: var(--color-muted, #6b7280);
-  line-height: 1.7;
+.whyDescription {
+  font-size: 0.965rem;
+  line-height: 1.68;
+  color: #415953;
+  margin: 0 0 2.5rem;
+  max-width: 580px;
 }
 
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .statsGrid { grid-template-columns: repeat(2, 1fr); }
-  .statItem:nth-child(2) { border-right: none; }
-  .statItem:nth-child(3) { border-right: 1px solid var(--color-border-light, #e8edf2); }
-  .statItem:nth-child(4) { border-right: none; border-top: 1px solid var(--color-border-light, #e8edf2); }
-  .statItem:nth-child(3) { border-top: 1px solid var(--color-border-light, #e8edf2); }
-  .missionGrid { gap: 2.5rem; }
+/* 2x2 Feature Grid with Radiant Gold Badges */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.25rem 2rem;
+  max-width: 580px;
 }
 
-@media (max-width: 768px) {
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.featureIconBadge {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #FDE68A 0%, #E5B842 50%, #C8961E 100%);
+  color: #06231c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(200, 150, 30, 0.32);
+  flex-shrink: 0;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.featureItem:hover .featureIconBadge {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(200, 150, 30, 0.45);
+}
+
+.featureTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #072820;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.featureText {
+  font-size: 0.8875rem;
+  line-height: 1.58;
+  color: #415953;
+  margin: 0;
+}
+
+/* Right Column Visual: Overlapping Rounded Photos with Signature Gold Frame Accent */
+.whyVisual {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whyGoldFrame {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 80%;
+  height: 350px;
+  border-radius: 32px;
+  border: 2px solid rgba(229, 184, 66, 0.38);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.photoTop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 78%;
+  height: 335px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+}
+
+.photoBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 76%;
+  height: 315px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 6px solid #ffffff;
+  box-shadow: 0 22px 48px -12px rgba(0, 0, 0, 0.18);
+  z-index: 2;
+}
+
+.whyImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─────────────────────────────────────────────
+   Responsive Breakpoints
+───────────────────────────────────────────── */
+@media (max-width: 960px) {
   .heroInner {
     grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  .heroContent { order: 1; }
-  .heroVisual  { order: 2; }
 
-  .heroImg { max-height: 320px; }
-  .heroImgFade { display: none; }
+  .aboutContainer {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
 
-  .heroTitle { font-size: clamp(1.875rem, 7vw, 2.5rem); }
-  .heroSub   { max-width: none; }
-  .heroCta   { width: 100%; justify-content: center; }
+  .visualCol {
+    order: 1;
+  }
 
-  .statsGrid { grid-template-columns: repeat(2, 1fr); }
-  .statItem  { border-right: none; border-bottom: 1px solid var(--color-border-light, #e8edf2); }
-  .statItem:nth-child(odd) { border-right: 1px solid var(--color-border-light, #e8edf2); }
+  .contentCol {
+    order: 2;
+  }
 
-  .missionGrid  { grid-template-columns: 1fr; }
-  .missionImage { display: none; }
-  .valuesGrid   { grid-template-columns: 1fr; }
+  .imageStack {
+    max-width: 480px;
+    height: 480px;
+  }
+
+  .whyChooseInner {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .whyVisual {
+    min-height: 460px;
+    max-width: 540px;
+    margin: 0 auto;
+  }
 }
 
-@media (max-width: 480px) {
-  .statsGrid { grid-template-columns: repeat(2, 1fr); }
-  .heroImg   { max-height: none; }
+@media (max-width: 600px) {
+  .pageHero {
+    padding-top: 6.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .aboutSection {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .imageStack {
+    height: 400px;
+    max-width: 100%;
+  }
+
+  .campusCard {
+    border-radius: 22px;
+  }
+
+  .graduateCard {
+    border-radius: 22px;
+    border-width: 3px;
+  }
+
+  .sectionHeading {
+    font-size: 2.15rem;
+  }
+
+  .heroTitle {
+    font-size: 2.15rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .whyVisual {
+    min-height: 380px;
+  }
+
+  .whyGoldFrame {
+    display: none;
+  }
+
+  .photoTop {
+    height: 255px;
+  }
+
+  .photoBottom {
+    height: 240px;
+  }
 }

@@ -1,15 +1,20 @@
 /* ============================================================
-   LEAD BANNER / CTA — Premium dark section
+   LEAD BANNER / CTA — Imperial Dark Teal & Radiant Gold
+   - Deep imperial teal backdrop with subtle gold lighting
+   - Radiant gold primary button, eliminating neon lime
+   - High-contrast, prestigious typography
    ============================================================ */
 
 .section {
   position: relative;
-  padding: var(--section-py) 0;
-  background: linear-gradient(135deg, var(--color-forest) 0%, #0d2e28 60%, var(--color-navy-mid) 100%);
+  padding: clamp(4rem, 6.5vw, 5.5rem) 0;
+  background: linear-gradient(135deg, #051e18 0%, #082921 50%, #031410 100%);
+  border-top: 1px solid rgba(229, 184, 66, 0.25);
+  border-bottom: 1px solid rgba(229, 184, 66, 0.2);
   overflow: hidden;
 }
 
-/* Subtle bg texture */
+/* Subtle background texture */
 .section::before {
   content: '';
   position: absolute;
@@ -17,20 +22,19 @@
   background-image: url('/images/hero/hero-bg.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.04;
+  opacity: 0.05;
   pointer-events: none;
 }
 
-/* Decorative circles */
-.section::after {
-  content: '';
+/* Radiant Gold Ambient Glow */
+.glow {
   position: absolute;
-  top: -30%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
+  top: -40%;
+  right: -5%;
+  width: 550px;
+  height: 550px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(26,175,176,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(229, 184, 66, 0.14) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -40,54 +44,153 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-12);
+  gap: clamp(2rem, 4vw, 4rem);
   flex-wrap: wrap;
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: 0.85rem;
   flex: 1;
-  min-width: 260px;
+  min-width: 280px;
+}
+
+/* Eyebrow */
+.eyebrowWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.32rem 0.85rem;
+  background: rgba(229, 184, 66, 0.12);
+  border: 1px solid rgba(229, 184, 66, 0.3);
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E5B842;
+  box-shadow: 0 0 8px rgba(229, 184, 66, 0.8);
 }
 
 .eyebrow {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-widest);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-lime);
+  color: #F8DA82;
   margin: 0;
 }
 
 .title {
-  font-family: var(--font-heading);
-  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
-  font-weight: var(--weight-extrabold);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2rem, 3.5vw, 2.85rem);
+  font-weight: 800;
   color: #ffffff;
-  line-height: var(--leading-snug);
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
   margin: 0;
 }
 
 .subtitle {
-  font-size: var(--text-lg);
-  color: rgba(255, 255, 255, 0.72);
-  line-height: var(--leading-relaxed);
-  max-width: 54ch;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  max-width: 52ch;
   margin: 0;
 }
 
+/* Action Buttons */
 .ctas {
   flex-shrink: 0;
   display: flex;
-  gap: var(--space-4);
+  gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
+/* Primary Button: Radiant Metallic Gold */
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #06231c;
+  background: linear-gradient(135deg, #FDE68A 0%, #E5B842 45%, #C8961E 100%);
+  padding: 0.85rem 1.85rem;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1px solid rgba(200, 150, 30, 0.4);
+  box-shadow:
+    0 4px 18px rgba(200, 150, 30, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transition:
+    background 200ms ease,
+    transform 150ms ease,
+    box-shadow 200ms ease;
+  white-space: nowrap;
+}
+
+.primaryBtn:hover {
+  background: linear-gradient(135deg, #FFF0A8 0%, #ECC558 45%, #D6A42A 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 26px rgba(200, 150, 30, 0.48),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  color: #031511;
+}
+
+/* Secondary Button: Subtle Frosted Glass with Gold Border */
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  padding: 0.825rem 1.65rem;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1.5px solid rgba(229, 184, 66, 0.45);
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    transform 150ms ease,
+    box-shadow 200ms ease;
+  white-space: nowrap;
+}
+
+.phoneIcon {
+  color: #E5B842;
+  transition: transform 200ms ease;
+}
+
+.secondaryBtn:hover {
+  background: rgba(229, 184, 66, 0.15);
+  border-color: #E5B842;
+  color: #F8DA82;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(229, 184, 66, 0.25);
+}
+
+.secondaryBtn:hover .phoneIcon {
+  transform: scale(1.1);
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS
+───────────────────────────────────────────── */
+@media (max-width: 860px) {
   .inner {
     flex-direction: column;
     text-align: center;
@@ -99,12 +202,19 @@
     min-width: unset;
   }
 
-  .subtitle { max-width: 42ch; }
+  .subtitle {
+    max-width: 44ch;
+  }
 
   .ctas {
     width: 100%;
     flex-direction: column;
+    align-items: stretch;
   }
 
-  .ctas > * { width: 100%; justify-content: center; }
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
 }

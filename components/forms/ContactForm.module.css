@@ -1,29 +1,132 @@
+/* ============================================================
+   CONTACT FORM — Luxury Minimal Form Component
+   ============================================================ */
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: 1.25rem;
 }
 
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
+  gap: 1.15rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.label {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #072820;
+  letter-spacing: -0.01em;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  border: 1.5px solid #dce5e1;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #072820;
+  background-color: #fbfdfc;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background-color 200ms ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #8fa59e;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: #E5B842;
+  box-shadow: 0 0 0 3.5px rgba(229, 184, 66, 0.18);
+  background-color: #ffffff;
+}
+
+.select {
+  cursor: pointer;
+}
+
+.textarea {
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.6;
 }
 
 .error {
-  font-size: var(--text-sm);
-  color: var(--color-error);
-  padding: var(--space-3) var(--space-4);
+  font-size: 0.875rem;
+  color: #dc2626;
+  padding: 0.75rem 1rem;
   background: rgba(220, 38, 38, 0.08);
-  border-radius: var(--radius-md);
+  border-radius: 12px;
   border: 1px solid rgba(220, 38, 38, 0.2);
+  margin: 0;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #06231c !important;
+  background: linear-gradient(135deg, #FDE68A 0%, #E5B842 45%, #C8961E 100%) !important;
+  padding: 0.95rem 2.25rem;
+  border-radius: 100px;
+  border: 1px solid rgba(200, 150, 30, 0.4);
+  box-shadow:
+    0 4px 18px rgba(229, 184, 66, 0.32),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+  width: 100%;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #FFF0A8 0%, #ECC558 45%, #D6A42A 100%) !important;
+  box-shadow:
+    0 8px 26px rgba(229, 184, 66, 0.46),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .disclaimer {
-  font-size: var(--text-sm);
-  color: var(--color-subtle);
-  line-height: var(--leading-relaxed);
+  font-size: 0.8rem;
+  color: #728c85;
+  line-height: 1.5;
   text-align: center;
+  margin: 0.25rem 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
 }
 
 /* Success state */
@@ -32,19 +135,52 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-4);
-  padding: var(--space-12) var(--space-6);
+  gap: 1.15rem;
+  padding: 3rem 1.5rem;
 }
 
 .successIcon {
-  color: var(--color-teal);
+  color: #C8961E;
+  width: 54px;
+  height: 54px;
 }
 
 .successTitle {
-  font-family: var(--font-heading);
-  font-size: var(--text-2xl);
-  font-weight: var(--weight-bold);
-  color: var(--color-navy);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #072820;
+  margin: 0;
+}
+
+.successDesc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #55726b;
+  margin: 0;
+  max-width: 44ch;
+}
+
+.resetBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #082921;
+  background: rgba(229, 184, 66, 0.15);
+  border: 1px solid rgba(200, 150, 30, 0.35);
+  padding: 0.75rem 1.65rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 150ms ease;
+  margin-top: 0.5rem;
+}
+
+.resetBtn:hover {
+  background: rgba(229, 184, 66, 0.25);
+  transform: translateY(-2px);
 }
 
 @keyframes spin {
@@ -57,5 +193,8 @@
 }
 
 @media (max-width: 640px) {
-  .row { grid-template-columns: 1fr; }
+  .row {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
 }

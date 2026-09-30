@@ -166,9 +166,14 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(7, 40, 32, 0.25) transparent;
+}
+
+html[data-scroll-behavior="smooth"] {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -718,15 +723,27 @@ strong { font-weight: var(--weight-semibold); }
 }
 
 /* ============================================================
-   SCROLLBAR (aesthetic)
+   SCROLLBAR (aesthetic & luxury)
    ============================================================ */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: var(--radius-full);
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--color-teal); }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(7, 40, 32, 0.22);
+  border-radius: 100px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  transition: background 180ms ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-teal, #009cac);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
 
 /* ============================================================
    PRINT
