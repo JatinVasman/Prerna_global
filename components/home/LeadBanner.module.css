@@ -1,0 +1,110 @@
+/* ============================================================
+   LEAD BANNER / CTA — Premium dark section
+   ============================================================ */
+
+.section {
+  position: relative;
+  padding: var(--section-py) 0;
+  background: linear-gradient(135deg, var(--color-forest) 0%, #0d2e28 60%, var(--color-navy-mid) 100%);
+  overflow: hidden;
+}
+
+/* Subtle bg texture */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/hero/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* Decorative circles */
+.section::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,175,176,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex: 1;
+  min-width: 260px;
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-lime);
+  margin: 0;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
+  font-weight: var(--weight-extrabold);
+  color: #ffffff;
+  line-height: var(--leading-snug);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.72);
+  line-height: var(--leading-relaxed);
+  max-width: 54ch;
+  margin: 0;
+}
+
+.ctas {
+  flex-shrink: 0;
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .text {
+    align-items: center;
+    min-width: unset;
+  }
+
+  .subtitle { max-width: 42ch; }
+
+  .ctas {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .ctas > * { width: 100%; justify-content: center; }
+}

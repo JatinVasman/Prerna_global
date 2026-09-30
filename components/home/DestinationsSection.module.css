@@ -1,0 +1,152 @@
+/* ============================================================
+   DESTINATIONS SECTION — 4 photo-bg cards with gradient overlay
+   ============================================================ */
+
+.section {
+  padding-top: var(--section-py-lg);
+  padding-bottom: var(--section-py-sm);
+  background-color: var(--color-surface);
+}
+
+/* ── Intro heading block ── */
+.intro {
+  margin-bottom: var(--space-10);
+  max-width: 720px;
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-teal);
+  margin: 0 0 var(--space-3);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+  font-weight: var(--weight-extrabold);
+  color: var(--color-forest);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.025em;
+  margin: 0 0 var(--space-4);
+}
+
+.accent { color: var(--color-teal); }
+
+.subtext {
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+  max-width: 64ch;
+}
+
+/* ── 4 destination cards ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-1);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  text-decoration: none;
+  transition: flex-grow var(--duration-slow) var(--ease-standard);
+}
+
+.card:hover {
+  flex: 1.5;
+}
+
+/* Gradient overlay: transparent top → forest bottom */
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(28, 75, 66, 0.7) 70%,
+    rgba(28, 75, 66, 0.95) 100%
+  );
+  transition: opacity var(--duration-normal) var(--ease-standard);
+}
+
+.card:hover .cardOverlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 20%,
+    rgba(28, 75, 66, 0.75) 65%,
+    rgba(28, 75, 66, 0.98) 100%
+  );
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-extrabold);
+  color: #ffffff;
+  margin: 0;
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
+}
+
+.cardDesc {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.80);
+  line-height: var(--leading-snug);
+  margin: 0;
+}
+
+/* CTA row */
+.ctaRow {
+  margin-top: var(--space-10);
+  text-align: center;
+  padding-bottom: var(--space-16);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+    border-radius: var(--radius-2xl);
+  }
+
+  .card {
+    border-radius: var(--radius-xl);
+  }
+
+  .card:hover { flex: 1; }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .card {
+    min-height: 260px;
+  }
+}

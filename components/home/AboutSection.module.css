@@ -1,0 +1,215 @@
+/* ============================================================
+   ABOUT SECTION — 2-col: right=dark card, left=text+tabs
+   ============================================================ */
+
+.about {
+  padding-top: var(--section-py-lg);
+  padding-bottom: var(--section-py-lg);
+  background-color: var(--color-surface);
+}
+
+.inner {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-14);
+  align-items: stretch;
+}
+
+/* ── RIGHT: dark card with bg image ── */
+.right {
+  flex: 1;
+  min-width: 0;
+}
+
+.rightCard {
+  position: relative;
+  background-color: var(--color-forest);
+  border-radius: var(--radius-3xl);
+  padding: var(--space-10) var(--space-10) 0 var(--space-10);
+  height: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.videoBg {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.videoBgImg {
+  object-fit: cover;
+  object-position: center top;
+  border-radius: inherit;
+}
+
+.videoBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 75, 66, 0.55) 0%,
+    rgba(28, 75, 66, 0.92) 65%,
+    rgba(28, 75, 66, 0.98) 100%
+  );
+  border-radius: inherit;
+}
+
+.rightContent {
+  position: relative;
+  z-index: 1;
+  padding-bottom: var(--space-12);
+}
+
+.rightHeading {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-extrabold);
+  color: #ffffff;
+  line-height: var(--leading-snug);
+  margin: 0 0 var(--space-5);
+  letter-spacing: -0.02em;
+}
+
+.rightText {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.78);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+  max-width: 44ch;
+}
+
+/* ── LEFT: eyebrow + heading + tabs ── */
+.left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-7);
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-teal);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+  font-weight: var(--weight-extrabold);
+  color: var(--color-forest);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.headingAccent {
+  color: var(--color-teal);
+}
+
+.body {
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+  max-width: 52ch;
+}
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.tabList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tabBtn {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  padding: 0.5625rem 1.25rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--color-muted);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard);
+  letter-spacing: 0.01em;
+}
+
+.tabBtn:hover {
+  background-color: var(--color-forest-pale);
+  color: var(--color-forest);
+  border-color: var(--color-forest);
+}
+
+.tabBtnActive {
+  background-color: var(--color-forest);
+  color: #ffffff;
+  border-color: var(--color-forest);
+}
+
+.tabBtnActive:hover {
+  background-color: var(--color-forest-mid);
+  border-color: var(--color-forest-mid);
+  color: #ffffff;
+}
+
+.tabPanel[hidden] { display: none; }
+
+.tabContent {
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+  max-width: 58ch;
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-surface-off);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-light);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .about {
+    padding-top: var(--section-py);
+    padding-bottom: var(--section-py);
+  }
+
+  .inner { gap: var(--space-10); }
+}
+
+@media (max-width: 768px) {
+  .inner { flex-direction: column; }
+  .right { order: 2; }
+  .left  { order: 1; }
+
+  .rightCard {
+    min-height: 340px;
+    padding: var(--space-8) var(--space-6) 0;
+  }
+
+  .heading { font-size: var(--text-3xl); }
+  .rightHeading { font-size: var(--text-2xl); }
+
+  .body { max-width: none; }
+  .tabContent { max-width: none; }
+}

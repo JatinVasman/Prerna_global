@@ -1,0 +1,208 @@
+/* ============================================================
+   FAQ SECTION — Premium accordion + sticky query panel
+   ============================================================ */
+
+.section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py-lg);
+  background-color: var(--color-surface);
+}
+
+/* ── Header row ── */
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-12);
+  gap: var(--space-8);
+}
+
+.headerLeft { flex: 1; }
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-teal);
+  display: block;
+  margin: 0 0 var(--space-3);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
+  font-weight: var(--weight-extrabold);
+  color: var(--color-forest);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.headingAccent { color: var(--color-teal); }
+
+/* ── Content layout ── */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+/* ── Accordion ── */
+.accordionCol { min-width: 0; }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.item {
+  border: 1.5px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.item:hover,
+.item.open {
+  border-color: rgba(26, 175, 176, 0.35);
+  box-shadow: var(--shadow-sm);
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-5) var(--space-6);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: var(--space-4);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.trigger:hover,
+.open .trigger {
+  background-color: var(--color-teal-surface);
+}
+
+.question {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-forest);
+  line-height: var(--leading-snug);
+  flex: 1;
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--color-teal);
+  transition: transform var(--duration-normal) var(--ease-emphasized);
+}
+
+.open .chevron {
+  transform: rotate(180deg);
+}
+
+.answer {
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  font-size: 0.9375rem;
+  line-height: var(--leading-relaxed);
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border-light);
+  margin: 0;
+}
+
+/* ── Right Query Panel ── */
+.queryPanel {
+  background: var(--color-forest);
+  border-radius: var(--radius-3xl);
+  padding: var(--space-10) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  align-items: flex-start;
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+/* Decorative orb inside panel */
+.queryPanel::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -30%;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(180,231,23,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.queryIcon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(180, 231, 23, 0.15);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-lime);
+  position: relative;
+  z-index: 1;
+}
+
+.queryTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-extrabold);
+  color: #ffffff;
+  margin: 0;
+  line-height: var(--leading-snug);
+  position: relative;
+  z-index: 1;
+}
+
+.queryText {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.70);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.queryBtn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .content { grid-template-columns: 1fr; }
+  .queryPanel {
+    position: static;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-top: var(--section-py-sm);
+    padding-bottom: var(--section-py);
+  }
+}

@@ -1,0 +1,111 @@
+/* ============================================================
+   PILLARS / FEATURE BAR — 3 icon-boxes overlapping hero
+   ============================================================ */
+
+.section {
+  position: relative;
+  z-index: 3;
+  /* Pull Pillars up into hero overlap space */
+  margin-top: clamp(-5rem, -6vw, -4rem);
+  padding-top: 0;
+  padding-bottom: var(--space-8, 2rem);
+  background: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  background: transparent;
+}
+
+.pillar {
+  background-color: var(--color-forest);
+  padding: var(--space-6);
+  border-radius: var(--radius-2xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-5);
+  border: 1px solid rgba(255,255,255,0.07);
+  transition:
+    transform var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard),
+    background-color var(--duration-normal) var(--ease-standard);
+}
+
+.pillar:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(10, 22, 40, 0.25);
+  background-color: var(--color-forest-mid);
+}
+
+.pillarIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  background-color: rgba(180, 231, 23, 0.15);
+  color: var(--color-lime);
+  flex-shrink: 0;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.pillar:hover .pillarIcon {
+  background-color: var(--color-lime);
+  color: var(--color-forest);
+}
+
+.pillarBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pillarTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: #ffffff;
+  margin: 0;
+  line-height: var(--leading-snug);
+}
+
+.pillarText {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.70);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .grid { gap: var(--space-4); }
+  .section { margin-top: -2%; }
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-top: 0;
+    padding: var(--space-6) 0;
+    background-color: var(--color-forest);
+    border-radius: 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .pillar {
+    border-radius: var(--radius-xl);
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .pillar:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+    transform: none;
+  }
+}

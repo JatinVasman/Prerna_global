@@ -1,0 +1,155 @@
+/* ============================================================
+   PROCESS STEPS — 4-column numbered steps
+   ============================================================ */
+
+.section {
+  padding-top: var(--section-py-lg);
+  padding-bottom: var(--section-py-sm);
+  background-color: var(--color-surface);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-teal);
+  display: block;
+  margin: 0 0 var(--space-3);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+  font-weight: var(--weight-extrabold);
+  color: var(--color-forest);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.headingAccent { color: var(--color-teal); }
+
+/* Steps grid */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-10);
+  margin-bottom: var(--space-12);
+  position: relative;
+}
+
+/* Connector line between steps */
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(12.5% + 24px);
+  right: calc(12.5% + 24px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-teal-pale), var(--color-teal-pale));
+  border-radius: var(--radius-full);
+  z-index: 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+/* Step number badge */
+.stepNumWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background: var(--color-forest);
+  box-shadow: 0 4px 16px rgba(28,75,66,0.25);
+}
+
+.stepNum {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-extrabold);
+  color: var(--color-lime);
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.stepNum em {
+  font-style: normal;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-extrabold);
+  line-height: 1;
+  color: #ffffff;
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-forest);
+  margin: 0;
+  line-height: var(--leading-snug);
+}
+
+.stepText {
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+/* Footnote */
+.footNote {
+  text-align: center;
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  padding-bottom: var(--space-12);
+  margin: 0;
+}
+
+.footNoteLink {
+  color: var(--color-teal);
+  font-weight: var(--weight-semibold);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color var(--duration-fast);
+}
+
+.footNoteLink:hover {
+  text-decoration-color: var(--color-teal);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-10);
+  }
+
+  .steps::before { display: none; }
+}
+
+@media (max-width: 640px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
