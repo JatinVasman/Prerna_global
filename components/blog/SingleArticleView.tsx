@@ -105,9 +105,9 @@ export default function SingleArticleView({ article, category, relatedArticles }
               width={1000}
               height={480}
               className={styles.featuredImg}
+              sizes="(max-width: 768px) 100vw, 1000px"
               style={{ width: '100%', height: 'auto', maxHeight: '480px', objectFit: 'cover' }}
               priority
-              unoptimized
             />
           </div>
         </div>
@@ -411,8 +411,8 @@ export default function SingleArticleView({ article, category, relatedArticles }
                         width={380}
                         height={200}
                         className={styles.relThumb}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        unoptimized
                       />
                     </Link>
                     <span className={styles.relCatBadge}>{item.category_name}</span>

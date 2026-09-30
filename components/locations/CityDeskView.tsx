@@ -323,8 +323,8 @@ export default function CityDeskView({ city, relatedBlogs }: Props) {
                       width={380}
                       height={200}
                       className={styles.blogImg}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      unoptimized
                     />
                     <span className={styles.blogCategoryBadge}>{b.category_name}</span>
                   </div>

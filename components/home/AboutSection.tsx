@@ -79,7 +79,6 @@ export default function AboutSection() {
                 height={1000}
                 className={styles.mainImage}
                 sizes="(max-width: 768px) 100vw, 45vw"
-                priority
               />
               <div className={styles.imageOverlay} />
             </div>

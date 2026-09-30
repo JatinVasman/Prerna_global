@@ -81,7 +81,6 @@ export default function AboutPage() {
                   alt="Historic university campus architecture"
                   fill
                   className={styles.campusImg}
-                  priority
                   sizes="(max-width: 960px) 100vw, 50vw"
                 />
               </div>
@@ -93,7 +92,6 @@ export default function AboutPage() {
                   alt="Successful Indian graduate student placed by Prerna Global Services"
                   fill
                   className={styles.graduateImg}
-                  priority
                   sizes="(max-width: 960px) 95vw, 45vw"
                 />
               </div>

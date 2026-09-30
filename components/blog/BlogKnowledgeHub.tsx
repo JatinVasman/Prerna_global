@@ -181,9 +181,9 @@ export default function BlogKnowledgeHub({
                     width={560}
                     height={340}
                     className={styles.featuredImg}
+                    sizes="(max-width: 768px) 100vw, 560px"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     priority
-                    unoptimized
                   />
                 </Link>
                 <span className={styles.featuredTag}>Featured Guide</span>
@@ -263,8 +263,8 @@ export default function BlogKnowledgeHub({
                         width={380}
                         height={200}
                         className={styles.cardThumb}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        unoptimized
                       />
                     </Link>
                     <span className={styles.cardCatBadge}>{article.category_name}</span>

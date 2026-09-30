@@ -22,7 +22,6 @@ export default function TestPrepSection() {
                 height={520}
                 className={styles.image}
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority
               />
             </div>
             {/* Subtle floating trust pill */}
