@@ -244,3 +244,30 @@
     height: 220px;
   }
 }
+
+@media (max-width: 480px) {
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .heading {
+    font-size: 1.65rem;
+  }
+
+  .card {
+    padding: 1.25rem 1.15rem;
+  }
+
+  .cardTitle {
+    font-size: 1.15rem;
+  }
+
+  .cardDesc {
+    font-size: 0.86rem;
+  }
+
+  .cardMediaWrap {
+    height: 190px;
+  }
+}

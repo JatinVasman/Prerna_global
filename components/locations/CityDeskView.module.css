@@ -777,3 +777,113 @@
   border-color: #E5B842;
   background: rgba(229, 184, 66, 0.08);
 }
+
+/* ─────────────────────────────────────────────
+   Responsive Breakpoints
+───────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .hero {
+    padding: clamp(3rem, 5vw, 4.5rem) 0;
+  }
+
+  .consultOptions {
+    grid-template-columns: 1fr;
+  }
+
+  .advantagesCard {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 2.75rem 0;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.85rem, 6.5vw, 2.5rem);
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .goldBtn,
+  .outlineBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .trustStrip {
+    gap: 0.85rem;
+    flex-direction: column;
+  }
+
+  .collegesGrid {
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .collegePill {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.85rem;
+  }
+
+  .infoBoxGrid,
+  .testPrepGrid,
+  .blogsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+
+  .sectionH2 {
+    font-size: 1.75rem;
+  }
+
+  .ctaStripCard {
+    padding: 2.25rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .ctaStripTitle {
+    font-size: 1.75rem;
+  }
+
+  .ctaStripActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ctaGoldBtn,
+  .ctaPhoneBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.65rem;
+  }
+
+  .sectionH2 {
+    font-size: 1.5rem;
+  }
+
+  .ctaStripTitle {
+    font-size: 1.55rem;
+  }
+
+  .infoBox {
+    padding: 1.25rem;
+  }
+}

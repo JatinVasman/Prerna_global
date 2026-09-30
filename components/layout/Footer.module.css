@@ -207,8 +207,15 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-10);
+    gap: var(--space-6);
   }
 }
 
@@ -227,3 +234,28 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 480px) {
+  .top {
+    padding-top: 2.75rem;
+    padding-bottom: 2rem;
+  }
+
+  .grid {
+    gap: 2rem;
+  }
+
+  .consultBtn {
+    width: 100%;
+  }
+
+  .bottomInner {
+    gap: 0.75rem;
+  }
+
+  .bottomLinks {
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+}
+

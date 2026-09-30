@@ -379,3 +379,66 @@
   border-color: #E5B842;
   background: rgba(229, 184, 66, 0.08);
 }
+
+/* ─────────────────────────────────────────────
+   Responsive Breakpoints
+───────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .hero {
+    padding: clamp(3rem, 5.5vw, 4.5rem) 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 2.75rem 0;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.85rem, 6.5vw, 2.5rem);
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .citiesGrid,
+  .districtsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .ctaCard {
+    padding: 2.25rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .ctaTitle {
+    font-size: 1.75rem;
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .goldBtn,
+  .phoneLink {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.65rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.55rem;
+  }
+
+  .cityCard {
+    padding: 1.15rem 1rem;
+  }
+}

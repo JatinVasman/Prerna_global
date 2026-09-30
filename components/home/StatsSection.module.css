@@ -127,3 +127,19 @@
     height: 42px;
   }
 }
+
+@media (max-width: 480px) {
+  .number {
+    font-size: 2rem;
+  }
+
+  .label {
+    font-size: 0.875rem;
+  }
+
+  .bar {
+    height: 38px;
+    width: 3px;
+  }
+}
+

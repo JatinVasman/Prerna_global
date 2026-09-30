@@ -291,3 +291,26 @@
     font-size: 1.85rem;
   }
 }
+
+@media (max-width: 480px) {
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .heading {
+    font-size: 1.65rem;
+  }
+
+  .stepCard {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .stepTitle {
+    font-size: 1.12rem;
+  }
+
+  .stepText {
+    font-size: 0.86rem;
+  }
+}

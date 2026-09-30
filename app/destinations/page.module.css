@@ -468,3 +468,29 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 480px) {
+  .pageHero {
+    padding-top: 6.5rem;
+  }
+
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+
+  .heroSub {
+    font-size: 0.9rem;
+  }
+
+  .destImgWrap {
+    height: 210px;
+  }
+
+  .destCard {
+    border-radius: 20px;
+  }
+
+  .destBody {
+    padding: 1.1rem;
+  }
+}

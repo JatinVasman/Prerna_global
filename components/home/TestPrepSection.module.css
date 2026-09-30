@@ -273,3 +273,33 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 480px) {
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .heading {
+    font-size: 1.65rem;
+  }
+
+  .goldFrame {
+    top: -6px;
+    left: -6px;
+    right: 6px;
+    bottom: 6px;
+  }
+
+  .floatingPill {
+    right: 4px;
+    bottom: 8px;
+    font-size: 0.7rem;
+    padding: 0.38rem 0.7rem;
+  }
+
+  .examBadge {
+    font-size: 0.75rem;
+    padding: 0.32rem 0.75rem;
+  }
+}

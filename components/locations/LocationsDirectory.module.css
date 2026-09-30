@@ -627,3 +627,93 @@
   border-color: #E5B842;
   background: rgba(229, 184, 66, 0.08);
 }
+
+/* ─────────────────────────────────────────────
+   Responsive Breakpoints
+───────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .hero {
+    padding: clamp(3rem, 5.5vw, 4.5rem) 0;
+  }
+
+  .statesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 2.75rem 0;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.85rem, 6.5vw, 2.5rem);
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .searchBox {
+    max-width: 100%;
+  }
+
+  .searchInput {
+    padding: 0.8rem 2.85rem;
+    font-size: 0.9rem;
+  }
+
+  .stateFilterRow {
+    gap: 0.35rem;
+  }
+
+  .statePill {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .statesGrid,
+  .citiesGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .dirResultsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ctaCard {
+    padding: 2.25rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .ctaTitle {
+    font-size: 1.75rem;
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .goldBtn,
+  .phoneLink {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.65rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.55rem;
+  }
+
+  .cityCard {
+    padding: 1.15rem 1rem;
+  }
+}

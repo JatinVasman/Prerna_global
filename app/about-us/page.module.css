@@ -579,3 +579,47 @@
     height: 240px;
   }
 }
+
+@media (max-width: 480px) {
+  .pageHero {
+    padding-top: 6rem;
+  }
+
+  .heroTitle {
+    font-size: 1.85rem;
+  }
+
+  .heroSub {
+    font-size: 0.9rem;
+  }
+
+  .imageStack {
+    height: 340px;
+  }
+
+  .sectionHeading {
+    font-size: 1.85rem;
+  }
+
+  .campusCard {
+    border-radius: 18px;
+  }
+
+  .graduateCard {
+    border-radius: 18px;
+    border-width: 3px;
+  }
+
+  .whyVisual {
+    min-height: 340px;
+  }
+
+  .photoTop {
+    height: 220px;
+  }
+
+  .photoBottom {
+    height: 200px;
+  }
+}
+

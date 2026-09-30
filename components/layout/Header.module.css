@@ -290,7 +290,7 @@
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .nav {
     display: none;
   }
@@ -344,5 +344,25 @@
   .menuToggle {
     width: 38px;
     height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerWrapper {
+    padding: 0.35rem 0.5rem 0;
+  }
+
+  .pillContainer {
+    height: 56px;
+    padding: 0 0.75rem;
+  }
+
+  .logoImage {
+    height: 42px;
+  }
+
+  .menuToggle {
+    width: 36px;
+    height: 36px;
   }
 }

@@ -387,3 +387,39 @@
     right: 4px;
   }
 }
+
+@media (max-width: 480px) {
+  .section {
+    padding: 44px 0 48px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 28px;
+  }
+
+  .heading {
+    font-size: 1.65rem;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .navBtn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .prevBtn {
+    left: 0;
+  }
+
+  .nextBtn {
+    right: 0;
+  }
+
+  .card {
+    padding: 18px 16px;
+  }
+}
+

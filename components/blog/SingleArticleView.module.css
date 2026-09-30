@@ -800,3 +800,87 @@
     position: static;
   }
 }
+
+@media (max-width: 640px) {
+  .header {
+    padding-top: 2rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .title {
+    font-size: clamp(1.65rem, 6.5vw, 2.5rem);
+  }
+
+  .imgContainer {
+    border-radius: 14px;
+  }
+
+  .featuredImg {
+    max-height: 260px;
+  }
+
+  .prose {
+    font-size: 0.975rem;
+    line-height: 1.7;
+  }
+
+  .prose h2 {
+    font-size: clamp(1.25rem, 5vw, 1.6rem);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  .calloutTip {
+    padding: 1.15rem 1.25rem;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .tocCard {
+    padding: 1.15rem 1.35rem;
+  }
+
+  .bodySection {
+    padding-bottom: 2.5rem;
+  }
+
+  .relGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .authorAvatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .prose {
+    font-size: 0.94rem;
+  }
+
+  .calloutTip {
+    padding: 1rem 1rem;
+  }
+
+  .tocCard {
+    padding: 1rem 1.1rem;
+  }
+
+  .featuredImgWrap {
+    margin-bottom: 1.75rem;
+  }
+
+  .metaRow {
+    gap: 0.5rem;
+  }
+
+  .metaItem {
+    font-size: 0.78rem;
+  }
+}
+

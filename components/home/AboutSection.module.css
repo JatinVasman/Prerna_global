@@ -571,3 +571,46 @@
     display: none;
   }
 }
+
+@media (max-width: 480px) {
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .imageCard {
+    height: 280px;
+  }
+
+  .goldFrame {
+    top: -6px;
+    left: -6px;
+    right: 6px;
+  }
+
+  .overlappingCard {
+    margin-top: -1.5rem;
+    padding: 1.1rem;
+    border-radius: 18px;
+  }
+
+  .cardHeading {
+    font-size: 1.12rem;
+  }
+
+  .cardText {
+    font-size: 0.84rem;
+  }
+
+  .heading {
+    font-size: 1.65rem;
+  }
+
+  .statsBar {
+    padding: 1rem;
+  }
+
+  .statValue {
+    font-size: 1.35rem;
+  }
+}
