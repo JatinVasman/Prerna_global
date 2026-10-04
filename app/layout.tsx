@@ -25,7 +25,7 @@ const inter = Inter({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#1AAFB0',
+  themeColor: '#00989E',
 };
 
 export const metadata: Metadata = {
@@ -67,6 +67,15 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${siteConfig.name} | Study Abroad Consultancy, Pune`,
     description: siteConfig.description,
+  },
+  icons: {
+    icon: [
+      { url: '/images/brand/logo.png', type: 'image/png' },
+    ],
+    shortcut: '/images/brand/logo.png',
+    apple: [
+      { url: '/images/brand/logo.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   robots: {
     index: true,

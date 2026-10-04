@@ -7,9 +7,9 @@ import { ArrowRight, Shield, GraduationCap, Globe2 } from 'lucide-react';
 import styles from './Hero.module.css';
 
 const TRUST_ITEMS = [
-  { icon: Shield, label: '100% Visa Success' },
-  { icon: GraduationCap, label: '2000+ Students' },
-  { icon: Globe2, label: '9 Destinations' },
+  { icon: Shield, label: '100% Expert Visa Guidance' },
+  { icon: GraduationCap, label: '2000+ Successful Students' },
+  { icon: Globe2, label: '35+ Destinations' },
 ];
 
 export default function Hero() {
@@ -68,8 +68,8 @@ export default function Hero() {
           </div>
 
           <h1 className={styles.headline}>
-            Your Gateway to{' '}
-            <span className={styles.headlineAccent}>World‑Class</span> Education
+            Your Journey to the World’s {' '}
+            <span className={styles.headlineAccent}>Best Universities</span>
           </h1>
         </header>
 

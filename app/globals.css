@@ -13,43 +13,53 @@
    DESIGN TOKENS
    ============================================================ */
 :root {
-  /* ── Brand Colors ───────────────────────────────────────── */
-  /* Teal — primary interactive */
-  --color-teal:          #1AAFB0;
-  --color-teal-dark:     #0D8A8B;
-  --color-teal-deeper:   #0A6E6F;
-  --color-teal-light:    #2ECBCC;
-  --color-teal-pale:     #E8F8F8;
-  --color-teal-surface:  #F0FAFA;
+  /* ── Brand Colors — Matching Reference Design ───────────── */
+  /* Vibrant Ocean Teal — Signature primary brand color from reference */
+  --color-teal:          #00989E;
+  --color-teal-vibrant:  #00989E;
+  --color-teal-dark:     #007C82;
+  --color-teal-deeper:   #08292B;
+  --color-teal-light:    #26B4BA;
+  --color-teal-pale:     #E8F4F7;
+  --color-teal-surface:  #F0F8FA;
 
-  /* Forest — deep brand green */
-  --color-forest:        #1C4B42;
-  --color-forest-mid:    #245c51;
-  --color-forest-light:  #2d6e62;
-  --color-forest-pale:   #E8F3F0;
+  /* Deep Navy-Teal — Dark sections (Testimonial banner & Footer) */
+  --color-forest:        #08292B;
+  --color-forest-mid:    #0E3336;
+  --color-forest-light:  #14464A;
+  --color-forest-pale:   #E8F4F7;
 
-  /* Lime — accent / eyebrow / CTA on dark */
-  --color-lime:          #B4E717;
-  --color-lime-dark:     #9dcc00;
-  --color-lime-pale:     rgba(180, 231, 23, 0.12);
+  /* Warm Golden Amber — CTA buttons & Highlighted Words */
+  --color-lime:          #C88D1B;
+  --color-lime-dark:     #B87C10;
+  --color-lime-pale:     #FEF7EA;
 
-  /* Gold — secondary accent */
-  --color-gold:          #C9A227;
-  --color-gold-light:    #E4BC4B;
-  --color-gold-dark:     #A07B20;
-  --color-gold-pale:     #FEF8E7;
+  --color-gold:          #C88D1B;
+  --color-gold-bright:   #D49B1F;
+  --color-gold-light:    #E0A72E;
+  --color-gold-dark:     #B87C10;
+  --color-gold-pale:     #FEF7EA;
+  --color-gold-soft:     #F3C258;
 
-  /* ── Neutral Scale — navy-anchored ──────────────────────── */
-  --color-navy:          #0A1628;
-  --color-navy-mid:      #1A2B45;
-  --color-slate:         #2D3F55;
-  --color-muted:         #5A6880;
-  --color-subtle:        #8B97A8;
-  --color-border:        #D8E2EE;
-  --color-border-light:  #EBF0F7;
+  /* ── Neutral Scale — Clean, Legible & Crisp ──────────────── */
+  --color-navy:          #0E2A32;
+  --color-navy-mid:      #163842;
+  --color-slate:         #334155;
+  --color-muted:         #64748B;
+  --color-subtle:        #94A3B8;
+  --color-border:        #E2E8F0;
+  --color-border-light:  #EAEFF2;
   --color-surface:       #FFFFFF;
-  --color-surface-off:   #F5F7FA;
-  --color-surface-warm:  #FAFAF8;
+  --color-surface-off:   #F8FAFC;
+  --color-surface-warm:  #F9FAF8;
+
+  /* ── Dark Section Text & Border Tokens ───────────────────── */
+  --text-dark-primary:   #FFFFFF;
+  --text-dark-secondary: #D1EEEE;
+  --text-dark-muted:     #9BC5C5;
+  --border-dark:         rgba(255, 255, 255, 0.15);
+  --border-teal:         #00989E;
+  --border-gold:         #C88D1B;
 
   /* ── Semantic Colors ─────────────────────────────────────── */
   --color-success:       #16A34A;
@@ -138,9 +148,9 @@
   --shadow-lg:   0 8px 32px rgba(10, 22, 40, 0.12);
   --shadow-xl:   0 16px 48px rgba(10, 22, 40, 0.15);
   --shadow-2xl:  0 24px 64px rgba(10, 22, 40, 0.18);
-  --shadow-teal: 0 8px 24px rgba(26, 175, 176, 0.28);
-  --shadow-gold: 0 8px 24px rgba(201, 162, 39, 0.25);
-  --shadow-lime: 0 8px 24px rgba(180, 231, 23, 0.30);
+  --shadow-teal: 0 8px 24px rgba(0, 63, 59, 0.25);
+  --shadow-gold: 0 8px 24px rgba(217, 169, 40, 0.28);
+  --shadow-lime: 0 8px 24px rgba(217, 169, 40, 0.28);
 
   /* ── Motion ──────────────────────────────────────────────── */
   --ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
@@ -169,7 +179,7 @@ html {
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
   scrollbar-width: thin;
-  scrollbar-color: rgba(7, 40, 32, 0.25) transparent;
+  scrollbar-color: rgba(0, 63, 59, 0.25) transparent;
 }
 
 html[data-scroll-behavior="smooth"] {
@@ -346,30 +356,33 @@ strong { font-weight: var(--weight-semibold); }
 
 .btn:active { transform: translateY(1px); }
 
-/* Primary — teal filled */
+/* Primary — warm golden amber filled with crisp white text */
 .btn--primary {
-  background-color: var(--color-teal);
+  background-color: var(--color-gold);
   color: #ffffff;
-  border-color: var(--color-teal);
+  border-color: var(--color-gold);
+  font-weight: var(--weight-bold);
 }
 .btn--primary:hover {
-  background-color: var(--color-teal-dark);
-  border-color: var(--color-teal-dark);
-  box-shadow: var(--shadow-teal);
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  color: #ffffff;
+  box-shadow: var(--shadow-gold);
   transform: translateY(-1px);
 }
 
-/* Primary lime — for dark section CTAs */
+/* Primary lime / gold — for dark section CTAs */
 .btn--lime {
-  background-color: var(--color-lime);
-  color: var(--color-forest);
-  border-color: var(--color-lime);
+  background-color: var(--color-gold);
+  color: #ffffff;
+  border-color: var(--color-gold);
   font-weight: var(--weight-bold);
 }
 .btn--lime:hover {
-  background-color: var(--color-lime-dark);
-  border-color: var(--color-lime-dark);
-  box-shadow: var(--shadow-lime);
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  color: #ffffff;
+  box-shadow: var(--shadow-gold);
   transform: translateY(-1px);
 }
 
@@ -380,20 +393,21 @@ strong { font-weight: var(--weight-semibold); }
   border-color: var(--color-gold);
 }
 .btn--secondary:hover {
-  background-color: var(--color-gold-dark);
-  border-color: var(--color-gold-dark);
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  color: #ffffff;
   box-shadow: var(--shadow-gold);
   transform: translateY(-1px);
 }
 
-/* Ghost — teal outline */
+/* Ghost — gold outline with gold text (matching reference) */
 .btn--ghost {
-  background-color: transparent;
-  color: var(--color-teal);
-  border-color: var(--color-teal);
+  background-color: #ffffff;
+  color: var(--color-gold);
+  border-color: var(--color-gold);
 }
 .btn--ghost:hover {
-  background-color: var(--color-teal);
+  background-color: var(--color-gold);
   color: #ffffff;
   transform: translateY(-1px);
 }
@@ -417,7 +431,7 @@ strong { font-weight: var(--weight-semibold); }
 }
 .btn--ghost-gold:hover {
   background-color: var(--color-gold);
-  color: #ffffff;
+  color: var(--color-teal);
 }
 
 /* Sizes */
@@ -733,14 +747,14 @@ strong { font-weight: var(--weight-semibold); }
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(7, 40, 32, 0.22);
+  background: rgba(14, 42, 50, 0.22);
   border-radius: 100px;
   border: 1px solid transparent;
   background-clip: padding-box;
   transition: background 180ms ease;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-teal, #009cac);
+  background: var(--color-teal, #00989E);
   border: 1px solid transparent;
   background-clip: padding-box;
 }

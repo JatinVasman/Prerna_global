@@ -1,28 +1,32 @@
 /* ============================================================
-   TESTIMONIALS — Compact Horizontal Carousel with Old Card Design
-   Deep dark teal textured background matching stats section
+   TESTIMONIALS — Luxury Student Reviews Showcase
+   - Deep dark teal textured background matching stats section
+   - Fully visible testimonial text (no line clamping / no cutoff)
+   - Proper clearance for carousel navigation (no button overlap)
+   - Responsive multi-device layout (Desktop, Tablet, Mobile)
+   - Seamless toggle between Carousel and Full Grid view
    ============================================================ */
 
 .section {
   position: relative;
-  background-color: #062520;
+  background-color: #08292B;
   background-image: url('/images/stats/stats-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 72px 0 76px;
+  padding: 76px 0 84px;
   overflow: hidden;
 }
 
-/* Dark imperial teal textured overlay */
+/* Dark dark-teal textured overlay */
 .overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(6, 37, 32, 0.94) 0%,
-    rgba(8, 48, 41, 0.90) 50%,
-    rgba(3, 22, 19, 0.96) 100%
+    rgba(8, 41, 43, 0.94) 0%,
+    rgba(14, 51, 54, 0.90) 50%,
+    rgba(6, 30, 32, 0.96) 100%
   );
   z-index: 1;
 }
@@ -37,8 +41,8 @@
   height: 380px;
   background: radial-gradient(
     ellipse at center,
-    rgba(26, 175, 176, 0.18) 0%,
-    rgba(229, 184, 66, 0.08) 45%,
+    rgba(0, 152, 158, 0.22) 0%,
+    rgba(200, 141, 27, 0.10) 45%,
     transparent 75%
   );
   filter: blur(80px);
@@ -58,6 +62,9 @@
 .sectionHeader {
   text-align: center;
   margin-bottom: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .eyebrowWrap {
@@ -65,8 +72,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.32rem 0.95rem;
-  background: rgba(229, 184, 66, 0.12);
-  border: 1px solid rgba(229, 184, 66, 0.35);
+  background: rgba(0, 152, 158, 0.16);
+  border: 1px solid rgba(0, 152, 158, 0.35);
   border-radius: 100px;
   margin-bottom: 0.85rem;
 }
@@ -75,8 +82,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #E5B842;
-  box-shadow: 0 0 8px rgba(229, 184, 66, 0.85);
+  background: #00989E;
+  box-shadow: 0 0 8px rgba(0, 152, 158, 0.85);
 }
 
 .eyebrowText {
@@ -85,11 +92,11 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #F8DA82;
+  color: #D1EEEE;
 }
 
 .heading {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(1.85rem, 3.2vw, 2.5rem);
   font-weight: 800;
   color: #ffffff;
@@ -99,10 +106,39 @@
 }
 
 .goldText {
-  background: linear-gradient(135deg, #FFF1B0 0%, #E5B842 50%, #C9961E 100%);
+  background: linear-gradient(135deg, #D49B1F 0%, #C88D1B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline;
+}
+
+/* Overall rating badge in header */
+.ratingBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-top: 14px;
+}
+
+.ratingStars {
+  display: flex;
+  gap: 2.5px;
+}
+
+.ratingText {
+  color: #E2E8F0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.ratingText strong {
+  color: #ffffff;
+  font-weight: 700;
 }
 
 /* ── Carousel Wrapper & Controls ── */
@@ -112,6 +148,9 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  /* Dedicated gutter clearance so side buttons never overlap testimonial card borders */
+  padding: 0 54px;
+  box-sizing: border-box;
 }
 
 .navBtn {
@@ -122,7 +161,7 @@
   height: 44px;
   border-radius: 50%;
   background: #ffffff;
-  color: #0d2b27;
+  color: #0E2A32;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
   cursor: pointer;
@@ -133,44 +172,68 @@
   transition:
     transform 0.2s ease,
     background-color 0.2s ease,
+    color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .navBtn:hover {
-  background: #f8fafc;
+  background: #F0F8FA;
+  color: #00989E;
   transform: translateY(-50%) scale(1.08);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 10px rgba(229, 184, 66, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 10px rgba(217, 169, 40, 0.3);
 }
 
 .prevBtn {
-  left: -22px;
+  left: 0;
 }
 
 .nextBtn {
-  right: -22px;
+  right: 0;
 }
 
-/* ── 3-Card Horizontal Grid ── */
+/* ── Carousel Cards Track ── */
 .cardsTrack {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* ── All Reviews Grid (View All mode) ── */
+.allReviewsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   width: 100%;
+  align-items: stretch;
+  animation: fadeIn 0.35s ease;
 }
 
-/* ── Individual Testimonial Card (Old Card Design with Our Signature Gold Top Border) ── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Individual Testimonial Card ── */
 .card {
   background: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-top: 3.5px solid #E5B842;
+  border-top: 3.5px solid #D49B1F;
   border-radius: 18px;
-  padding: 24px 26px;
+  padding: 26px 26px 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 250px;
-  max-height: 275px;
+  min-height: 320px;
+  height: 100%;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+  box-sizing: border-box;
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -181,7 +244,7 @@
   transform: translateY(-4px);
   box-shadow:
     0 16px 36px rgba(0, 0, 0, 0.22),
-    0 0 0 1px rgba(229, 184, 66, 0.25);
+    0 0 0 1px rgba(217, 169, 40, 0.25);
 }
 
 /* Header */
@@ -206,7 +269,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  font-family: var(--font-heading);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.15rem;
   font-weight: 700;
   color: #ffffff;
@@ -223,48 +286,42 @@
 }
 
 .authorName {
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.975rem;
   font-weight: 700;
-  color: #0f2a24;
+  color: #0E2A32;
   line-height: 1.25;
   margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .authorDate {
   font-size: 0.775rem;
-  color: #64748b;
+  color: #64748B;
   font-weight: 500;
 }
 
 .googleIconWrap {
   flex-shrink: 0;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 /* Stars */
 .starsRow {
   display: flex;
   gap: 3px;
-  color: #E5B842;
-  margin: 12px 0 10px;
+  color: #D49B1F;
+  margin: 14px 0 12px;
 }
 
-/* Text Review (Compact clamp, not giant!) */
+/* Review Text — FULLY VISIBLE with no clamping or truncation */
 .reviewText {
-  font-size: 0.8875rem;
-  line-height: 1.55;
+  font-family: inherit;
+  font-size: 0.925rem;
+  line-height: 1.62;
   color: #334155;
-  margin: 0;
+  margin: 0 0 16px;
   flex: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* Removed -webkit-line-clamp: 4 and overflow: hidden so all text is readable */
 }
 
 /* Footer Strip */
@@ -272,9 +329,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 12px;
-  margin-top: 12px;
-  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+  margin-top: auto;
+  border-top: 1px solid #E2E8F0;
 }
 
 .badge {
@@ -285,17 +342,46 @@
 
 .badgeText {
   font-size: 0.775rem;
-  color: #64748b;
+  color: #64748B;
   font-weight: 600;
 }
 
-/* ── Pagination Dots ── */
+/* ── Bottom Controls (Dots & Mobile Buttons) ── */
+.bottomControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.mobileNavBtn {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  background: #ffffff;
+  color: #0E2A32;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.mobileNavBtn:hover {
+  background: #F0F8FA;
+  color: #00989E;
+}
+
+/* Pagination Dots */
 .dots {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-top: 28px;
 }
 
 .dot {
@@ -315,86 +401,101 @@
 
 .dotActive {
   width: 26px;
-  background: linear-gradient(135deg, #FFF1B0 0%, #E5B842 100%);
-  box-shadow: 0 0 10px rgba(229, 184, 66, 0.7);
+  background: linear-gradient(135deg, #D49B1F 0%, #C88D1B 100%);
+  box-shadow: 0 0 10px rgba(200, 141, 27, 0.7);
 }
 
-/* ── Responsive Behavior ── */
+/* ── View All Reviews Toggle ── */
+.viewToggleWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.viewToggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 100px;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+}
+
+.viewToggleBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(212, 155, 31, 0.6);
+  color: #FFD56B;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Responsive Adaptations ── */
 @media (max-width: 1024px) {
+  .carouselWrapper {
+    padding: 0 48px;
+  }
+
   .cardsTrack {
-    gap: 16px;
+    gap: 18px;
+  }
+
+  .allReviewsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .card {
-    padding: 20px 20px;
-    min-height: 240px;
-    max-height: 265px;
-  }
-
-  .prevBtn {
-    left: -14px;
-  }
-
-  .nextBtn {
-    right: -14px;
-  }
-}
-
-@media (max-width: 900px) {
-  .cardsTrack {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Hide 3rd card on tablets to maintain spacious cards */
-  .cardThird {
-    display: none;
-  }
-
-  .prevBtn {
-    left: -10px;
-  }
-
-  .nextBtn {
-    right: -10px;
+    padding: 22px 20px;
   }
 }
 
 @media (max-width: 640px) {
   .section {
-    padding: 56px 0 60px;
+    padding: 56px 0 64px;
   }
 
-  .cardsTrack {
-    grid-template-columns: 1fr;
+  .carouselWrapper {
+    padding: 0;
   }
 
-  /* Hide 2nd card on mobile */
-  .cardMiddle {
+  /* Hide desktop side arrows on mobile to prevent any button sitting on the card */
+  .navBtn {
     display: none;
   }
 
+  /* Show dedicated mobile buttons below the card alongside dots */
+  .mobileNavBtn {
+    display: inline-flex;
+  }
+
+  .cardsTrack {
+    gap: 16px;
+  }
+
+  .allReviewsGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .card {
-    max-height: none;
+    padding: 20px 18px 16px;
     min-height: auto;
-    padding: 22px 20px;
-  }
-
-  .prevBtn {
-    left: 4px;
-  }
-
-  .nextBtn {
-    right: 4px;
   }
 }
 
 @media (max-width: 480px) {
   .section {
-    padding: 44px 0 48px;
-  }
-
-  .sectionHeader {
-    margin-bottom: 28px;
+    padding: 46px 0 52px;
   }
 
   .heading {
@@ -405,21 +506,17 @@
     padding: 0 16px;
   }
 
-  .navBtn {
-    width: 36px;
-    height: 36px;
-  }
-
-  .prevBtn {
-    left: 0;
-  }
-
-  .nextBtn {
-    right: 0;
+  .ratingBadge {
+    padding: 5px 12px;
+    font-size: 0.75rem;
   }
 
   .card {
-    padding: 18px 16px;
+    padding: 18px 16px 14px;
+  }
+
+  .reviewText {
+    font-size: 0.8875rem;
+    line-height: 1.58;
   }
 }
-

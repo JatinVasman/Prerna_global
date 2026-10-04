@@ -14,19 +14,19 @@
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
-  border-top: 1px solid rgba(229, 184, 66, 0.25);
-  border-bottom: 1px solid rgba(229, 184, 66, 0.2);
+  border-top: 1px solid rgba(200, 141, 27, 0.25);
+  border-bottom: 1px solid rgba(200, 141, 27, 0.20);
 }
 
-/* Deep imperial teal gradient overlay */
+/* Deep dark navy-teal gradient overlay matching reference design */
 .overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(8, 41, 33, 0.95) 0%,
-    rgba(5, 26, 21, 0.94) 50%,
-    rgba(3, 16, 13, 0.97) 100%
+    rgba(8, 41, 43, 0.95) 0%,
+    rgba(14, 51, 54, 0.94) 50%,
+    rgba(4, 30, 32, 0.97) 100%
   );
   pointer-events: none;
 }
@@ -51,21 +51,21 @@
   transform: translateY(-3px);
 }
 
-/* Radiant warm metallic gold accent bar */
+/* Radiant warm golden amber accent bar */
 .bar {
   width: 3.5px;
   height: 48px;
-  background: linear-gradient(180deg, #FDE68A 0%, #E5B842 100%);
+  background: linear-gradient(180deg, #D49B1F 0%, #C88D1B 100%);
   margin-right: clamp(1rem, 1.8vw, 1.4rem);
   flex-shrink: 0;
   margin-top: 4px;
   border-radius: 100px;
-  box-shadow: 0 0 12px rgba(229, 184, 66, 0.5);
+  box-shadow: 0 0 12px rgba(200, 141, 27, 0.45);
   transition: box-shadow 220ms ease, height 220ms ease;
 }
 
 .item:hover .bar {
-  box-shadow: 0 0 18px rgba(229, 184, 66, 0.85);
+  box-shadow: 0 0 18px rgba(200, 141, 27, 0.75);
   height: 52px;
 }
 
@@ -94,7 +94,7 @@
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.35;
-  color: rgba(255, 255, 255, 0.84);
+  color: #D7E5E2;
   letter-spacing: -0.01em;
 }
 

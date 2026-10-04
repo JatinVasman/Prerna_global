@@ -11,9 +11,9 @@
 ───────────────────────────────────────────── */
 .pageHero {
   position: relative;
-  background: radial-gradient(ellipse 120% 90% at 50% 30%, #082921 0%, #06221c 45%, #031410 85%, #020c09 100%);
+  background: linear-gradient(180deg, #E6F3F6 0%, #F0F8FA 40%, #F8FCFD 80%, #FFFFFF 100%);
   overflow: hidden;
-  border-bottom: 1px solid rgba(229, 184, 66, 0.25);
+  border-bottom: 1px solid #E2E8F0;
   padding-top: clamp(8.5rem, 11vw, 10.25rem);
   padding-bottom: clamp(4rem, 6.5vw, 6rem);
 }
@@ -25,7 +25,7 @@
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(229, 184, 66, 0.10) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(0, 152, 158, 0.08) 0%, transparent 65%);
   pointer-events: none;
   z-index: 0;
 }
@@ -51,8 +51,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.32rem 0.9rem;
-  background: rgba(229, 184, 66, 0.12);
-  border: 1px solid rgba(229, 184, 66, 0.35);
+  background: rgba(0, 152, 158, 0.08);
+  border: 1px solid rgba(0, 152, 158, 0.22);
   border-radius: 100px;
   width: fit-content;
 }
@@ -61,8 +61,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #E5B842;
-  box-shadow: 0 0 8px rgba(229, 184, 66, 0.85);
+  background: #00989E;
+  box-shadow: 0 0 8px rgba(0, 152, 158, 0.6);
 }
 
 .heroEyebrow {
@@ -71,7 +71,7 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #F8DA82;
+  color: #008287;
   margin: 0;
 }
 
@@ -81,13 +81,13 @@
   font-weight: 800;
   line-height: 1.22;
   letter-spacing: -0.018em;
-  color: #ffffff;
+  color: #0E2A32;
   margin: 0;
   text-wrap: balance;
 }
 
 .goldText {
-  background: linear-gradient(135deg, #FFF1B0 0%, #E5B842 50%, #C9961E 100%);
+  background: linear-gradient(135deg, #D49B1F 0%, #C88D1B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline;
@@ -100,7 +100,7 @@
 .heroSub {
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   line-height: 1.68;
-  color: rgba(255, 255, 255, 0.84);
+  color: #334155;
   margin: 0;
   max-width: 52ch;
 }
@@ -113,7 +113,7 @@
   margin-top: 0.5rem;
 }
 
-/* Radiant Gold Primary CTA */
+/* Radiant Warm Golden Amber Primary CTA with white text */
 .ctaButton {
   display: inline-flex;
   align-items: center;
@@ -121,15 +121,15 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.95rem;
   font-weight: 800;
-  color: #06231c !important;
-  background: linear-gradient(135deg, #FDE68A 0%, #E5B842 45%, #C8961E 100%) !important;
+  color: #FFFFFF !important;
+  background: linear-gradient(135deg, #D49B1F 0%, #C88D1B 100%) !important;
   padding: 0.85rem 1.95rem;
   border-radius: 100px;
   text-decoration: none;
-  border: 1px solid rgba(200, 150, 30, 0.4);
+  border: 1px solid rgba(200, 141, 27, 0.4);
   box-shadow:
-    0 4px 18px rgba(229, 184, 66, 0.38),
-    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+    0 4px 18px rgba(200, 141, 27, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
   transition:
     background 200ms ease,
     transform 150ms ease,
@@ -138,15 +138,14 @@
 }
 
 .ctaButton:hover {
-  background: linear-gradient(135deg, #FFF0A8 0%, #ECC558 45%, #D6A42A 100%) !important;
+  background: linear-gradient(135deg, #E0A72E 0%, #D49B1F 100%) !important;
   transform: translateY(-2px);
   box-shadow:
-    0 8px 26px rgba(229, 184, 66, 0.48),
-    inset 0 1px 2px rgba(255, 255, 255, 0.8);
-  color: #031511 !important;
+    0 8px 26px rgba(200, 141, 27, 0.48);
+  color: #FFFFFF !important;
 }
 
-/* Obsidian Pill Phone Button */
+/* Crisp White Pill Phone Button with Gold Border */
 .ctaButtonOutline {
   display: inline-flex;
   align-items: center;
@@ -154,25 +153,26 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #ffffff !important;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(8px);
-  border: 1.5px solid rgba(229, 184, 66, 0.4);
+  color: #0E2A32 !important;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(200, 141, 27, 0.5);
+  box-shadow: 0 2px 8px rgba(14, 42, 50, 0.06);
   padding: 0.85rem 1.75rem;
   border-radius: 100px;
   text-decoration: none;
   transition:
     background-color 200ms ease,
     border-color 200ms ease,
+    color 200ms ease,
     transform 150ms ease;
   white-space: nowrap;
 }
 
 .ctaButtonOutline:hover {
-  background: rgba(229, 184, 66, 0.15);
-  border-color: #E5B842;
+  background: rgba(200, 141, 27, 0.1);
+  border-color: #C88D1B;
   transform: translateY(-2px);
-  color: #F8DA82 !important;
+  color: #C88D1B !important;
 }
 
 /* Right Column: Framed Editorial Photo (16:9 ratio, zero distortion) */
@@ -185,9 +185,9 @@
   aspect-ratio: 16 / 9;
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(229, 184, 66, 0.3);
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.55);
-  background: #082921;
+  border: 1.5px solid rgba(200, 141, 27, 0.35);
+  box-shadow: 0 20px 48px -12px rgba(14, 42, 50, 0.16);
+  background: #08292B;
   position: relative;
 }
 
@@ -208,9 +208,9 @@
    CONTACT SECTION: Minimal & Premium Grid
 ───────────────────────────────────────────── */
 .contactSection {
-  background: #ffffff;
+  background: #F8FAFC;
   padding: clamp(4.5rem, 7vw, 6.5rem) 0;
-  border-bottom: 1px solid #edf4f1;
+  border-bottom: 1px solid #E2E8F0;
 }
 
 .contactGrid {
@@ -232,8 +232,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.32rem 0.9rem;
-  background: rgba(200, 150, 30, 0.1);
-  border: 1px solid rgba(200, 150, 30, 0.3);
+  background: rgba(0, 152, 158, 0.08);
+  border: 1px solid rgba(0, 152, 158, 0.22);
   border-radius: 100px;
   width: fit-content;
 }
@@ -242,7 +242,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #C8961E;
+  background: #00989E;
 }
 
 .eyebrowTextLight {
@@ -251,21 +251,21 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #996d08;
+  color: #008287;
 }
 
 .contactInfoTitle {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(2.15rem, 3.5vw, 2.85rem);
   font-weight: 800;
-  color: #072820;
+  color: #0E2A32;
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin: 0;
 }
 
 .goldTextLight {
-  background: linear-gradient(135deg, #996d08 0%, #C8961E 50%, #E5B842 100%);
+  background: linear-gradient(135deg, #D49B1F 0%, #C88D1B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -274,7 +274,7 @@
 .contactInfoBody {
   font-size: 1rem;
   line-height: 1.68;
-  color: #55726b;
+  color: #334155;
   margin: 0;
 }
 
@@ -291,8 +291,8 @@
   align-items: flex-start;
   gap: 1.15rem;
   padding: 1.15rem 1.35rem;
-  background: #fbfdfc;
-  border: 1.5px solid #eef3f1;
+  background: #ffffff;
+  border: 1.5px solid #E2E8F0;
   border-radius: 18px;
   transition:
     transform 200ms ease,
@@ -302,22 +302,22 @@
 
 .contactCard:hover {
   transform: translateY(-2px);
-  border-color: rgba(229, 184, 66, 0.45);
-  box-shadow: 0 8px 24px -4px rgba(8, 41, 33, 0.08);
+  border-color: rgba(200, 141, 27, 0.45);
+  box-shadow: 0 8px 24px -4px rgba(14, 42, 50, 0.08);
 }
 
 .iconCircle {
   width: 46px;
   height: 46px;
   border-radius: 14px;
-  background: #082921;
-  border: 1px solid rgba(229, 184, 66, 0.35);
-  color: #F8DA82;
+  background: #00989E;
+  border: 1px solid #00989E;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(8, 41, 33, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 152, 158, 0.25);
 }
 
 .contactCardText {
@@ -332,25 +332,25 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #839b94;
+  color: #64748B;
 }
 
 .cardLink {
   font-size: 0.98rem;
   font-weight: 700;
-  color: #072820;
+  color: #0E2A32;
   text-decoration: none;
   transition: color 180ms ease;
 }
 
 .cardLink:hover {
-  color: #C8961E;
+  color: #C88D1B;
 }
 
 .cardValue {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #072820;
+  color: #0E2A32;
   line-height: 1.45;
 }
 
@@ -389,11 +389,11 @@
 .formCard {
   background: #ffffff;
   border-radius: 26px;
-  border: 1.5px solid #e8eeec;
+  border: 1.5px solid #E2E8F0;
   padding: clamp(2rem, 3.8vw, 3rem);
   box-shadow:
-    0 16px 44px -8px rgba(8, 41, 33, 0.08),
-    0 4px 14px rgba(229, 184, 66, 0.04);
+    0 16px 44px -8px rgba(14, 42, 50, 0.08),
+    0 4px 14px rgba(200, 141, 27, 0.04);
   position: relative;
 }
 
@@ -405,7 +405,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(1.65rem, 2.5vw, 2.15rem);
   font-weight: 800;
-  color: #072820;
+  color: #0E2A32;
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin: 0 0 0.5rem 0;
@@ -414,7 +414,7 @@
 .formSub {
   font-size: 0.925rem;
   line-height: 1.6;
-  color: #55726b;
+  color: #64748B;
   margin: 0;
 }
 

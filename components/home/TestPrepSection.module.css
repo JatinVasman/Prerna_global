@@ -7,11 +7,11 @@
 
 .section {
   position: relative;
-  background-color: #ffffff;
+  background-color: #F8FAFC;
   padding-top: clamp(4.5rem, 7.5vw, 6.5rem);
   padding-bottom: clamp(4.5rem, 7.5vw, 6.5rem);
   overflow: hidden;
-  border-top: 1px solid #edf2f0;
+  border-top: 1px solid #E2E8F0;
 }
 
 .inner {
@@ -43,7 +43,7 @@
   left: -12px;
   right: 12px;
   bottom: 12px;
-  border: 1.5px solid rgba(229, 184, 66, 0.4);
+  border: 1.5px solid rgba(200, 141, 27, 0.40);
   border-radius: 26px;
   pointer-events: none;
   z-index: 0;
@@ -52,7 +52,7 @@
 
 .imageWrapper:hover .goldFrame {
   transform: translate(-3px, -3px);
-  border-color: rgba(229, 184, 66, 0.7);
+  border-color: rgba(200, 141, 27, 0.70);
 }
 
 .imageContainer {
@@ -60,9 +60,9 @@
   z-index: 1;
   border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 20px 48px -12px rgba(8, 41, 33, 0.16);
-  border: 1px solid rgba(8, 41, 33, 0.08);
-  background: #082921;
+  box-shadow: 0 20px 48px -12px rgba(14, 42, 50, 0.14);
+  border: 1px solid rgba(14, 42, 50, 0.08);
+  background: #08292B;
 }
 
 .image {
@@ -87,9 +87,9 @@
   align-items: center;
   gap: 0.45rem;
   padding: 0.55rem 1rem;
-  background: #082921;
+  background: #08292B;
   color: #ffffff;
-  border: 1px solid rgba(229, 184, 66, 0.45);
+  border: 1px solid rgba(200, 141, 27, 0.45);
   border-radius: 100px;
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.8125rem;
@@ -98,7 +98,7 @@
 }
 
 .checkIcon {
-  color: #E5B842;
+  color: #D49B1F;
 }
 
 /* ─────────────────────────────────────────────
@@ -116,8 +116,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.32rem 0.9rem;
-  background: rgba(200, 150, 30, 0.09);
-  border: 1px solid rgba(200, 150, 30, 0.25);
+  background: rgba(0, 152, 158, 0.08);
+  border: 1px solid rgba(0, 152, 158, 0.22);
   border-radius: 100px;
   width: fit-content;
 }
@@ -126,8 +126,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #C8961E;
-  box-shadow: 0 0 8px rgba(200, 150, 30, 0.7);
+  background: #00989E;
+  box-shadow: 0 0 8px rgba(0, 152, 158, 0.6);
 }
 
 .eyebrowText {
@@ -136,7 +136,7 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #A0730B;
+  color: #008287;
 }
 
 /* Heading */
@@ -144,14 +144,14 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(2.25rem, 3.8vw, 3rem);
   font-weight: 800;
-  color: #072820;
+  color: #0E2A32;
   line-height: 1.15;
   letter-spacing: -0.025em;
   margin: 0;
 }
 
 .goldText {
-  background: linear-gradient(135deg, #996d08 0%, #C8961E 50%, #E5B842 100%);
+  background: linear-gradient(135deg, #D49B1F 0%, #C88D1B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -161,7 +161,7 @@
 .body {
   font-size: 0.95rem;
   line-height: 1.68;
-  color: #4a645e;
+  color: #334155;
   margin: 0;
   max-width: 54ch;
 }
@@ -181,9 +181,10 @@
   font-weight: 800;
   padding: 0.38rem 0.9rem;
   border-radius: 100px;
-  background: #f4f8f6;
-  color: #072820;
-  border: 1px solid #dce8e4;
+  background: #FFFFFF;
+  color: #0E2A32;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   letter-spacing: 0.04em;
   transition:
     background-color 180ms ease,
@@ -194,13 +195,13 @@
 }
 
 .examBadge:hover {
-  background: #082921;
-  color: #F8DA82;
-  border-color: rgba(229, 184, 66, 0.55);
+  background: #00989E;
+  color: #FFFFFF;
+  border-color: #00989E;
   transform: translateY(-2px);
 }
 
-/* Primary Action Button (Radiant Gold) */
+/* Primary Action Button (Radiant Warm Gold with crisp white text) */
 .actionWrap {
   margin-top: 0.5rem;
 }
@@ -212,15 +213,15 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.9rem;
   font-weight: 800;
-  color: #06231c;
-  background: linear-gradient(135deg, #FDE68A 0%, #E5B842 45%, #C8961E 100%);
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #D49B1F 0%, #C88D1B 100%);
   padding: 0.8rem 1.75rem;
   border-radius: 100px;
   text-decoration: none;
-  border: 1px solid rgba(200, 150, 30, 0.4);
+  border: 1px solid rgba(200, 141, 27, 0.4);
   box-shadow:
-    0 4px 16px rgba(200, 150, 30, 0.25),
-    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+    0 4px 16px rgba(200, 141, 27, 0.32),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
   transition:
     background 200ms ease,
     transform 150ms ease,
@@ -229,12 +230,11 @@
 }
 
 .ctaBtn:hover {
-  background: linear-gradient(135deg, #FFF0A8 0%, #ECC558 45%, #D6A42A 100%);
+  background: linear-gradient(135deg, #E0A72E 0%, #D49B1F 100%);
   transform: translateY(-2px);
   box-shadow:
-    0 8px 24px rgba(200, 150, 30, 0.38),
-    inset 0 1px 2px rgba(255, 255, 255, 0.8);
-  color: #031511;
+    0 8px 24px rgba(200, 141, 27, 0.45);
+  color: #FFFFFF;
 }
 
 /* ─────────────────────────────────────────────

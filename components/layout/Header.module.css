@@ -1,11 +1,11 @@
 /* ============================================================
-   FLOATING PILL NAVBAR — Premium Dark Teal Glassmorphic Nav
+   FLOATING PILL NAVBAR — Premium White Glassmorphic Nav
    - Floating rounded pill design centered horizontally
-   - Deep dark teal glassmorphic surface with subtle blur and rim highlight
+   - Crisp white glassmorphic surface with subtle elevation & warm gold rim
    - ~50% larger logo with original proportions and ample breathing room
-   - Dark-teal-compatible typography: crisp white/off-white text, lime active accents
+   - Refined typography: deep forest & slate navy text, gold & teal interactive accents
    - Fixed/sticky floating position while scrolling with soft elevation
-   - Seamless integration with the dark hero section
+   - Seamless high-contrast integration across hero and content sections
    ============================================================ */
 
 /* ─────────────────────────────────────────────
@@ -37,10 +37,10 @@
   width: 100%;
   max-width: 1240px;
   height: clamp(72px, 5.4vw, 82px);
-  background: rgba(5, 26, 21, 0.88);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(22px) saturate(180%);
   -webkit-backdrop-filter: blur(22px) saturate(180%);
-  border: 1px solid rgba(229, 184, 66, 0.22);
+  border: 1px solid #E2E8F0;
   border-radius: 9999px;
   display: flex;
   align-items: center;
@@ -48,10 +48,9 @@
   padding: 0 clamp(1rem, 2vw, 1.75rem);
   gap: clamp(0.75rem, 1.5vw, 2rem);
   box-shadow:
-    0 18px 44px -8px rgba(0, 0, 0, 0.52),
-    0 4px 14px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 0 18px rgba(229, 184, 66, 0.04);
+    0 12px 32px -4px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
   transition:
     background-color 250ms ease,
     border-color 250ms ease,
@@ -61,12 +60,12 @@
 }
 
 .headerWrapper.scrolled .pillContainer {
-  background: rgba(4, 20, 16, 0.96);
-  border-color: rgba(229, 184, 66, 0.38);
+  background: #ffffff;
+  border-color: #CBD5E1;
   box-shadow:
-    0 22px 50px -8px rgba(0, 0, 0, 0.68),
-    0 6px 18px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    0 16px 36px -4px rgba(0, 0, 0, 0.12),
+    0 6px 16px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
   height: clamp(66px, 4.8vw, 74px);
 }
 
@@ -97,13 +96,13 @@
   width: auto;
   max-height: 88%;
   object-fit: contain;
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
   transition: transform 200ms ease, filter 200ms ease;
 }
 
 .logo:hover .logoImage {
   transform: scale(1.04);
-  filter: drop-shadow(0 4px 14px rgba(229, 184, 66, 0.3));
+  filter: drop-shadow(0 4px 12px rgba(0, 63, 59, 0.25));
 }
 
 .logoText {
@@ -116,7 +115,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(1.05rem, 1.22vw, 1.22rem);
   font-weight: 800;
-  color: #ffffff;
+  color: #0E2A32;
   line-height: 1.12;
   letter-spacing: -0.015em;
   white-space: nowrap;
@@ -125,7 +124,7 @@
 .logoTagline {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.65rem;
-  color: #E5B842;
+  color: #C88D1B;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
@@ -151,7 +150,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.9rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.84);
+  color: #0E2A32;
   text-decoration: none;
   padding: 0.45rem 0.95rem;
   border-radius: 9999px;
@@ -163,15 +162,15 @@
 }
 
 .navLink:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
+  color: #00989E;
+  background: rgba(0, 152, 158, 0.08);
 }
 
 .navLink.active {
-  color: #F8DA82;
-  background: rgba(229, 184, 66, 0.12);
+  color: #00989E;
+  background: rgba(0, 152, 158, 0.10);
   font-weight: 700;
-  box-shadow: inset 0 0 0 1px rgba(229, 184, 66, 0.32);
+  box-shadow: inset 0 0 0 1px rgba(0, 152, 158, 0.35);
 }
 
 /* ─────────────────────────────────────────────
@@ -191,7 +190,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.835rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.88);
+  color: #0E2A32;
   text-decoration: none;
   padding: 0.38rem 0.65rem;
   border-radius: 9999px;
@@ -200,8 +199,8 @@
 }
 
 .phoneLink:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
+  color: #00989E;
+  background: rgba(0, 152, 158, 0.08);
 }
 
 .phoneIconWrap {
@@ -211,9 +210,9 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(229, 184, 66, 0.15);
-  border: 1px solid rgba(229, 184, 66, 0.35);
-  color: #E5B842;
+  background: rgba(0, 152, 158, 0.12);
+  border: 1px solid rgba(0, 152, 158, 0.35);
+  color: #00989E;
   flex-shrink: 0;
 }
 
@@ -228,14 +227,14 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.875rem;
   font-weight: 800;
-  color: #06231c;
-  background: linear-gradient(135deg, #FDE68A 0%, #E5B842 45%, #C8961E 100%);
+  color: #ffffff;
+  background: linear-gradient(135deg, #D49B1F 0%, #C88D1B 100%);
   padding: 0.65rem 1.45rem;
   border-radius: 9999px;
   text-decoration: none;
-  border: 1px solid rgba(255, 235, 160, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow:
-    0 4px 18px rgba(229, 184, 66, 0.38),
+    0 4px 16px rgba(200, 141, 27, 0.32),
     inset 0 1px 1px rgba(255, 255, 255, 0.6);
   transition:
     background 200ms ease,
@@ -246,12 +245,12 @@
 }
 
 .ctaButton:hover {
-  background: linear-gradient(135deg, #FFF0A8 0%, #ECC558 45%, #D6A42A 100%);
+  background: linear-gradient(135deg, #E0A72E 0%, #D49B1F 100%);
   transform: translateY(-2px);
   box-shadow:
-    0 8px 26px rgba(229, 184, 66, 0.55),
-    inset 0 1px 2px rgba(255, 255, 255, 0.8);
-  color: #031511;
+    0 8px 24px rgba(200, 141, 27, 0.42),
+    inset 0 1px 2px rgba(255, 255, 255, 0.85);
+  color: #ffffff;
 }
 
 /* ─────────────────────────────────────────────
@@ -264,17 +263,18 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  background: rgba(0, 152, 158, 0.08);
+  border: 1px solid rgba(0, 152, 158, 0.22);
+  color: #00989E;
   cursor: pointer;
-  transition: background-color 150ms ease, border-color 150ms ease;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
   flex-shrink: 0;
 }
 
 .menuToggle:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 152, 158, 0.16);
+  border-color: rgba(0, 152, 158, 0.35);
+  color: #007C82;
 }
 
 /* ─────────────────────────────────────────────

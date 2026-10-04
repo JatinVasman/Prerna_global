@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Star, ChevronLeft, ChevronRight, LayoutGrid, SlidersHorizontal } from 'lucide-react';
 import { testimonials } from '@/data/testimonials';
 import styles from './Testimonials.module.css';
 
@@ -16,12 +16,12 @@ const GoogleGIcon = () => (
 );
 
 const AVATAR_GRADIENTS = [
-  'linear-gradient(135deg, #0d9488 0%, #065f46 100%)',
-  'linear-gradient(135deg, #14b8a6 0%, #0f766e 100%)',
-  'linear-gradient(135deg, #d97706 0%, #b45309 100%)',
-  'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
-  'linear-gradient(135deg, #4f46e5 0%, #3730a3 100%)',
-  'linear-gradient(135deg, #059669 0%, #064e3b 100%)',
+  'linear-gradient(135deg, #00989E 0%, #008287 100%)',
+  'linear-gradient(135deg, #0E3336 0%, #041E20 100%)',
+  'linear-gradient(135deg, #D49B1F 0%, #C88D1B 100%)',
+  'linear-gradient(135deg, #00989E 0%, #08292B 100%)',
+  'linear-gradient(135deg, #0E2A32 0%, #008287 100%)',
+  'linear-gradient(135deg, #E6A728 0%, #C88D1B 100%)',
 ];
 
 interface TestimonialsProps {
@@ -32,6 +32,25 @@ export default function Testimonials({ limit = 10 }: TestimonialsProps) {
   const items = testimonials.slice(0, limit);
   const total = items.length;
   const [startIndex, setStartIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(3);
+  const [isGridView, setIsGridView] = useState(false);
+
+  // Responsive cards per view calculation
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setCardsPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setCardsPerView(2);
+      } else {
+        setCardsPerView(3);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const nextSlide = () => {
     setStartIndex((prev) => (prev + 1) % total);
@@ -41,12 +60,72 @@ export default function Testimonials({ limit = 10 }: TestimonialsProps) {
     setStartIndex((prev) => (prev - 1 + total) % total);
   };
 
-  // Get 3 consecutive reviews wrapping around
-  const visibleCards = [
-    items[startIndex % total],
-    items[(startIndex + 1) % total],
-    items[(startIndex + 2) % total],
-  ];
+  // Get consecutive reviews based on active cardsPerView
+  const visibleCards = [];
+  for (let i = 0; i < cardsPerView; i++) {
+    visibleCards.push(items[(startIndex + i) % total]);
+  }
+
+  const renderCard = (review: (typeof testimonials)[0], avatarIdx: number) => {
+    const avatarBg = AVATAR_GRADIENTS[avatarIdx % AVATAR_GRADIENTS.length];
+    return (
+      <article
+        key={review.id}
+        className={styles.card}
+        role="listitem"
+      >
+        {/* Card Header: Avatar, Name, Date, Google G */}
+        <div className={styles.cardHeader}>
+          <div className={styles.authorGroup}>
+            <div
+              className={styles.avatar}
+              style={{ background: avatarBg }}
+              aria-hidden="true"
+            >
+              {review.name.charAt(0)}
+            </div>
+            <div className={styles.authorMeta}>
+              <h4 className={styles.authorName}>{review.name}</h4>
+              <span className={styles.authorDate}>
+                {new Date(review.date).toLocaleDateString('en-IN', {
+                  year: 'numeric',
+                  month: 'short',
+                })}
+              </span>
+            </div>
+          </div>
+
+          <div className={styles.googleIconWrap} aria-hidden="true">
+            <GoogleGIcon />
+          </div>
+        </div>
+
+        {/* Stars Row */}
+        <div
+          className={styles.starsRow}
+          aria-label={`${review.rating} out of 5 stars`}
+          role="img"
+        >
+          {Array.from({ length: review.rating }).map((_, i) => (
+            <Star key={i} size={15} fill="#D49B1F" color="#D49B1F" aria-hidden="true" />
+          ))}
+        </div>
+
+        {/* Review Text - Fully visible without truncation */}
+        <p className={styles.reviewText}>
+          &ldquo;{review.review}&rdquo;
+        </p>
+
+        {/* Card Footer: Verified Google Review */}
+        <div className={styles.cardFooter}>
+          <div className={styles.badge}>
+            <GoogleGIcon />
+            <span className={styles.badgeText}>Verified Google Review</span>
+          </div>
+        </div>
+      </article>
+    );
+  };
 
   return (
     <section
@@ -68,110 +147,122 @@ export default function Testimonials({ limit = 10 }: TestimonialsProps) {
           <h2 className={styles.heading}>
             What Our Students <span className={styles.goldText}>Say</span>
           </h2>
-        </div>
-
-        {/* Horizontal Carousel Track matching reference orientation with old card design */}
-        <div className={styles.carouselWrapper}>
-          {/* Previous Arrow Button */}
-          {total > 1 && (
-            <button
-              type="button"
-              className={`${styles.navBtn} ${styles.prevBtn}`}
-              onClick={prevSlide}
-              aria-label="Previous testimonials"
-            >
-              <ChevronLeft size={20} aria-hidden="true" />
-            </button>
-          )}
-
-          {/* 3 Compact Testimonial Cards Side-by-Side */}
-          <div className={styles.cardsTrack} role="list">
-            {visibleCards.map((review, idx) => {
-              const avatarBg = AVATAR_GRADIENTS[(startIndex + idx) % AVATAR_GRADIENTS.length];
-              return (
-                <article
-                  key={`${review.id}-${startIndex}-${idx}`}
-                  className={`${styles.card} ${idx === 1 ? styles.cardMiddle : ''} ${idx === 2 ? styles.cardThird : ''}`}
-                  role="listitem"
-                >
-                  {/* Card Header: Avatar, Name, Date, Google G */}
-                  <div className={styles.cardHeader}>
-                    <div className={styles.authorGroup}>
-                      <div
-                        className={styles.avatar}
-                        style={{ background: avatarBg }}
-                        aria-hidden="true"
-                      >
-                        {review.name.charAt(0)}
-                      </div>
-                      <div className={styles.authorMeta}>
-                        <h4 className={styles.authorName}>{review.name}</h4>
-                        <span className={styles.authorDate}>
-                          {new Date(review.date).toLocaleDateString('en-IN', {
-                            year: 'numeric',
-                            month: 'short',
-                          })}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className={styles.googleIconWrap} aria-hidden="true">
-                      <GoogleGIcon />
-                    </div>
-                  </div>
-
-                  {/* Stars Row */}
-                  <div
-                    className={styles.starsRow}
-                    aria-label={`${review.rating} out of 5 stars`}
-                    role="img"
-                  >
-                    {Array.from({ length: review.rating }).map((_, i) => (
-                      <Star key={i} size={15} fill="#E5B842" color="#E5B842" aria-hidden="true" />
-                    ))}
-                  </div>
-
-                  {/* Review Excerpt */}
-                  <p className={styles.reviewText}>
-                    &ldquo;{review.review}&rdquo;
-                  </p>
-
-                  {/* Card Footer: Verified Google Review */}
-                  <div className={styles.cardFooter}>
-                    <div className={styles.badge}>
-                      <GoogleGIcon />
-                      <span className={styles.badgeText}>Verified Google Review</span>
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
+          <div className={styles.ratingBadge}>
+            <div className={styles.ratingStars} aria-hidden="true">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={14} fill="#D49B1F" color="#D49B1F" />
+              ))}
+            </div>
+            <span className={styles.ratingText}>
+              <strong>5.0 Rating</strong> • 50+ Verified Google Reviews
+            </span>
           </div>
-
-          {/* Next Arrow Button */}
-          {total > 1 && (
-            <button
-              type="button"
-              className={`${styles.navBtn} ${styles.nextBtn}`}
-              onClick={nextSlide}
-              aria-label="Next testimonials"
-            >
-              <ChevronRight size={20} aria-hidden="true" />
-            </button>
-          )}
         </div>
 
-        {/* Slide Indicator Dots */}
-        <div className={styles.dots} aria-label="Slide indicators">
-          {items.map((_, i) => (
+        {/* Display either All Reviews Grid OR Smooth Carousel */}
+        {isGridView ? (
+          <div className={styles.allReviewsGrid} role="list">
+            {items.map((review, idx) => renderCard(review, idx))}
+          </div>
+        ) : (
+          <div className={styles.carouselWrapper}>
+            {/* Desktop / Tablet Previous Arrow (Dedicated gutter so it NEVER overlaps card content) */}
+            {total > 1 && (
+              <button
+                type="button"
+                className={`${styles.navBtn} ${styles.prevBtn}`}
+                onClick={prevSlide}
+                aria-label="Previous testimonial"
+              >
+                <ChevronLeft size={20} aria-hidden="true" />
+              </button>
+            )}
+
+            {/* Testimonial Cards Track */}
+            <div
+              className={styles.cardsTrack}
+              style={{
+                gridTemplateColumns: `repeat(${cardsPerView}, 1fr)`,
+              }}
+              role="list"
+            >
+              {visibleCards.map((review, idx) =>
+                renderCard(review, startIndex + idx)
+              )}
+            </div>
+
+            {/* Desktop / Tablet Next Arrow (Dedicated gutter so it NEVER overlaps card content) */}
+            {total > 1 && (
+              <button
+                type="button"
+                className={`${styles.navBtn} ${styles.nextBtn}`}
+                onClick={nextSlide}
+                aria-label="Next testimonial"
+              >
+                <ChevronRight size={20} aria-hidden="true" />
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Carousel Bottom Controls (Indicators & Mobile Nav Buttons) */}
+        {!isGridView && (
+          <div className={styles.bottomControls}>
             <button
-              key={i}
               type="button"
-              className={`${styles.dot} ${i === startIndex ? styles.dotActive : ''}`}
-              onClick={() => setStartIndex(i)}
-              aria-label={`Go to testimonial ${i + 1}`}
-            />
-          ))}
+              className={styles.mobileNavBtn}
+              onClick={prevSlide}
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft size={16} aria-hidden="true" />
+              <span>Prev</span>
+            </button>
+
+            {/* Slide Indicator Dots */}
+            <div className={styles.dots} aria-label="Slide indicators">
+              {items.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className={`${styles.dot} ${i === startIndex ? styles.dotActive : ''}`}
+                  onClick={() => setStartIndex(i)}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className={styles.mobileNavBtn}
+              onClick={nextSlide}
+              aria-label="Next testimonial"
+            >
+              <span>Next</span>
+              <ChevronRight size={16} aria-hidden="true" />
+            </button>
+          </div>
+        )}
+
+        {/* View All Reviews / Switch to Carousel Toggle */}
+        <div className={styles.viewToggleWrap}>
+          <button
+            type="button"
+            className={styles.viewToggleBtn}
+            onClick={() => setIsGridView((prev) => !prev)}
+            aria-expanded={isGridView}
+          >
+            {isGridView ? (
+              <>
+                <SlidersHorizontal size={15} aria-hidden="true" />
+                <span>Switch to Carousel View</span>
+              </>
+            ) : (
+              <>
+                <LayoutGrid size={15} aria-hidden="true" />
+                <span>View All {total} Student Reviews</span>
+              </>
+            )}
+          </button>
         </div>
       </div>
     </section>

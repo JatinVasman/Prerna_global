@@ -12,7 +12,7 @@
   padding-top: clamp(3.5rem, 5.5vw, 5rem);
   padding-bottom: clamp(4rem, 6.5vw, 6rem);
   overflow: hidden;
-  border-top: 1px solid #edf2f0;
+  border-top: 1px solid #E8F0EE;
 }
 
 .container {
@@ -42,7 +42,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.05rem;
   font-weight: 700;
-  color: #072820;
+  color: #00989E;
   margin: 0;
   letter-spacing: -0.01em;
 }
@@ -51,13 +51,13 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(2.2rem, 3.8vw, 3rem);
   font-weight: 800;
-  color: #072820;
+  color: #0E2A32;
   line-height: 1.15;
   letter-spacing: -0.025em;
   margin: 0;
 }
 
-/* Header Action Button (Imperial Teal Pill matching Reference) */
+/* Header Action Button (Warm Gold Pill matching Reference) */
 .headerAction {
   flex-shrink: 0;
 }
@@ -70,12 +70,12 @@
   font-size: 0.925rem;
   font-weight: 700;
   color: #ffffff;
-  background: #082921;
+  background: linear-gradient(135deg, #D49B1F 0%, #C88D1B 100%);
   padding: 0.78rem 1.65rem;
   border-radius: 9999px;
   text-decoration: none;
-  border: 1px solid rgba(8, 41, 33, 0.3);
-  box-shadow: 0 4px 14px rgba(8, 41, 33, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 14px rgba(200, 141, 27, 0.28);
   transition:
     background 200ms ease,
     transform 150ms ease,
@@ -84,9 +84,9 @@
 }
 
 .seeAllBtn:hover {
-  background: #0e3f34;
+  background: linear-gradient(135deg, #E0A72E 0%, #D49B1F 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(8, 41, 33, 0.25);
+  box-shadow: 0 8px 22px rgba(200, 141, 27, 0.38);
   color: #ffffff;
 }
 
@@ -113,9 +113,9 @@
   position: relative;
   background: #ffffff;
   border-radius: 24px;
-  border: 1.5px solid #eef2f0;
+  border: 1.5px solid #E2E8F0;
   padding: clamp(1.4rem, 2vw, 1.75rem);
-  box-shadow: 0 4px 20px -2px rgba(8, 41, 33, 0.04);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -129,10 +129,10 @@
 
 .card:hover {
   transform: translateY(-6px);
-  border-color: rgba(229, 184, 66, 0.5);
+  border-color: rgba(0, 152, 158, 0.35);
   box-shadow:
-    0 16px 36px -4px rgba(8, 41, 33, 0.1),
-    0 4px 12px rgba(229, 184, 66, 0.08);
+    0 16px 36px -4px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 152, 158, 0.06);
 }
 
 /* Card Header (Title + Description) */
@@ -144,7 +144,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(1.1rem, 1.3vw, 1.25rem);
   font-weight: 800;
-  color: #072820;
+  color: #0E2A32;
   line-height: 1.25;
   margin: 0 0 0.55rem 0;
   letter-spacing: -0.015em;
@@ -153,7 +153,7 @@
 .cardText {
   font-size: 0.875rem;
   line-height: 1.58;
-  color: #4b645e;
+  color: #475569;
   margin: 0;
   min-height: 4.2em;
 }
@@ -165,7 +165,7 @@
   height: 205px;
   border-radius: 16px;
   overflow: hidden;
-  background-color: #f2f6f4;
+  background-color: #E8F4F7;
 }
 
 .cardImg {
@@ -186,13 +186,13 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #082921;
-  border: 1px solid rgba(229, 184, 66, 0.4);
-  color: #F8DA82;
+  background: #00989E;
+  border: 2px solid #ffffff;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 4px 14px rgba(0, 152, 158, 0.35);
   z-index: 2;
   transition:
     transform 220ms ease,
@@ -202,8 +202,8 @@
 
 .card:hover .iconBadge {
   transform: scale(1.08);
-  background-color: #051d17;
-  border-color: #E5B842;
+  background-color: #C88D1B;
+  color: #ffffff;
 }
 
 /* ─────────────────────────────────────────────
