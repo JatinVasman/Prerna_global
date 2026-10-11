@@ -31,12 +31,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Study Abroad Consultancy, Pune`,
+    default: `${siteConfig.name} | Study Abroad Consultancy`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    'study abroad consultancy Pune',
+    'study abroad consultancy',
     'overseas education consultancy',
     'IELTS coaching Pune',
     'UK student visa',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} | Study Abroad Consultancy, Pune`,
+    title: `${siteConfig.name} | Study Abroad Consultancy`,
     description: siteConfig.description,
     images: [
       {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.name} | Study Abroad Consultancy, Pune`,
+    title: `${siteConfig.name} | Study Abroad Consultancy`,
     description: siteConfig.description,
   },
   icons: {

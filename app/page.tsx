@@ -16,7 +16,7 @@ import { faqs } from '@/data/faqs';
 import { BASE_URL, ORG_SCHEMA } from '@/lib/seo-helpers';
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | Study Abroad Consultancy Pune`,
+  title: `${siteConfig.name} | Study Abroad Consultancy`,
   description: siteConfig.description,
   alternates: { canonical: `${BASE_URL}/` },
 };
