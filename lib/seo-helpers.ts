@@ -38,7 +38,7 @@ export function getSEOMetadata(
   type: SEOPageType,
   data?: LocationEntity | StateEntity | BlogCategory | BlogArticle | any
 ): Metadata {
-  let title = 'Study Abroad Consultancy Pune | Prerna Global Services';
+  let title = 'Study Abroad Consultancy | Prerna Global Services';
   let description = siteConfig.description;
   let canonical = `${BASE_URL}/`;
   let ogImage = LOGO_URL;
