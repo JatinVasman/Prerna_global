@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
 
   const { name, email, phone, subject, message } = body;
 
-  const toEmail = process.env.CONTACT_FORM_TO_EMAIL ?? 'Info@prernaglobalservices.com';
+  const toEmail = process.env.CONTACT_FORM_TO_EMAIL ?? 'prernaglobalservices@gmail.com';
   const fromEmail = process.env.CONTACT_FORM_FROM_EMAIL ?? 'noreply@prernaglobalservices.com';
   const resendKey = process.env.RESEND_API_KEY;
 

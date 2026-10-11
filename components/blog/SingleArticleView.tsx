@@ -13,6 +13,7 @@ import {
   Share2,
 } from 'lucide-react';
 import type { BlogArticle, BlogCategory } from '@/types/seo';
+import { siteConfig } from '@/data/site';
 import styles from './SingleArticleView.module.css';
 
 interface Props {
@@ -289,13 +290,13 @@ export default function SingleArticleView({ article, category, relatedArticles }
                   <ArrowRight size={15} />
                 </Link>
                 <div className={styles.widgetContactList}>
-                  <a href="tel:+919082900188" className={styles.widgetContactLink}>
+                  <a href={siteConfig.contact.phoneHref} className={styles.widgetContactLink}>
                     <Phone size={14} className={styles.widgetIcon} />
-                    <span>Direct: +91 90829 00188</span>
+                    <span>Direct: {siteConfig.contact.phone}</span>
                   </a>
-                  <a href="mailto:info@prernaglobalservices.com" className={styles.widgetContactLink}>
+                  <a href={siteConfig.contact.emailHref} className={styles.widgetContactLink}>
                     <Mail size={14} className={styles.widgetIcon} />
-                    <span>info@prernaglobalservices.com</span>
+                    <span>{siteConfig.contact.email}</span>
                   </a>
                 </div>
               </div>

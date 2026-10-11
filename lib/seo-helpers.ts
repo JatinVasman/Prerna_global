@@ -14,7 +14,7 @@ export const ORG_SCHEMA = {
   logo: LOGO_URL,
   image: LOGO_URL,
   telephone: '+919082900188',
-  email: 'info@prernaglobalservices.com',
+  email: 'prernaglobalservices@gmail.com',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Neelaya, Old Mumbai-Pune Highway',
@@ -163,7 +163,7 @@ export function getStructuredData(
         description: `Premier overseas education and study abroad consultancy assisting students in ${city.city_name} with university admissions, student visas, and IELTS coaching.`,
         url: canonical,
         telephone: '+919082900188',
-        email: 'info@prernaglobalservices.com',
+        email: 'prernaglobalservices@gmail.com',
         areaServed: {
           '@type': 'AdministrativeArea',
           name: `${city.city_name}, ${city.state}, India`,
