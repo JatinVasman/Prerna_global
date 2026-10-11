@@ -10,6 +10,11 @@ interface PageProps {
   }>;
 }
 
+export async function generateStaticParams() {
+  const categoriesMap = getAllCategories();
+  return Object.keys(categoriesMap).map((cat) => ({ category: cat }));
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { category } = await params;
   const categories = getAllCategories();

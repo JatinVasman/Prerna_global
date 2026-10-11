@@ -11,6 +11,13 @@ interface PageProps {
   }>;
 }
 
+export async function generateStaticParams() {
+  const articles = getAllArticles();
+  return Object.values(articles)
+    .filter((a) => a.status === 'published' && a.is_indexable !== false)
+    .map((a) => ({ slug: a.slug }));
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticle(slug);

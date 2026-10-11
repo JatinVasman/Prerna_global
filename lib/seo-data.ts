@@ -245,58 +245,10 @@ export function getStateData(stateSlug: string): StateEntity | null {
   return statesMap[clean] || null;
 }
 
-export function getCityData(slug: string): LocationEntity {
+export function getCityData(slug: string): LocationEntity | null {
   const clean = slug.toLowerCase().replace(/^\/locations\/?/, '').replace(/\/$/, '');
   const { cities } = loadLocationsData();
-  if (cities[clean]) return cities[clean];
-
-  // Deterministic fallback profile for unindexed or new cities
-  const name = clean.replace(/[-_]/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
-  return {
-    slug: clean,
-    city_name: name,
-    state: 'India',
-    state_slug: 'india',
-    region: 'Pan-India',
-    letter: name.charAt(0).toUpperCase(),
-    tier: 2,
-    tier_label: 'Tier 2 Educational Hub',
-    is_popular: false,
-    status: 'draft',
-    is_indexable: false,
-    consultation_mode: 'dedicated_virtual',
-    office_proximity: 'Dedicated 1-on-1 Virtual Counselling Desk',
-    consultation_note: `Students and parents in ${name} receive complete end-to-end guidance through our senior overseas education counselors via dedicated video calls, secure digital document review, and personalized admissions support.`,
-    feeder_colleges: [`Accredited Colleges and Universities in ${name}`],
-    popular_destinations: {
-      UK: 'High-ranking 1-year master degrees with 2-year post-study work visa rights.',
-      USA: 'Global benchmark for STEM programs, engineering, and business analytics with 3-year OPT.',
-      Canada: 'Post-graduation work permit pathways across public colleges and universities.',
-      Germany: 'Tuition-free public universities for technical and engineering degrees.',
-      Australia: 'World-class universities with strong career pathways and post-study work options.',
-    },
-    exam_centers: `Authorized IELTS, PTE, and TOEFL testing centers operating in ${name} or nearby commercial hubs.`,
-    vfs_center: 'Nearest VFS Global Visa Application Centre',
-    related_blogs: [
-      'how-to-apply-uk-universities-from-india',
-      'study-in-germany-for-indian-students-guide',
-      'student-visa-guide-requirements-interview',
-    ],
-    faqs: [
-      {
-        q: `How can students from ${name} apply to foreign universities with Prerna Global Services?`,
-        a: `Through our online study abroad desk, you connect directly with our senior counseling team via video call. We handle university shortlisting, application filing, SOP/LOR drafting, education loans, and visa documentation seamlessly.`,
-      },
-      {
-        q: `Do I need to visit an office in person to process my student visa from ${name}?`,
-        a: `No in-person visit is required. All documentation, university submissions, and visa preparation are conducted digitally with dedicated counselor oversight.`,
-      },
-      {
-        q: `What study abroad services are available for students in ${name}?`,
-        a: `We provide complete end-to-end services: profile assessment, country & university shortlisting, IELTS coaching, SOP & LOR editing, education loan support, visa filing, and pre-departure briefings.`,
-      },
-    ],
-  };
+  return cities[clean] || null;
 }
 
 export function getAllArticles(): Record<string, BlogArticle> {

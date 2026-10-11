@@ -12,31 +12,48 @@ import ProcessSteps from '@/components/home/ProcessSteps';
 import LeadBanner from '@/components/home/LeadBanner';
 import FaqSection from '@/components/home/FaqSection';
 import { siteConfig } from '@/data/site';
+import { faqs } from '@/data/faqs';
+import { BASE_URL, ORG_SCHEMA } from '@/lib/seo-helpers';
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Study Abroad Consultancy Pune`,
   description: siteConfig.description,
-  alternates: { canonical: '/' },
+  alternates: { canonical: `${BASE_URL}/` },
 };
 
-/* Section order matches original WordPress homepage (Post ID 33):
-   1. Homehero (6ee3f375)
-   2. Feature bar (31f30070) — overlaps hero
-   3. About Us — Who We Are + Mission/Vision/Values (20520d16)
-   4. University carousel (a981688)
-   5. Services grid (669f7256)
-   6. Stats / Funfacts (f865950)
-   7. Test Prep / IELTS (df2ea68)
-   8. Testimonials (318b4b54)
-   9+10. Destinations: intro heading (fcbd75a) + cards (90b4ae7)
-   11. [Case Studies — skipped: legacy template content]
-   12. How it Works / Process (606cb5b8)
-   13. CTA Banner (7b0a9250)
-   14. FAQs (712069b)
-*/
+const homeSchemas = [
+  ORG_SCHEMA,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Prerna Global Services',
+    url: `${BASE_URL}/`,
+    description: siteConfig.description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.slice(0, 6).map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.answer,
+      },
+    })),
+  },
+];
+
 export default function HomePage() {
   return (
     <>
+      {homeSchemas.map((s, idx) => (
+        <script
+          key={idx}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+        />
+      ))}
       <Hero />
       <Pillars />
       <AboutSection />

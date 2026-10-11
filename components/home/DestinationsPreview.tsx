@@ -36,7 +36,7 @@ export default function DestinationsPreview({ limit = 6 }: DestinationsPreviewPr
               <div className={styles.overlay}>
                 <h3 className={styles.country}>{dest.country}</h3>
                 <p className={styles.tagline}>{dest.tagline}</p>
-                <Link href="/destinations/" className={styles.cta}>
+                <Link href={`/destinations/${dest.slug || dest.id}/`} className={styles.cta}>
                   Explore <ArrowRight size={14} aria-hidden="true" />
                 </Link>
               </div>

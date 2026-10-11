@@ -4,16 +4,16 @@ import { BASE_URL } from '@/lib/seo-helpers';
 export const dynamic = 'force-static';
 
 export async function GET() {
-  const today = new Date().toISOString().split('T')[0];
+  const lastmod = '2026-03-01';
 
+  // Core business landing pages (blog hub is housed in sitemap-blogs.xml)
   const pages = [
     { u: '/', p: '1.0', f: 'weekly' },
     { u: '/about-us/', p: '0.8', f: 'monthly' },
     { u: '/services/', p: '0.9', f: 'weekly' },
     { u: '/destinations/', p: '0.9', f: 'weekly' },
-    { u: '/blog/', p: '0.9', f: 'daily' },
-    { u: '/contact-us/', p: '0.8', f: 'monthly' },
     { u: '/locations/', p: '0.9', f: 'weekly' },
+    { u: '/contact-us/', p: '0.8', f: 'monthly' },
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -22,7 +22,7 @@ ${pages
   .map(
     (p) => `    <url>
         <loc>${BASE_URL}${p.u}</loc>
-        <lastmod>${today}</lastmod>
+        <lastmod>${lastmod}</lastmod>
         <changefreq>${p.f}</changefreq>
         <priority>${p.p}</priority>
     </url>`

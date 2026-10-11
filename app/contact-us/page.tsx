@@ -6,11 +6,47 @@ import ContactForm from '@/components/forms/ContactForm';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: 'Contact Us | Prerna Global Services — Study Abroad Pune',
   description:
     'Contact Prerna Global Services for a free overseas education consultation. Reach us by phone, WhatsApp, email, or visit our Pune office in Talegaon Dabhade.',
-  alternates: { canonical: '/contact-us/' },
+  alternates: { canonical: `${siteConfig.url}/contact-us/` },
 };
+
+const contactSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: siteConfig.name,
+    description: siteConfig.description,
+    url: `${siteConfig.url}/contact-us/`,
+    telephone: siteConfig.contact.phone,
+    email: siteConfig.contact.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Neelaya, Old Mumbai-Pune Highway, Talegaon Dabhade',
+      addressLocality: 'Pune',
+      addressRegion: 'Maharashtra',
+      postalCode: '410506',
+      addressCountry: 'IN',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteConfig.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Contact Us', item: `${siteConfig.url}/contact-us/` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact Prerna Global Services',
+    url: `${siteConfig.url}/contact-us/`,
+    description:
+      'Contact Prerna Global Services for overseas education counseling and student visa assistance.',
+  },
+];
 
 const contactItems = [
   {
@@ -39,31 +75,16 @@ const contactItems = [
   },
 ];
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: siteConfig.name,
-  description: siteConfig.description,
-  url: siteConfig.url,
-  telephone: siteConfig.contact.phone,
-  email: siteConfig.contact.email,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Neelaya, Old Mumbai-Pune Highway, Talegaon Dabhade',
-    addressLocality: 'Pune',
-    addressRegion: 'Maharashtra',
-    postalCode: '410506',
-    addressCountry: 'IN',
-  },
-};
-
 export default function ContactPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {contactSchemas.map((s, idx) => (
+        <script
+          key={idx}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+        />
+      ))}
 
       {/* ── Page Hero: Standard 2-Column Luxury Layout ── */}
       <section className={styles.pageHero} aria-labelledby="contact-h1">

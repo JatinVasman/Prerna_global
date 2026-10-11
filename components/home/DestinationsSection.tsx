@@ -72,7 +72,7 @@ export default function DestinationsSection() {
 
                 {/* Bottom Action Link */}
                 <div className={styles.cardFooter}>
-                  <Link href={`/destinations/#${dest.id}`} className={styles.exploreLink}>
+                  <Link href={`/destinations/${dest.slug || dest.id}/`} className={styles.exploreLink}>
                     <span>Explore {dest.country}</span>
                     <ArrowRight size={15} className={styles.arrowIcon} aria-hidden="true" />
                   </Link>

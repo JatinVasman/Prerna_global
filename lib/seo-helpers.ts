@@ -3,7 +3,7 @@ import { siteConfig } from '@/data/site';
 import type { LocationEntity, StateEntity, BlogCategory, BlogArticle } from '@/types/seo';
 
 export const BASE_URL = 'https://prernaglobalservices.com';
-export const LOGO_URL = `${BASE_URL}/wp-content/uploads/custom-logos/prerna-global-logo.png`;
+export const LOGO_URL = `${BASE_URL}/images/brand/logo.png`;
 
 export const ORG_SCHEMA = {
   '@context': 'https://schema.org',
@@ -29,6 +29,7 @@ export type SEOPageType =
   | 'directory'
   | 'state'
   | 'location'
+  | 'destination'
   | 'blog'
   | 'blog-category'
   | 'blog-article';
@@ -41,6 +42,7 @@ export function getSEOMetadata(
   let description = siteConfig.description;
   let canonical = `${BASE_URL}/`;
   let ogImage = LOGO_URL;
+  let isIndexable = true;
 
   if (type === 'directory') {
     title = 'Study Abroad Consultants Near You | All Indian Cities Directory - Prerna Global';
@@ -57,6 +59,19 @@ export function getSEOMetadata(
     title = `Best Study Abroad Consultant in ${city.city_name} | Overseas Education - Prerna Global`;
     description = `Looking for the best study abroad consultant in ${city.city_name}? Prerna Global Services provides expert university selection, student visa support, IELTS training, and loan assistance.`;
     canonical = `${BASE_URL}/locations/${city.slug}/`;
+    if (city.is_indexable === false || city.status !== 'published') {
+      isIndexable = false;
+    }
+  } else if (type === 'destination' && data) {
+    const dest = data;
+    title = `Study in ${dest.country} for Indian Students | 2026 Admissions & Visas — Prerna Global`;
+    description =
+      dest.description ||
+      `Comprehensive guide for Indian students planning to study in ${dest.country}. Top university shortlisting, scholarships, post-study work visas, and admission support.`;
+    canonical = `${BASE_URL}/destinations/${dest.slug}/`;
+    if (dest.image) {
+      ogImage = dest.image.startsWith('http') ? dest.image : `${BASE_URL}${dest.image}`;
+    }
   } else if (type === 'blog') {
     title = 'Study Abroad Blog & University Guides | Prerna Global Services';
     description =
@@ -77,6 +92,9 @@ export function getSEOMetadata(
         ? article.featured_image
         : `${BASE_URL}${article.featured_image}`;
     }
+    if (article.is_indexable === false || article.status !== 'published') {
+      isIndexable = false;
+    }
   }
 
   return {
@@ -86,16 +104,20 @@ export function getSEOMetadata(
       canonical,
     },
     robots: {
-      index: true,
+      index: isIndexable,
       follow: true,
-      'max-image-preview': 'large',
+      googleBot: {
+        index: isIndexable,
+        follow: true,
+        'max-image-preview': 'large',
+      },
     },
     openGraph: {
       title,
       description,
       url: canonical,
       siteName: 'Prerna Global Services',
-      locale: 'en_US',
+      locale: 'en_IN',
       type: type === 'blog-article' ? 'article' : 'website',
       images: [
         {
@@ -185,6 +207,42 @@ export function getStructuredData(
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: city.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.a,
+          },
+        })),
+      });
+    }
+  } else if (type === 'destination' && data) {
+    const dest = data;
+    const canonical = `${BASE_URL}/destinations/${dest.slug}/`;
+    schemas.push(
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Destinations', item: `${BASE_URL}/destinations/` },
+          { '@type': 'ListItem', position: 3, name: `Study in ${dest.country}`, item: canonical },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: `Study in ${dest.country} for Indian Students`,
+        description: dest.description,
+        url: canonical,
+      }
+    );
+
+    if (dest.faqs && dest.faqs.length > 0) {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: dest.faqs.map((f: { q: string; a: string }) => ({
           '@type': 'Question',
           name: f.q,
           acceptedAnswer: {

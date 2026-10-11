@@ -7,16 +7,45 @@ import LeadBanner from '@/components/home/LeadBanner';
 import Testimonials from '@/components/home/Testimonials';
 import styles from './page.module.css';
 
+import { BASE_URL, ORG_SCHEMA } from '@/lib/seo-helpers';
+
 export const metadata: Metadata = {
-  title: 'About Us',
+  title: 'About Us | Prerna Global Services — Study Abroad Pune',
   description:
-    'Learn about Prerna Global Services — a trusted study abroad consultancy in Pune, Maharashtra. Our mission, expert guidance, and why students trust us.',
-  alternates: { canonical: '/about-us/' },
+    'Learn about Prerna Global Services — trusted overseas education consultancy based in Talegaon Dabhade, Pune. Mentoring students across India for global university admissions.',
+  alternates: { canonical: `${BASE_URL}/about-us/` },
 };
+
+const aboutSchemas = [
+  ORG_SCHEMA,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'About Us', item: `${BASE_URL}/about-us/` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About Prerna Global Services',
+    description:
+      'Learn about Prerna Global Services — trusted overseas education consultancy based in Talegaon Dabhade, Pune.',
+    url: `${BASE_URL}/about-us/`,
+  },
+];
 
 export default function AboutPage() {
   return (
     <>
+      {aboutSchemas.map((s, idx) => (
+        <script
+          key={idx}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+        />
+      ))}
       {/* ── Page Hero: Standard 2-Column Luxury Layout ── */}
       <section className={styles.pageHero} aria-labelledby="about-h1">
         <div className={styles.ambientGlow} aria-hidden="true" />

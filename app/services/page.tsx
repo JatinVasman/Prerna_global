@@ -21,12 +21,39 @@ import LeadBanner from '@/components/home/LeadBanner';
 import FaqSection from '@/components/home/FaqSection';
 import styles from './page.module.css';
 
+import { BASE_URL, ORG_SCHEMA } from '@/lib/seo-helpers';
+
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'Our Overseas Education Services | Prerna Global Services',
   description:
-    'Complete study abroad services by Prerna Global Services — IELTS coaching, university admissions, visa support, education loans, SOP writing, and more.',
-  alternates: { canonical: '/services/' },
+    'Complete study abroad services by Prerna Global Services — IELTS coaching, university admissions, visa support, education loans, SOP writing, and pre-departure guidance.',
+  alternates: { canonical: `${BASE_URL}/services/` },
 };
+
+const serviceSchemas = [
+  ORG_SCHEMA,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${BASE_URL}/services/` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Study Abroad University Admissions & Visa Mentorship',
+    provider: ORG_SCHEMA,
+    serviceType: 'Overseas Education Consulting',
+    areaServed: {
+      '@type': 'Country',
+      name: 'India',
+    },
+    description:
+      'End-to-end overseas education consulting including university shortlisting, statement of purpose editing, education loan assistance, and student visa filing.',
+  },
+];
 
 const iconMap: Record<string, React.ReactNode> = {
   BookOpen:      <BookOpen size={24} />,
@@ -45,6 +72,13 @@ const iconMap: Record<string, React.ReactNode> = {
 export default function ServicesPage() {
   return (
     <>
+      {serviceSchemas.map((s, idx) => (
+        <script
+          key={idx}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+        />
+      ))}
       {/* ── Page Hero: Standard 2-Column Luxury Layout ── */}
       <section className={styles.pageHero} aria-labelledby="services-h1">
         <div className={styles.ambientGlow} aria-hidden="true" />

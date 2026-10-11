@@ -6,12 +6,12 @@ import styles from './Footer.module.css';
 
 
 const destinations = [
-  { label: 'Study in UK', href: '/destinations/' },
-  { label: 'Study in USA', href: '/destinations/' },
-  { label: 'Study in Canada', href: '/destinations/' },
-  { label: 'Study in Australia', href: '/destinations/' },
-  { label: 'Study in Germany', href: '/destinations/' },
-  { label: 'Study in Ireland', href: '/destinations/' },
+  { label: 'Study in UK', href: '/destinations/study-in-uk/' },
+  { label: 'Study in USA', href: '/destinations/study-in-usa/' },
+  { label: 'Study in Canada', href: '/destinations/study-in-canada/' },
+  { label: 'Study in Australia', href: '/destinations/study-in-australia/' },
+  { label: 'Study in Germany', href: '/destinations/study-in-germany/' },
+  { label: 'Study in Ireland', href: '/destinations/study-in-ireland/' },
 ];
 
 const locations = [
@@ -123,8 +123,8 @@ export default function Footer() {
         <div className={`container ${styles.bottomInner}`}>
           <p className={styles.copyright}>{siteConfig.copyright}</p>
           <nav className={styles.bottomLinks} aria-label="Legal links">
-            <a href="/contact-us/" className={styles.bottomLink}>Privacy Policy</a>
-            <a href="/contact-us/" className={styles.bottomLink}>Terms of Service</a>
+            <Link href="/contact-us/" className={styles.bottomLink}>Privacy Policy</Link>
+            <Link href="/contact-us/" className={styles.bottomLink}>Terms of Service</Link>
           </nav>
         </div>
       </div>

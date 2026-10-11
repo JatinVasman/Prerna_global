@@ -13,12 +13,20 @@ export interface ServiceItem {
 
 export interface DestinationItem {
   id: string;
+  slug?: string;
   country: string;
   tagline: string;
   description: string;
   image: string;
   highlights?: string[];
   badge?: string;
+  topUniversities?: string[];
+  avgTuition?: string;
+  livingCosts?: string;
+  postStudyWork?: string;
+  intakes?: string;
+  popularCourses?: string[];
+  faqs?: Array<{ q: string; a: string }>;
 }
 
 export interface TestimonialItem {
