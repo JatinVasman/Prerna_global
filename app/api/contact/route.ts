@@ -43,6 +43,10 @@ export async function POST(req: NextRequest) {
 
   const toEmail = process.env.CONTACT_FORM_TO_EMAIL ?? 'prernaglobalservices@gmail.com';
   const fromEmail = process.env.CONTACT_FORM_FROM_EMAIL ?? 'noreply@prernaglobalservices.com';
+  const ccEmailsEnv = process.env.CONTACT_FORM_CC_EMAILS;
+  const ccEmails = ccEmailsEnv
+    ? ccEmailsEnv.split(',').map((e) => e.trim()).filter(Boolean)
+    : ['pw@prernaglobalservices.com', 'mw@prernaglobalservices.com'];
   const resendKey = process.env.RESEND_API_KEY;
 
   const emailSubject = `[Prerna Global] New Enquiry${subject ? `: ${subject}` : ''}`;
@@ -68,6 +72,7 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           from: fromEmail,
           to: [toEmail],
+          cc: ccEmails,
           reply_to: email,
           subject: emailSubject,
           html: emailHtml,
@@ -95,7 +100,7 @@ export async function POST(req: NextRequest) {
 
   // Development fallback: log to console
   console.log('[Contact Form] Email sending not configured. Payload:');
-  console.log({ name, email, phone, subject, message, to: toEmail });
+  console.log({ name, email, phone, subject, message, to: toEmail, cc: ccEmails });
 
   return NextResponse.json({
     success: true,
