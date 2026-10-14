@@ -19,7 +19,6 @@ interface ContactPayload {
 function validate(data: ContactPayload): string | null {
   if (!data.name?.trim()) return 'Name is required.';
   if (!data.phone?.trim()) return 'Phone number is required.';
-  if (!data.message?.trim()) return 'Message is required.';
   if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     return 'Please enter a valid email address.';
   }
@@ -39,44 +38,64 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: false, message: validationError }, { status: 422 });
   }
 
-  const { name, email, phone, subject, message } = body;
+  const { name, email, phone, subject } = body;
+  const messageContent = body.message?.trim() || 'Quick consultation enquiry submitted via website.';
 
-  const toEmail = process.env.CONTACT_FORM_TO_EMAIL ?? 'prernaglobalservices@gmail.com';
-  const fromEmail = process.env.CONTACT_FORM_FROM_EMAIL ?? 'noreply@prernaglobalservices.com';
+  const defaultRecipients = [
+    'pw@prernaglobalservices.com',
+    'mw@prernaglobalservices.com',
+    'prernaglobalservices@gmail.com',
+  ];
+
+  const toEmailsEnv = process.env.CONTACT_FORM_TO_EMAIL;
+  const toEmails = toEmailsEnv
+    ? toEmailsEnv.split(',').map((e) => e.trim()).filter(Boolean)
+    : defaultRecipients;
+
   const ccEmailsEnv = process.env.CONTACT_FORM_CC_EMAILS;
   const ccEmails = ccEmailsEnv
     ? ccEmailsEnv.split(',').map((e) => e.trim()).filter(Boolean)
-    : ['pw@prernaglobalservices.com', 'mw@prernaglobalservices.com'];
+    : [];
+
+  const fromEmail = process.env.CONTACT_FORM_FROM_EMAIL ?? 'Prerna Global Services <noreply@prernaglobalservices.com>';
   const resendKey = process.env.RESEND_API_KEY;
 
   const emailSubject = `[Prerna Global] New Enquiry${subject ? `: ${subject}` : ''}`;
   const emailHtml = `
-    <h2>New Contact Form Submission</h2>
+    <h2>New Form Submission</h2>
     <table cellpadding="8" cellspacing="0" style="font-family:sans-serif;font-size:15px;">
       <tr><td><strong>Name:</strong></td><td>${name}</td></tr>
-      <tr><td><strong>Email:</strong></td><td>${email ?? '(not provided)'}</td></tr>
+      <tr><td><strong>Email:</strong></td><td>${email?.trim() || '(not provided)'}</td></tr>
       <tr><td><strong>Phone:</strong></td><td>${phone}</td></tr>
       <tr><td><strong>Subject:</strong></td><td>${subject ?? '(not selected)'}</td></tr>
-      <tr><td><strong>Message:</strong></td><td style="white-space:pre-wrap;max-width:500px;">${message}</td></tr>
+      <tr><td><strong>Message:</strong></td><td style="white-space:pre-wrap;max-width:500px;">${messageContent}</td></tr>
     </table>
   `;
 
   if (resendKey) {
     try {
+      const emailPayload: Record<string, unknown> = {
+        from: fromEmail,
+        to: toEmails,
+        subject: emailSubject,
+        html: emailHtml,
+      };
+
+      if (ccEmails.length > 0) {
+        emailPayload.cc = ccEmails;
+      }
+
+      if (email && email.trim()) {
+        emailPayload.reply_to = email.trim();
+      }
+
       const resendRes = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${resendKey}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          from: fromEmail,
-          to: [toEmail],
-          cc: ccEmails,
-          reply_to: email,
-          subject: emailSubject,
-          html: emailHtml,
-        }),
+        body: JSON.stringify(emailPayload),
       });
 
       if (!resendRes.ok) {
@@ -100,7 +119,7 @@ export async function POST(req: NextRequest) {
 
   // Development fallback: log to console
   console.log('[Contact Form] Email sending not configured. Payload:');
-  console.log({ name, email, phone, subject, message, to: toEmail, cc: ccEmails });
+  console.log({ name, email, phone, subject, message: messageContent, to: toEmails, cc: ccEmails });
 
   return NextResponse.json({
     success: true,
